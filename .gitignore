@@ -1,11 +1,11 @@
-Fallen Worlds/.vs
-Fallen Worlds/UserSettings
-Fallen Worlds/obj
-Fallen Worlds/Assembly-CSharp.csproj
-Fallen Worlds/RetributionBase.sln
-Fallen Worlds/ProjectSettings/Packages/com.unity.probuilder/Settings.json
-Fallen Worlds/Library
-Fallen Worlds/Logs
+Alchemist/.vs
+Alchemist/UserSettings
+Alchemist/obj
+Alchemist/Assembly-CSharp.csproj
+Alchemist/Alchemist.sln
+Alchemist/ProjectSettings/Packages/com.unity.probuilder/Settings.json
+Alchemist/Library
+Alchemist/Logs
 *.suo
 *.csproj
 Fallen Worlds/Library
