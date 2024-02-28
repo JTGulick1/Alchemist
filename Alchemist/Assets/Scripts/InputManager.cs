@@ -48,4 +48,9 @@ public class InputManager : MonoBehaviour
         return inputActions.Keyboard.Movement.ReadValue<Vector2>();
     }
 
+    public bool Sprint()
+    {
+        return inputActions.Keyboard.Sprint.IsPressed();
+    }
+
 }
