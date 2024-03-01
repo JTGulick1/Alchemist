@@ -4,30 +4,36 @@ using UnityEngine;
 
 public class OpenInventory : MonoBehaviour
 {
-    public InputManager inputManager;
-    public InventoryManager inventory;
+    private InputManager inputManager;
+    private InventoryManager inventory;
     public bool isOpen = false;
+    public bool isclose = false;
     private void Start()
     {
         inputManager = InputManager.Instance;
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
     }
 
-    private void OnTriggerStay(Collider other)
+    private void Update()
     {
-        if (other.tag == "Player" && inputManager.Interact() == true && isOpen == false)
+        if(isclose == true && inputManager.Interact() == true && isOpen == false)
         {
-            Debug.Log("Open");
             isOpen = true;
             inventory.OpenInventory();
-            return;
         }
-        if (other.tag == "Player" && inputManager.Interact() == true && isOpen == true)
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
         {
-            Debug.Log("Close");
-            isOpen = false;
-            inventory.CloseInventory();
-            return;
+            isclose = true;
         }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        isclose = false;
+        isOpen = false;
+        inventory.CloseInventory();
     }
 }

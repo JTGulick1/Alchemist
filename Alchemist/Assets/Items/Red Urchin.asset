@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: e30be7c93f9364c4c90bdb7a9af16051, type: 3}
   m_Name: Red Urchin
-  m_EditorClassIdentifier: Assembly-CSharp::Item
+  m_EditorClassIdentifier: 
   title: Item
   itemType: 0
+  physicalForm: {fileID: 1830315428488052390, guid: 6163a960b1d30be45a45bd4504a54da4, type: 3}

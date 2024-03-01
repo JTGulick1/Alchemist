@@ -7,10 +7,41 @@ public class InventoryManager : MonoBehaviour
 {
     public GameObject invCan;
     public List<Item> items = new List<Item>();
-    public int cap = 30;
+    public int count = 0;
+    public int cap = 56;
+    public GameObject ingredient;
+    private GameObject setingredient;
+    public GameObject playerHolder;
     private void Start()
     {
         invCan.SetActive(false);
+        UpdateInv();
+        count = items.Count;
+    }
+    public void UpdateInv()
+    {
+        for(int i = 0; i < items.Count; i++)
+        {
+            setingredient = Instantiate(ingredient, invCan.transform.position, invCan.transform.rotation, invCan.transform);
+            setingredient.GetComponent<ItemNumber>().SetNumber(i);
+            setingredient.GetComponent<Button>().onClick.AddListener(delegate{ setingredient.GetComponent<ItemNumber>().GrabbedItem(setingredient.GetComponent<ItemNumber>().GetNumber()); });
+        }
+    }
+    
+    public void DeleteInv()
+    {
+        foreach (GameObject item in GameObject.FindGameObjectsWithTag("Ing"))
+        {
+            Destroy(item);
+        }
+    }
+
+    public void GrabbedItem(int number)
+    {
+        Instantiate(items[number].physicalForm, playerHolder.transform.position, playerHolder.transform.rotation, playerHolder.transform);
+        items.RemoveAt(number);
+        DeleteInv();
+        UpdateInv();
     }
 
     public void OpenInventory()

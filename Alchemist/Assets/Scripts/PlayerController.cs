@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private float sprintingSpeed = 50.0f;
     public PlayerInput PlayerInput => playerInput;
 
+    public bool isHolding = false;
     private void Start()
     {
         inputManager = InputManager.Instance;
