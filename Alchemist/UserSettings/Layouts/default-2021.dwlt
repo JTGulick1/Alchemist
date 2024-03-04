@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 21
+  controlID: 16
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 54
+  controlID: 17
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 55
+  controlID: 18
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -511,22 +511,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\JT\Alchemist\Alchemist
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: d45f0000
-    m_LastClickedID: 24532
-    m_ExpandedIDs: 00000000cc5f0000d85f0000
+    m_SelectedIDs: f85f0000
+    m_LastClickedID: 24568
+    m_ExpandedIDs: 00000000ec5f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -554,7 +554,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000cc5f0000
+    m_ExpandedIDs: 00000000ec5f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -682,23 +682,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d60bffff
-      m_LastClickedID: -62506
-      m_ExpandedIDs: 629fffff16fbffff985e0000a65e0000ea5e0000
+      m_SelectedIDs: 20deffff
+      m_LastClickedID: -8672
+      m_ExpandedIDs: 16fbffff925e00009c5e0000aa5e0000fc5e0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: PlayerHolder(Clone)(Clone)
-        m_OriginalName: PlayerHolder(Clone)(Clone)
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -33182
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 7}
       m_SearchString: 
@@ -966,9 +966,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.69305086, y: 0.005715728, z: 7.2689533}
+    m_Target: {x: -5.7772565, y: 3.0245478, z: 7.440291}
     speed: 2
-    m_Value: {x: -0.69305086, y: 0.005715728, z: 7.2689533}
+    m_Value: {x: -5.7772565, y: 3.0245478, z: 7.440291}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1015,13 +1015,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.18225336, y: -0.3721754, z: 0.07479676, w: -0.90695965}
+    m_Target: {x: -0.25225234, y: -0.660539, z: 0.25227624, w: -0.6605409}
     speed: 2
-    m_Value: {x: -0.18226236, y: -0.37219378, z: 0.074800454, w: -0.9070045}
+    m_Value: {x: -0.2522649, y: -0.6605719, z: 0.2522888, w: -0.6605738}
   m_Size:
-    m_Target: 2.2276464
+    m_Target: 1.2247449
     speed: 2
-    m_Value: 2.2276464
+    m_Value: 1.2247449
   m_Ortho:
     m_Target: 0
     speed: 2
