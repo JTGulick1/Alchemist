@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MuddingManager : MonoBehaviour
 {
@@ -11,11 +12,13 @@ public class MuddingManager : MonoBehaviour
     private GameObject item;
     public int cutCount = 0;
     private bool conditions = false;
+    public Image progress;
 
     private void Start()
     {
         inputManager = InputManager.Instance;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        progress.fillAmount = 0;
     }
 
     private void Update()
@@ -23,6 +26,7 @@ public class MuddingManager : MonoBehaviour
         if (conditions == true && inputManager.Interact() == true && player.isHolding == false)
         {
             cutCount++;
+            progress.fillAmount += 0.10f;
         }
         if (isclose == true && inputManager.Interact() == true
             && player.isHolding == true && conditions == false
@@ -34,9 +38,11 @@ public class MuddingManager : MonoBehaviour
             Destroy(player.carry);
             cutCount++;
             conditions = true;
+            progress.fillAmount += 0.10f;
         }
         if (cutCount >= 10 && player.isHolding == false)
         {
+            progress.fillAmount = 0;
             cutCount = 0;
             player.UnFreezePlayer();
             player.isHolding = true;

@@ -110,5 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca6e602354a309a4393dc3e472a10110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: b13d065153f565d4f9f69de00a8ec167, type: 2}
   ingName: Golden Flakes
   itemtype: 0

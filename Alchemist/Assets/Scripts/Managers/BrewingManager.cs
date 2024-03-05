@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BrewingManager : MonoBehaviour
 {
@@ -9,20 +10,32 @@ public class BrewingManager : MonoBehaviour
     public List<Brews> avaliableBrews = new List<Brews>();
 
     public GameObject pot;
-
+    public GameObject poop;
     private bool isclose = false;
     private PlayerController player;
     private InputManager inputManager;
+
+    public Image progress;
+
+    private float timer = 0.0f;
+
     private void Start()
     {
         inputManager = InputManager.Instance;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        progress.fillAmount = 0.0f;
     }
 
     private void Update()
     {
-        if (isclose == true && items.Count == 3 && inputManager.Interact() == true)
+        if (items.Count == 3)
         {
+            timer += Time.deltaTime;
+            progress.fillAmount = timer / 10;
+        }
+        if (timer >= 10.0f && isclose == true && items.Count == 3 && inputManager.Interact() == true && player.isHolding == false)
+        {
+            timer = 0;
             Brew();
         }
         if (isclose == true && items.Count != cap &&
@@ -38,7 +51,6 @@ public class BrewingManager : MonoBehaviour
 
     private void Brew()
     {
-        //Set up a 10 second Timer
         for (int i = 0; i < avaliableBrews.Count; i++)
         {
             if (avaliableBrews[i].Ing1.GetComponent<ItemSettings>().itemtype == items[0].itemtype &&
@@ -52,9 +64,12 @@ public class BrewingManager : MonoBehaviour
                 Destroy(items[1]);
                 Destroy(items[2]);
                 player.carry = Instantiate(avaliableBrews[i].physicalForm, player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
+                player.isHolding = true;
+                return;
             }
         }
-
+        player.isHolding = true;
+        player.carry = Instantiate(poop, player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
     }
 
     private void OnTriggerEnter(Collider other)

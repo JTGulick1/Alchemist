@@ -9,9 +9,7 @@ public class ItemSettings : MonoBehaviour
     {
         Fresh,
         Cut,
-        Molded,
-        Cooked,
-        Brewed
+        Molded
     }
     public Itemtype itemtype;
 }

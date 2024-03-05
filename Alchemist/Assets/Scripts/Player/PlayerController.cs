@@ -40,8 +40,6 @@ public class PlayerController : MonoBehaviour
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
         move.y = 0f;
         controller.Move(move * Time.deltaTime * (playerSpeed / 4));
-
-
     }
 
     public void FreezePlayer()

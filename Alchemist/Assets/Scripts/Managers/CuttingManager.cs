@@ -26,6 +26,7 @@ public class CuttingManager : MonoBehaviour
         if (conditions == true && inputManager.Interact() == true && player.isHolding == false) 
         {
             cutCount++;
+            progress.fillAmount += 0.10f;
         }
         if (isclose == true && inputManager.Interact() == true 
             && player.isHolding == true && conditions == false
@@ -37,9 +38,11 @@ public class CuttingManager : MonoBehaviour
             Destroy(player.carry);
             cutCount++;
             conditions = true;
+            progress.fillAmount += 0.10f;
         }
         if (cutCount >= 10 && player.isHolding == false)
         {
+            progress.fillAmount = 0;
             cutCount = 0;
             player.UnFreezePlayer();
             player.isHolding = true;
