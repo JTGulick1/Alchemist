@@ -24,7 +24,7 @@ public class ItemNumber : MonoBehaviour
     }
 
 
-    public void GrabbedItem(int number)
+    public void GrabbedItem()
     {
         if(player.isHolding == false)
         {

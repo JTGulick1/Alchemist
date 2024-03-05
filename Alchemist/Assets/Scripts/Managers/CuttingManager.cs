@@ -23,7 +23,7 @@ public class CuttingManager : MonoBehaviour
 
     private void Update()
     {
-        if (conditions == true && inputManager.Interact() == true)
+        if (conditions == true && inputManager.Interact() == true && player.isHolding == false) 
         {
             cutCount++;
         }
@@ -38,7 +38,7 @@ public class CuttingManager : MonoBehaviour
             cutCount++;
             conditions = true;
         }
-        if (cutCount >= 10)
+        if (cutCount >= 10 && player.isHolding == false)
         {
             cutCount = 0;
             player.UnFreezePlayer();

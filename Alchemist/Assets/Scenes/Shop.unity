@@ -522,6 +522,7 @@ MonoBehaviour:
   items:
   - {fileID: 11400000, guid: 9adade673ef44b24fb57681edddbb818, type: 2}
   - {fileID: 11400000, guid: b13d065153f565d4f9f69de00a8ec167, type: 2}
+  - {fileID: 11400000, guid: e7fadc3f45e089845a92a5964ef5752f, type: 2}
   count: 0
   cap: 56
   ingredient: {fileID: 2692951179463274471, guid: 70dc9c900a74e1143955b9578d2a6700, type: 3}
@@ -2591,6 +2592,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480347206042ec94c873eac3786f64cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  items: []
+  avaliableBrews:
+  - {fileID: 11400000, guid: 476a965320bf1d04997b12d605703ad6, type: 2}
+  pot: {fileID: 1436084530}
 --- !u!65 &1809322284
 BoxCollider:
   m_ObjectHideFlags: 0

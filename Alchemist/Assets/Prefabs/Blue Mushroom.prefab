@@ -110,5 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca6e602354a309a4393dc3e472a10110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingName: Red Urchin
+  ingName: Blue Mushroom
   itemtype: 0

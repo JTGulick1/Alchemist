@@ -25,7 +25,6 @@ public class InventoryManager : MonoBehaviour
         {
             setingredient = Instantiate(ingredient, invCan.transform.position, invCan.transform.rotation, invCan.transform);
             setingredient.GetComponent<ItemNumber>().SetNumber(i);
-            setingredient.GetComponent<Button>().onClick.AddListener(delegate{ setingredient.GetComponent<ItemNumber>().GrabbedItem(setingredient.GetComponent<ItemNumber>().GetNumber()); });
         }
     }
     
