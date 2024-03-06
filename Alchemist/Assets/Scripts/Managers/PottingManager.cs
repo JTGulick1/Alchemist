@@ -38,11 +38,12 @@ public class PottingManager : MonoBehaviour
             Destroy(player.carry);
             player.isHolding = false;
         }
-        if (timer >= 10.0f)
+        if (timer >= 10.0f && isclose == true && inputManager.Interact() == true && player.isHolding == false)
         {
             timer = 0.0f;
             stBrew = false;
             player.carry = Instantiate(brew, player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
+            player.carry.GetComponent<BrewSettings>().ChangeToPotion();
             player.isHolding = true;
         }
     }

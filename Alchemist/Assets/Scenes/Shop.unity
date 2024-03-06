@@ -3045,7 +3045,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480347206042ec94c873eac3786f64cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   avaliableBrews:
   - {fileID: 11400000, guid: 476a965320bf1d04997b12d605703ad6, type: 2}
   pot: {fileID: 1436084530}

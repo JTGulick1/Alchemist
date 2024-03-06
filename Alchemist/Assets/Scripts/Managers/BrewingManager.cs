@@ -28,29 +28,52 @@ public class BrewingManager : MonoBehaviour
 
     private void Update()
     {
-        if (items.Count == 3)
+        if (items[2] != null)
         {
             timer += Time.deltaTime;
             progress.fillAmount = timer / 10;
         }
-        if (timer >= 10.0f && isclose == true && items.Count == 3 && inputManager.Interact() == true && player.isHolding == false)
+        if (timer >= 10.0f && isclose == true && items[2] != null && inputManager.Interact() == true && player.isHolding == false && items[0] != null)
         {
             timer = 0;
             Brew();
         }
-        if (isclose == true && items.Count != cap &&
+        if (isclose == true && items[2] == null &&
             player.isHolding == true && inputManager.Interact() == true)
         {
             GameObject temp;
             temp = Instantiate(player.carry, pot.transform.position, pot.transform.rotation, pot.transform);
-            items.Add(temp.GetComponent<ItemSettings>());
+            PlaceIng(temp);
+            temp.tag = "Ingredient";
             player.isHolding = false;
             Destroy(player.carry);
         }
     }
 
+    private void PlaceIng(GameObject temp)
+    {
+        if (items[0] == null)
+        {
+            items[0] = temp.GetComponent<ItemSettings>();
+            return;
+        }
+        if (items[1] == null)
+        {
+            items[1] = temp.GetComponent<ItemSettings>();
+            return;
+        }
+        if (items[2] == null)
+        {
+            items[2] = temp.GetComponent<ItemSettings>();
+            return;
+        }
+    }
+
     private void Brew()
     {
+        progress.fillAmount = 0.0f;
+        DestroyIngredients();
+        player.isHolding = true;
         for (int i = 0; i < avaliableBrews.Count; i++)
         {
             if (avaliableBrews[i].Ing1.GetComponent<ItemSettings>().itemtype == items[0].itemtype &&
@@ -60,16 +83,20 @@ public class BrewingManager : MonoBehaviour
                 avaliableBrews[i].Ing2.GetComponent<ItemSettings>().ingName == items[1].ingName &&
                 avaliableBrews[i].Ing3.GetComponent<ItemSettings>().ingName == items[2].ingName)
             {
-                Destroy(items[0]);
-                Destroy(items[1]);
-                Destroy(items[2]);
                 player.carry = Instantiate(avaliableBrews[i].physicalForm, player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
-                player.isHolding = true;
+                player.carry.GetComponent<BrewSettings>().ChangeToBrew();
                 return;
             }
         }
-        player.isHolding = true;
         player.carry = Instantiate(poop, player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
+    }
+
+    private void DestroyIngredients()
+    {
+        foreach (GameObject item in GameObject.FindGameObjectsWithTag("Ingredient"))
+        {
+            Destroy(item);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

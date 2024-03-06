@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Healing Potion
   m_EditorClassIdentifier: 
   brewName: Name
-  physicalForm: {fileID: 1830315428488052390, guid: 1f17201d39baac847b135a2496e535d7, type: 3}
-  potionForm: {fileID: 0}
+  physicalForm: {fileID: 4283784783637136618, guid: 2e3b1760fe233ed49a6458863e785f78, type: 3}
   Ing1: {fileID: 4480128842210386722, guid: 22e06619d49863d43bfd0c4c4fd14db6, type: 3}
   Ing2: {fileID: 4480128842210386722, guid: 696f01f649d33364ebf45f9703ddda71, type: 3}
   Ing3: {fileID: 4480128842210386722, guid: 65fb1def2169a4146875dbc76fd1ea36, type: 3}
