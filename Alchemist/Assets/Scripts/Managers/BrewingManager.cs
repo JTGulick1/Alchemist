@@ -89,6 +89,7 @@ public class BrewingManager : MonoBehaviour
             }
         }
         player.carry = Instantiate(poop, player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
+        player.carry.GetComponent<BrewSettings>().ChangeToBrew();
     }
 
     private void DestroyIngredients()

@@ -10,11 +10,14 @@ public class TrashManager : MonoBehaviour
 
     private bool isclose = false;
 
+    private Currency currency;
+
     // Start is called before the first frame update
     void Start()
     {
         inputManager = InputManager.Instance;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        currency = GameObject.FindGameObjectWithTag("Currency").GetComponent<Currency>();
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class TrashManager : MonoBehaviour
         {
             player.isHolding = false;
             Destroy(player.carry);
+            currency.GetGold(3);
         }
     }
 

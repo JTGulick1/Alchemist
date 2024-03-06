@@ -7,6 +7,7 @@ TagManager:
   - Inventory
   - Ing
   - Ingredient
+  - Currency
   layers:
   - Default
   - TransparentFX
