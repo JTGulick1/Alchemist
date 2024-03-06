@@ -43,8 +43,10 @@ public class PottingManager : MonoBehaviour
             timer = 0.0f;
             stBrew = false;
             player.carry = Instantiate(brew, player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
+            Destroy(brew.gameObject);
             player.carry.GetComponent<BrewSettings>().ChangeToPotion();
             player.isHolding = true;
+            progress.fillAmount = 0.0f;
         }
     }
 
