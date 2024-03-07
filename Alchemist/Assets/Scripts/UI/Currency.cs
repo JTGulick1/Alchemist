@@ -18,7 +18,7 @@ public class Currency : MonoBehaviour
         goldTXT.text = "Gold: " + gold;
     }
 
-    public void BuyGold(int cost)
+    public void Buy(int cost)
     {
         gold -= cost;
         goldTXT.text = "Gold:  " + gold;

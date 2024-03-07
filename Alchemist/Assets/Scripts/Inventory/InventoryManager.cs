@@ -35,6 +35,13 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public void BoughtItem(Item item)
+    {
+        items.Add(item);
+        DeleteInv();
+        UpdateInv();
+    }
+
     public void GrabbedItem(int number)
     {
         player.carry = Instantiate(items[number].physicalForm, player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);

@@ -6,6 +6,6 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     public string title = "Item";
-
+    public int cost = 0;
     public GameObject physicalForm;
 }
