@@ -12,14 +12,17 @@ public class AI_Customer : MonoBehaviour
 
     private GameObject[] orderSpot;
     public TMPro.TMP_Text ordertxt;
+    public GameObject currentSpot;
 
     private GameObject storeDoor;
     private PlayerController player;
+    private WorldTimer timer;
 
     void Start()
     {
         brewing = GameObject.FindGameObjectWithTag("Brewing").GetComponent<BrewingManager>();
         orderSpot = GameObject.FindGameObjectsWithTag("Order Spot");
+        timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<WorldTimer>();
         storeDoor = GameObject.FindGameObjectWithTag("Door");
         order = brewing.avaliableBrews[Random.Range(0, brewing.avaliableBrews.Count)];
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -38,12 +41,16 @@ public class AI_Customer : MonoBehaviour
     }
     private void WalkToCounter()
     {
-        agent.destination = orderSpot[Random.Range(0, orderSpot.Length)].transform.position;
+        currentSpot = orderSpot[Random.Range(0, orderSpot.Length)];
+        agent.destination = currentSpot.transform.position;
+        currentSpot.tag = "Occ";
     }
 
     public void LeaveStore()
     {
         agent.destination = storeDoor.transform.position;
+        currentSpot.tag = "Order Spot";
+        timer.CustLeft();
     }
 
     public void Leave()

@@ -43,6 +43,11 @@ public class WorldTimer : MonoBehaviour
         Instantiate(Customers[Random.Range(0, Customers.Length)], CustSpawn.transform.position, CustSpawn.transform.rotation);
     }
 
+    public void CustLeft()
+    {
+        custCount -= 1;
+    }
+
     void TimeUpdate()
     {
         tempTime += Time.deltaTime;

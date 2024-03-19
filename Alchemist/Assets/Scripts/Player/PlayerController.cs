@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
                 closestCust.LeaveStore();
                 currency.GetGold(carry.GetComponent<BrewSettings>().price);
                 Destroy(carry);
+                isHolding = false;
             }
         }
     }
