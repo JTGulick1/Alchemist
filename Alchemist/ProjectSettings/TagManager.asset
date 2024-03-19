@@ -9,6 +9,10 @@ TagManager:
   - Ingredient
   - Currency
   - Brewing
+  - Order Spot
+  - Door
+  - Customer
+  - Taken
   layers:
   - Default
   - TransparentFX

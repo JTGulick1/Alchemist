@@ -143,8 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b76eca14eec23649b9b2fd2387b93b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: Healing Pot
   C: {fileID: 3002992611080257839}
   B: {fileID: 7022533315237930111}
+  isPot: 0
 --- !u!1 &7022533315237930111
 GameObject:
   m_ObjectHideFlags: 0

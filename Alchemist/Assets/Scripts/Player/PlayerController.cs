@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     public GameObject playerHolder;
     public GameObject carry;
 
+    public bool closeToCust = false;
+    public GameObject order;
+    AI_Customer closestCust;
     private void Start()
     {
         inputManager = InputManager.Instance;
@@ -40,6 +43,18 @@ public class PlayerController : MonoBehaviour
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
         move.y = 0f;
         controller.Move(move * Time.deltaTime * (playerSpeed / 4));
+        if (closeToCust == true && carry.GetComponent<BrewSettings>().temp == order.GetComponent<BrewSettings>().title &&
+            inputManager.Interact())
+        {
+            closestCust.LeaveStore();
+        }
+    }
+
+    public void CustomerOrder(GameObject custO, AI_Customer customer)
+    {
+        closeToCust = true;
+        order = custO;
+        closestCust = customer;
     }
 
     public void FreezePlayer()
