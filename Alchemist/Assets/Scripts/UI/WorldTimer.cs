@@ -13,10 +13,10 @@ public class WorldTimer : MonoBehaviour
     private int ten;
     private int hrs = 6;
     public float tempTime;
-    private bool PM = false;
-    private bool closed = false;
+    private bool PM = true;
+    public bool closed = false;
     private int day = 0;
-    private int custCount = 0;
+    public int custCount = 0;
     public GameObject[] Customers;
     public GameObject CustSpawn;
     private void Start()
@@ -29,13 +29,19 @@ public class WorldTimer : MonoBehaviour
         TimeUpdate();
     }
 
-    void StartDay()
+    public void StartDay()
     {
+        hrs = 6;
+        ten = 0;
         timeShown.text = "[" + hrs + ":" + ten + single + "]";
         closedtxt.gameObject.SetActive(false);
         closed = false;
         SpawnCust();
-        UpdateDay();
+        if (PM == true)
+        {
+            UpdateDay();
+            PM = false;
+        }
     }
 
 

@@ -2487,6 +2487,8 @@ MonoBehaviour:
   closedtxt: {fileID: 1873736262}
   dayOfWeek: {fileID: 520159806}
   tempTime: 0
+  closed: 0
+  custCount: 0
   Customers:
   - {fileID: 6968808707344251534, guid: f701e64d80cac4d49bfc5b42cd858f25, type: 3}
   CustSpawn: {fileID: 1594661412}
@@ -5908,6 +5910,8 @@ GameObject:
   - component: {fileID: 2019641145}
   - component: {fileID: 2019641144}
   - component: {fileID: 2019641143}
+  - component: {fileID: 2019641147}
+  - component: {fileID: 2019641148}
   m_Layer: 0
   m_Name: Bed
   m_TagString: Untagged
@@ -5993,6 +5997,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &2019641147
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019641142}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 1, z: 1.51}
+  m_Center: {x: 0, y: 0, z: 0.3}
+--- !u!114 &2019641148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019641142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e3b7f19e0e38ce4581b115d407bf9d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2065200403
 GameObject:
   m_ObjectHideFlags: 0
