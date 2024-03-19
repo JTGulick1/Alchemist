@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 1020280202430463363}
   m_Layer: 0
   m_Name: Poop Holder
-  m_TagString: Untagged
+  m_TagString: Holder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Poop
+  temp: 
   C: {fileID: 3002992611080257839}
   B: {fileID: 7022533315237930111}
   isPot: 0

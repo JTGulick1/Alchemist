@@ -13,7 +13,9 @@ public class WorldTimer : MonoBehaviour
     public float tempTime;
     private bool PM = false;
     private bool day;
-
+    private int custCount = 0;
+    public GameObject[] Customers;
+    public GameObject CustSpawn;
     private void Start()
     {
         StartDay();
@@ -28,7 +30,19 @@ public class WorldTimer : MonoBehaviour
     {
         day = true;
         timeShown.text = "[" + hrs + ":" + ten + single + "]";
+        SpawnCust();
     }
+
+    void SpawnCust()
+    {
+        if (custCount >= 5)
+        {
+            return;
+        }
+        custCount += 1;
+        Instantiate(Customers[Random.Range(0, Customers.Length)], CustSpawn.transform.position, CustSpawn.transform.rotation);
+    }
+
     void TimeUpdate()
     {
         tempTime += Time.deltaTime;
@@ -43,6 +57,7 @@ public class WorldTimer : MonoBehaviour
             ten = 0;
             hrs++;
             timeShown.text = "[" + hrs + ":" + ten + single + "]";
+            SpawnCust();
         }
         if (hrs == 13)
         {

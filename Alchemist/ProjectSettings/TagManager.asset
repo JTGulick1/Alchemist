@@ -13,6 +13,7 @@ TagManager:
   - Door
   - Customer
   - Taken
+  - Holder
   layers:
   - Default
   - TransparentFX

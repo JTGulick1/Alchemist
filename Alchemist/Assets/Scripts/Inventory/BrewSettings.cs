@@ -8,7 +8,7 @@ public class BrewSettings : MonoBehaviour
     public string temp = "";
     public GameObject C;
     public GameObject B;
-
+    public int price = 15;
     public bool isPot;
     private void Start()
     {

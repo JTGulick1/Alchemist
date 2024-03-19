@@ -31,7 +31,10 @@ public class AI_Customer : MonoBehaviour
     private void Update()
     {
         transform.LookAt(player.transform);
-
+        if (Vector3.Distance(this.gameObject.transform.position , storeDoor.transform.position) <= 1)
+        {
+            Leave();
+        }
     }
     private void WalkToCounter()
     {
@@ -61,6 +64,7 @@ public class AI_Customer : MonoBehaviour
         if (other.tag == "Player")
         {
             ordertxt.gameObject.SetActive(false);
+            player.ToFarFromCust();
         }
     }
 }
