@@ -7,7 +7,7 @@ public class Brews : ScriptableObject
 {
     public string brewName = "Name";
     public GameObject physicalForm;
-
+    public int price;
     public ItemSettings Ing1;
     public ItemSettings Ing2;
     public ItemSettings Ing3;

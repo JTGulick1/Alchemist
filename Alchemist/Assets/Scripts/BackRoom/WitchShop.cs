@@ -7,18 +7,24 @@ public class WitchShop : MonoBehaviour
 {
     private bool isclose;
     private InputManager inputManager;
-    // Start is called before the first frame update
+    public GameObject witchshop;
+    private BrewingManager brewing;
+    public List<Brews> buyingBrews;
+    private Currency currency;
     void Start()
     {
         inputManager = InputManager.Instance;
+        brewing = GameObject.FindGameObjectWithTag("Brewing").GetComponent<BrewingManager>();
+        currency = GameObject.FindGameObjectWithTag("Currency").GetComponent<Currency>();
+        witchshop.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isclose == true && inputManager.Interact() == true)
         {
-            //Open WitchShop
+            witchshop.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
@@ -34,7 +40,21 @@ public class WitchShop : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            witchshop.SetActive(false);
             isclose = false;
         }
     }
+
+    public int GetPrice(int num)
+    {
+        return buyingBrews[num].price;
+    }
+
+    public void BoughtPot(int num)
+    {
+        currency.Buy(buyingBrews[num].price);
+        brewing.avaliableBrews.Add(buyingBrews[num]);
+    }
+
 }

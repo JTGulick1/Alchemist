@@ -16,6 +16,7 @@ TagManager:
   - Holder
   - Occ
   - Timer
+  - WShop
   layers:
   - Default
   - TransparentFX
