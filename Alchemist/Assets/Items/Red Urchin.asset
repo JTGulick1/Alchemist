@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Red Urchin
   m_EditorClassIdentifier: 
   title: Item
-  itemType: 0
+  cost: 3
   physicalForm: {fileID: 1830315428488052390, guid: 6163a960b1d30be45a45bd4504a54da4, type: 3}

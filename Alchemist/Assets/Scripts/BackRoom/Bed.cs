@@ -16,6 +16,7 @@ public class Bed : MonoBehaviour
     {
         inputManager = InputManager.Instance;
         timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<WorldTimer>();
+        fadeIMG.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -40,7 +41,12 @@ public class Bed : MonoBehaviour
         if (isclose == true && timer.closed == true && timer.custCount == 0 && inputManager.Interact())
         {
             timer.StartDay();
+            fadeIMG.gameObject.SetActive(true);
             bedtime = true;
+        }
+        if (fade.a == 0)
+        {
+            fadeIMG.gameObject.SetActive(false);
         }
         fadeIMG.color = fade;
     }

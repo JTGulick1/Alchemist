@@ -28,6 +28,7 @@ public class AI_Customer : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
         WalkToCounter();
+        ordertxt.text = order.brewName;
         ordertxt.gameObject.SetActive(false);
     }
 
