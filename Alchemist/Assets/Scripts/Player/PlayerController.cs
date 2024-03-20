@@ -24,6 +24,10 @@ public class PlayerController : MonoBehaviour
     public GameObject order;
     AI_Customer closestCust;
     private Currency currency;
+
+    private bool P2S = false;
+    public GameObject Player2;
+    public Camera cam;
     private void Start()
     {
         inputManager = InputManager.Instance;
@@ -35,6 +39,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (P2S == false && inputManager.SpawnP2() == true)
+        {
+            cam.rect = new Rect(0, 0.5f, 1, 0.5f);
+            P2S = true;
+            Instantiate(Player2);
+        }
         if (inputManager.Sprint() == true)
         {
             playerSpeed = sprintingSpeed;

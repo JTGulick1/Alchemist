@@ -53,4 +53,25 @@ public class InputManager : MonoBehaviour
         return inputActions.Keyboard.Sprint.IsPressed();
     }
 
+    public bool SpawnP2()
+    {
+        return inputActions.Keyboard.SpawnP2.IsPressed();
+    }
+
+    // Player 2 Controls
+    public bool InteractP2()
+    {
+        return inputActions.Controller.Interact.triggered;
+    }
+
+    public Vector2 GetPlayerMovementP2()
+    {
+        return inputActions.Controller.Movement.ReadValue<Vector2>();
+    }
+
+    public bool SprintP2()
+    {
+        return inputActions.Controller.Sprint.IsPressed();
+    }
+
 }

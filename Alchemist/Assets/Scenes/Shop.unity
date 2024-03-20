@@ -2018,6 +2018,8 @@ MonoBehaviour:
   carry: {fileID: 0}
   closeToCust: 0
   order: {fileID: 0}
+  Player2: {fileID: 7232562016397582417, guid: c55556a8df780b044880ff23ad00c9ce, type: 3}
+  cam: {fileID: 2065200405}
 --- !u!143 &734368037
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3448,6 +3450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1116149719}
   - component: {fileID: 1116149718}
+  - component: {fileID: 1116149720}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -3482,6 +3485,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1116149720
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116149717}
+  m_Enabled: 1
 --- !u!1 &1136306697
 GameObject:
   m_ObjectHideFlags: 0
@@ -4270,7 +4281,7 @@ MonoBehaviour:
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 2
+  m_StandbyUpdate: 0
   m_LookAt: {fileID: 734368035}
   m_Follow: {fileID: 0}
   m_Lens:
@@ -5390,7 +5401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.093, y: 2.47}
+  m_AnchoredPosition: {x: 0.008, y: 2.47}
   m_SizeDelta: {x: 1.7492, y: 0.4721}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1615110006
@@ -6711,7 +6722,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2065200406}
   - component: {fileID: 2065200405}
-  - component: {fileID: 2065200404}
   - component: {fileID: 2065200407}
   m_Layer: 0
   m_Name: Main Camera
@@ -6720,14 +6730,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &2065200404
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2065200403}
-  m_Enabled: 1
 --- !u!20 &2065200405
 Camera:
   m_ObjectHideFlags: 0
