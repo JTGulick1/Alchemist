@@ -7,6 +7,7 @@ public class WitchShop : MonoBehaviour
 {
     private bool isclose;
     private InputManager inputManager;
+    private PlayerController player;
     public GameObject witchshop;
     private BrewingManager brewing;
     public List<Brews> buyingBrews;
@@ -16,6 +17,7 @@ public class WitchShop : MonoBehaviour
         inputManager = InputManager.Instance;
         brewing = GameObject.FindGameObjectWithTag("Brewing").GetComponent<BrewingManager>();
         currency = GameObject.FindGameObjectWithTag("Currency").GetComponent<Currency>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         witchshop.SetActive(false);
     }
 
@@ -23,6 +25,10 @@ public class WitchShop : MonoBehaviour
     {
         if (isclose == true && inputManager.Interact() == true)
         {
+            if (player.P2S == true)
+            {
+                player.player1Action();
+            }
             witchshop.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
         }
@@ -40,6 +46,10 @@ public class WitchShop : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            if (player.P2S == true)
+            {
+                player.player1ActionExit();
+            }
             Cursor.lockState = CursorLockMode.Locked;
             witchshop.SetActive(false);
             isclose = false;

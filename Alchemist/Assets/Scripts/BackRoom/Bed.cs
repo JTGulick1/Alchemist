@@ -6,21 +6,28 @@ using UnityEngine.UI;
 public class Bed : MonoBehaviour
 {
     private WorldTimer timer;
-    private bool isclose;
     private InputManager inputManager;
+    private PlayerController player;
     public Image fadeIMG;
     private Color fade;
     private bool bedtime = false;
     private float waitTime = 0.0f;
+    private int isclose = 0;
+    private int total = 2;
     void Start()
     {
         inputManager = InputManager.Instance;
         timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<WorldTimer>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         fadeIMG.gameObject.SetActive(false);
     }
 
     private void Update()
     {
+        if (player.P2S == true)
+        {
+            total = 4;
+        }
         fade = fadeIMG.color;
         if (bedtime == true)
         {
@@ -34,19 +41,19 @@ public class Bed : MonoBehaviour
         {
             waitTime += Time.deltaTime;
         }
+        if (fade.a == 0)
+        {
+            fadeIMG.gameObject.SetActive(false);
+        }
         if (fade.a != 0f && bedtime == false && waitTime >= 1.75f)
         {
             fade.a -= 0.01f;
         }
-        if (isclose == true && timer.closed == true && timer.custCount == 0 && inputManager.Interact())
+        if (isclose == total && timer.closed == true && timer.custCount == 0 && (inputManager.Interact() || inputManager.InteractP2()))
         {
             timer.StartDay();
             fadeIMG.gameObject.SetActive(true);
             bedtime = true;
-        }
-        if (fade.a == 0)
-        {
-            fadeIMG.gameObject.SetActive(false);
         }
         fadeIMG.color = fade;
     }
@@ -55,7 +62,11 @@ public class Bed : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            isclose = true;
+            isclose++;
+        }
+        if (other.tag == "Player2")
+        {
+            isclose++;
         }
     }
 
@@ -63,7 +74,11 @@ public class Bed : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            isclose = false;
+            isclose--;
+        }
+        if (other.tag == "Player2")
+        {
+            isclose--;
         }
     }
 }

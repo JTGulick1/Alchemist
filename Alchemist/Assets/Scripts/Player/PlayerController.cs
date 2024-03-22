@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playerInput = null;
     private InputManager inputManager;
     private CharacterController controller;
+    private GameObject Player2IRL;
 
     private float playerBaseSpeed = 30.0f;
     private float sprintingSpeed = 50.0f;
@@ -41,10 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         if (P2S == false && inputManager.SpawnP2() == true)
         {
-            cam.rect = new Rect(0, 0.5f, 1, 0.5f);
-            P2S = true;
-            Instantiate(Player2);
-
+            SpawnP2();
         }
         if (inputManager.Sprint() == true)
         {
@@ -69,6 +67,25 @@ public class PlayerController : MonoBehaviour
                 isHolding = false;
             }
         }
+    }
+
+    public void SpawnP2()
+    {
+        cam.rect = new Rect(0, 0.5f, 1, 0.5f);
+        P2S = true;
+        Player2IRL = Instantiate(Player2);
+    }
+
+    public void player1Action()
+    {
+        cam.rect = new Rect(0, 0, 1, 1);
+        Player2IRL.SetActive(false);
+    }
+
+    public void player1ActionExit()
+    {
+        cam.rect = new Rect(0, 0.5f, 1, 0.5f);
+        Player2IRL.SetActive(true);
     }
 
     public void CustomerOrder(GameObject custO, AI_Customer customer)
