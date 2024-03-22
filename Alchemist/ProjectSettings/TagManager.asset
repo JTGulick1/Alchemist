@@ -17,6 +17,7 @@ TagManager:
   - Occ
   - Timer
   - WShop
+  - Player2
   layers:
   - Default
   - TransparentFX

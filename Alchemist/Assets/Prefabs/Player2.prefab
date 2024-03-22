@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 1563595685923845320}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Player
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,8 +256,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 30
-  isHolding: 0
+  isHolding: 1
   playerHolder: {fileID: 2623588221467078241}
-  carry: {fileID: 0}
+  carry: {fileID: 1830315428488052390, guid: a511ab4b0392ae64db06363e1f262ca1, type: 3}
   closeToCust: 0
   order: {fileID: 0}
