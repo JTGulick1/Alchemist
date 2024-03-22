@@ -110,6 +110,7 @@ public class InventoryManager : MonoBehaviour
         }
         if (num == 2)
         {
+            player2.clickOn();
             invCanP2.SetActive(true);
         }
     }
@@ -127,6 +128,7 @@ public class InventoryManager : MonoBehaviour
         }
         if (num == 2)
         {
+            player2.clickOff();
             invCanP2.SetActive(false);
         }
 

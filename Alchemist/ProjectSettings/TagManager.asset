@@ -18,6 +18,8 @@ TagManager:
   - Timer
   - WShop
   - Player2
+  - P2Click
+  - Shop
   layers:
   - Default
   - TransparentFX

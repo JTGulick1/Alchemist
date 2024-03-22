@@ -12,6 +12,7 @@ public class ShopManager : MonoBehaviour
     private InputManager inputManager;
     private Currency currency;
     private PlayerController player;
+    private PlayerController2 player2;
     public bool isOpen = false;
     public bool isclose = false;
     public bool isOpen2 = false;
@@ -47,6 +48,11 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    public void Joined()
+    {
+        player2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerController2>();
+    }
+
     public void Bought(int number)
     {
         if (currency.gold >= items[number].cost)
@@ -70,7 +76,7 @@ public class ShopManager : MonoBehaviour
         }
         if (num == 2)
         {
-            Cursor.lockState = CursorLockMode.None;
+            player2.clickOn();
             shopCanP2.SetActive(true);
         }
 
@@ -90,7 +96,7 @@ public class ShopManager : MonoBehaviour
         }
         if (num == 2)
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            player2.clickOff();
             shopCanP2.SetActive(false);
         }
     }

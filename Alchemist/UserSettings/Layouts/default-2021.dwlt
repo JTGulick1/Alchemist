@@ -43,7 +43,7 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Project
   m_RootView: {fileID: 9}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 121}
   m_MaxSize: {x: 4000, y: 4021}
   vertical: 0
-  controlID: 17
+  controlID: 15
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 45
+  controlID: 49
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 46
+  controlID: 50
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 47
+  controlID: 51
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -540,21 +540,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/BackRoom
+    - Assets/Scripts/Player
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/BackRoom
+  - Assets/Scripts/Player
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\JT\Alchemist\Alchemist
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 22670000
-    m_LastClickedID: 26402
+    m_SelectedIDs: 2a670000
+    m_LastClickedID: 26410
     m_ExpandedIDs: 000000001067000012670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -711,9 +711,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b4620000
-      m_LastClickedID: 25268
-      m_ExpandedIDs: fef9ffffb462000088630000
+      m_SelectedIDs: e8980000
+      m_LastClickedID: 0
+      m_ExpandedIDs: fef9ffff88630000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -995,9 +995,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -4.1569905, y: 2.9114807, z: 5.915948}
+    m_Target: {x: 1009.8976, y: 354.4149, z: 16.79454}
     speed: 2
-    m_Value: {x: -4.1569905, y: 2.9114807, z: 5.915948}
+    m_Value: {x: 1009.8976, y: 354.4149, z: 16.79454}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1039,18 +1039,18 @@ MonoBehaviour:
         m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
-      m_Size: {x: 0, y: 0}
+      m_Size: {x: 1, y: 1}
     m_ShowGrid: 1
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.07217192, y: -0.049376227, z: 0.003247184, w: 0.9960787}
+    m_Target: {x: 0.23558807, y: -0.12928881, z: 0.03163952, w: 0.96269715}
     speed: 2
-    m_Value: {x: 0.07068372, y: -0.04938523, z: 0.0031734104, w: 0.9962705}
+    m_Value: {x: 0.2355876, y: -0.12928854, z: 0.031639457, w: 0.9626952}
   m_Size:
-    m_Target: 9.55
+    m_Target: 70.71068
     speed: 2
-    m_Value: 9.55
+    m_Value: 70.71068
   m_Ortho:
     m_Target: 0
     speed: 2

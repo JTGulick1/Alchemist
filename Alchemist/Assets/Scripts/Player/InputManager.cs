@@ -74,4 +74,14 @@ public class InputManager : MonoBehaviour
         return inputActions.Controller.Sprint.IsPressed();
     }
 
+    public Vector2 GetPlayer2MouseMovement()
+    {
+        return inputActions.Controller.MouseMovement.ReadValue<Vector2>();
+    }
+
+    public bool P2Select()
+    {
+        return inputActions.Controller.ControllerSelect.triggered;
+    }
+
 }

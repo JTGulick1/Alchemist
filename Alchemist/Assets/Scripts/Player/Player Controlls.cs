@@ -185,6 +185,24 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MouseMovement"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""dfd34836-1192-4f2f-988d-d7868cf0698f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ControllerSelect"",
+                    ""type"": ""Button"",
+                    ""id"": ""a6e7e65c-2cf4-47bd-8ce3-0e6612f6d032"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -264,6 +282,72 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""1042fa2c-5a35-4dc2-922a-aa58ddad363b"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseMovement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""44bd9ae5-9be8-4eee-ac80-c2a78e4574c1"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""1ed2bae9-e289-4ba7-99af-2f1205e6a8f7"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""79574a84-7ba0-422c-93a9-f8576ff4af59"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""c79578ed-f2bf-4d44-9199-da7d1611a6e9"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1a9b6c8-02e8-4538-adcc-55d7c1df30d1"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControllerSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -281,6 +365,8 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         m_Controller_Movement = m_Controller.FindAction("Movement", throwIfNotFound: true);
         m_Controller_Interact = m_Controller.FindAction("Interact", throwIfNotFound: true);
         m_Controller_Sprint = m_Controller.FindAction("Sprint", throwIfNotFound: true);
+        m_Controller_MouseMovement = m_Controller.FindAction("MouseMovement", throwIfNotFound: true);
+        m_Controller_ControllerSelect = m_Controller.FindAction("ControllerSelect", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -400,6 +486,8 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Controller_Movement;
     private readonly InputAction m_Controller_Interact;
     private readonly InputAction m_Controller_Sprint;
+    private readonly InputAction m_Controller_MouseMovement;
+    private readonly InputAction m_Controller_ControllerSelect;
     public struct ControllerActions
     {
         private @PlayerControlls m_Wrapper;
@@ -407,6 +495,8 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Controller_Movement;
         public InputAction @Interact => m_Wrapper.m_Controller_Interact;
         public InputAction @Sprint => m_Wrapper.m_Controller_Sprint;
+        public InputAction @MouseMovement => m_Wrapper.m_Controller_MouseMovement;
+        public InputAction @ControllerSelect => m_Wrapper.m_Controller_ControllerSelect;
         public InputActionMap Get() { return m_Wrapper.m_Controller; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -425,6 +515,12 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                 @Sprint.started -= m_Wrapper.m_ControllerActionsCallbackInterface.OnSprint;
                 @Sprint.performed -= m_Wrapper.m_ControllerActionsCallbackInterface.OnSprint;
                 @Sprint.canceled -= m_Wrapper.m_ControllerActionsCallbackInterface.OnSprint;
+                @MouseMovement.started -= m_Wrapper.m_ControllerActionsCallbackInterface.OnMouseMovement;
+                @MouseMovement.performed -= m_Wrapper.m_ControllerActionsCallbackInterface.OnMouseMovement;
+                @MouseMovement.canceled -= m_Wrapper.m_ControllerActionsCallbackInterface.OnMouseMovement;
+                @ControllerSelect.started -= m_Wrapper.m_ControllerActionsCallbackInterface.OnControllerSelect;
+                @ControllerSelect.performed -= m_Wrapper.m_ControllerActionsCallbackInterface.OnControllerSelect;
+                @ControllerSelect.canceled -= m_Wrapper.m_ControllerActionsCallbackInterface.OnControllerSelect;
             }
             m_Wrapper.m_ControllerActionsCallbackInterface = instance;
             if (instance != null)
@@ -438,6 +534,12 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                 @Sprint.started += instance.OnSprint;
                 @Sprint.performed += instance.OnSprint;
                 @Sprint.canceled += instance.OnSprint;
+                @MouseMovement.started += instance.OnMouseMovement;
+                @MouseMovement.performed += instance.OnMouseMovement;
+                @MouseMovement.canceled += instance.OnMouseMovement;
+                @ControllerSelect.started += instance.OnControllerSelect;
+                @ControllerSelect.performed += instance.OnControllerSelect;
+                @ControllerSelect.canceled += instance.OnControllerSelect;
             }
         }
     }
@@ -454,5 +556,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+        void OnMouseMovement(InputAction.CallbackContext context);
+        void OnControllerSelect(InputAction.CallbackContext context);
     }
 }

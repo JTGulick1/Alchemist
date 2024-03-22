@@ -11,8 +11,10 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playerInput = null;
     private InputManager inputManager;
     private CharacterController controller;
+    private InventoryManager inventory;
+    private ShopManager shop;
     private GameObject Player2IRL;
-
+    public GameObject clickerP2;
     private float playerBaseSpeed = 30.0f;
     private float sprintingSpeed = 50.0f;
     public PlayerInput PlayerInput => playerInput;
@@ -35,7 +37,11 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         controller = GetComponent<CharacterController>();
         currency = GameObject.FindGameObjectWithTag("Currency").GetComponent<Currency>();
+        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
+        shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<ShopManager>();
+        clickerP2 = GameObject.FindGameObjectWithTag("P2Click");
         Cursor.lockState = CursorLockMode.Locked;
+        clickerP2.SetActive(false);
     }
 
     private void Update()
@@ -43,6 +49,8 @@ public class PlayerController : MonoBehaviour
         if (P2S == false && inputManager.SpawnP2() == true)
         {
             SpawnP2();
+            inventory.Joined();
+            shop.Joined();
         }
         if (inputManager.Sprint() == true)
         {
@@ -73,6 +81,7 @@ public class PlayerController : MonoBehaviour
     {
         cam.rect = new Rect(0, 0.5f, 1, 0.5f);
         P2S = true;
+        clickerP2.SetActive(false);
         Player2IRL = Instantiate(Player2);
     }
 
