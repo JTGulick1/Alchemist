@@ -16,6 +16,8 @@ public class AI_Customer : MonoBehaviour
 
     private GameObject storeDoor;
     private PlayerController player;
+    private PlayerController2 player2;
+    private bool joined = false;
     private WorldTimer timer;
 
     void Start()
@@ -34,12 +36,41 @@ public class AI_Customer : MonoBehaviour
 
     private void Update()
     {
-        transform.LookAt(player.transform);
+        if (player.P2S == true && joined == false)
+        {
+            joined = true;
+            player2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerController2>();
+        }
+        transform.LookAt(FindClosest());
         if (Vector3.Distance(this.gameObject.transform.position , storeDoor.transform.position) <= 1)
         {
             Leave();
         }
     }
+
+    private Transform FindClosest()
+    {
+        if (joined == false)
+        {
+            return player.transform;
+        }
+        if(joined == true)
+        {
+            float a, b;
+            a = Vector3.Distance(player.transform.position, this.gameObject.transform.position);
+            b = Vector3.Distance(player2.transform.position, this.gameObject.transform.position);
+            if (a > b)
+            {
+                return player2.transform;
+            }
+            if (a < b)
+            {
+                return player.transform;
+            }
+        }
+        return player.transform;
+    }
+
     private void WalkToCounter()
     {
         currentSpot = orderSpot[Random.Range(0, orderSpot.Length)];
@@ -65,6 +96,11 @@ public class AI_Customer : MonoBehaviour
             ordertxt.gameObject.SetActive(true);
             player.CustomerOrder(order.physicalForm, this.gameObject.GetComponent<AI_Customer>());
         }
+        if (other.tag == "Player2")
+        {
+            ordertxt.gameObject.SetActive(true);
+            player2.CustomerOrder(order.physicalForm, this.gameObject.GetComponent<AI_Customer>());
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -73,6 +109,11 @@ public class AI_Customer : MonoBehaviour
         {
             ordertxt.gameObject.SetActive(false);
             player.ToFarFromCust();
+        }
+        if (other.tag == "Player2")
+        {
+            ordertxt.gameObject.SetActive(false);
+            player2.ToFarFromCust();
         }
     }
 }
