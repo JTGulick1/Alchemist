@@ -62,9 +62,9 @@ public class PlayerController2 : MonoBehaviour
                 isHolding = false;
             }
         }
-        Vector2 movementM = inputManager.GetPlayer2MouseMovement();
-        move = new Vector3(movementM.x, movementM.y, 0f);
-        clicker.transform.Translate(move * 5);
+        //Vector2 movementM = inputManager.GetPlayer2MouseMovement();
+        //move = new Vector3(movementM.x, movementM.y, 0f);
+        //clicker.transform.Translate(move * 5);
     }
 
     public void clickOn()
