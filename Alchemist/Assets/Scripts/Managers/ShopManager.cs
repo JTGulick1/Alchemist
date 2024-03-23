@@ -17,6 +17,7 @@ public class ShopManager : MonoBehaviour
     public bool isclose = false;
     public bool isOpen2 = false;
     public bool isclose2 = false;
+    public GameObject selected;
 
     void Start()
     {
@@ -76,7 +77,7 @@ public class ShopManager : MonoBehaviour
         }
         if (num == 2)
         {
-            player2.clickOn();
+            player2.selected(selected);
             shopCanP2.SetActive(true);
         }
 
@@ -96,7 +97,6 @@ public class ShopManager : MonoBehaviour
         }
         if (num == 2)
         {
-            player2.clickOff();
             shopCanP2.SetActive(false);
         }
     }
