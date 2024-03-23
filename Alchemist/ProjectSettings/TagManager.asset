@@ -20,6 +20,7 @@ TagManager:
   - Player2
   - P2Click
   - Shop
+  - EventSystem
   layers:
   - Default
   - TransparentFX

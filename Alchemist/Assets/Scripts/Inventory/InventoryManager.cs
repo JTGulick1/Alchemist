@@ -12,10 +12,10 @@ public class InventoryManager : MonoBehaviour
     public int cap = 56;
     public GameObject ingredient;
     private GameObject setingredient;
+    public GameObject first;
     private PlayerController player;
     private PlayerController2 player2;
     public bool isP2 = false;
-    private bool p2Joined = false;
     private void Start()
     {
         invCan.SetActive(false);
@@ -27,39 +27,42 @@ public class InventoryManager : MonoBehaviour
     }
     public void UpdateInv()
     {
-        for(int i = 0; i < items.Count; i++)
+        for (int i = 0; i < items.Count; i++)
         {
-            if (player.P2S == false)
+            setingredient = Instantiate(ingredient, invCan.transform.position, invCan.transform.rotation, invCan.transform);
+            setingredient = Instantiate(ingredient, invCanP1.transform.position, invCanP1.transform.rotation, invCanP1.transform);
+            setingredient = Instantiate(ingredient, invCanP2.transform.position, invCanP2.transform.rotation, invCanP2.transform);
+            if (i == 0)
             {
-                setingredient = Instantiate(ingredient, invCan.transform.position, invCan.transform.rotation, invCan.transform);
-            }
-            if (player.P2S == true)
-            {
-                setingredient = Instantiate(ingredient, invCanP1.transform.position, invCanP1.transform.rotation, invCanP1.transform);
-                setingredient = Instantiate(ingredient, invCanP2.transform.position, invCanP2.transform.rotation, invCanP2.transform);
+                first = setingredient;
             }
             setingredient.GetComponent<ItemNumber>().SetNumber(i);
         }
     }
-    
+
     public void DeleteInv()
     {
+        invCan.SetActive(true);
+        invCanP1.SetActive(true);
+        invCanP2.SetActive(true);
         foreach (GameObject item in GameObject.FindGameObjectsWithTag("Ing"))
         {
             Destroy(item);
         }
+        invCan.SetActive(false);
+        invCanP1.SetActive(false);
+        invCanP2.SetActive(false);
     }
 
     public void BoughtItem(Item item)
     {
-        items.Add(item);
         DeleteInv();
+        items.Add(item);
         UpdateInv();
     }
 
     public void Joined()
     {
-        p2Joined = true;
         player2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerController2>();
     }
 
@@ -75,6 +78,7 @@ public class InventoryManager : MonoBehaviour
         }
         if (player.P2S == true && isP2 == true)
         {
+            player2.isHolding = true;
             player2.carry = Instantiate(items[number].physicalForm, player2.playerHolder.transform.position, player2.playerHolder.transform.rotation, player2.playerHolder.transform);
         }
 
@@ -110,7 +114,7 @@ public class InventoryManager : MonoBehaviour
         }
         if (num == 2)
         {
-            player2.clickOn();
+            player2.selected(first);
             invCanP2.SetActive(true);
         }
     }
@@ -128,7 +132,6 @@ public class InventoryManager : MonoBehaviour
         }
         if (num == 2)
         {
-            player2.clickOff();
             invCanP2.SetActive(false);
         }
 

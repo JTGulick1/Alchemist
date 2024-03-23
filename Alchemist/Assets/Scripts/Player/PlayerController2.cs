@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class PlayerController2 : MonoBehaviour
 {
@@ -12,7 +13,6 @@ public class PlayerController2 : MonoBehaviour
     private InputManager inputManager;
     private CharacterController controller;
     private PlayerController player;
-    public GameObject clicker;
     private float playerBaseSpeed = 30.0f;
     private float sprintingSpeed = 50.0f;
     public PlayerInput PlayerInput => playerInput;
@@ -21,6 +21,7 @@ public class PlayerController2 : MonoBehaviour
     public GameObject playerHolder;
     public GameObject carry;
 
+    private EventSystem eventSystem;
     public bool closeToCust = false;
     public GameObject order;
     AI_Customer closestCust;
@@ -32,8 +33,7 @@ public class PlayerController2 : MonoBehaviour
         controller = GetComponent<CharacterController>();
         currency = GameObject.FindGameObjectWithTag("Currency").GetComponent<Currency>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        clicker = player.clickerP2;
-        clicker.SetActive(false);
+        eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -62,19 +62,11 @@ public class PlayerController2 : MonoBehaviour
                 isHolding = false;
             }
         }
-        //Vector2 movementM = inputManager.GetPlayer2MouseMovement();
-        //move = new Vector3(movementM.x, movementM.y, 0f);
-        //clicker.transform.Translate(move * 5);
     }
 
-    public void clickOn()
+    public void selected(GameObject first)
     {
-        clicker.SetActive(true);
-    }
-
-    public void clickOff()
-    {
-        clicker.SetActive(false);
+        eventSystem.SetSelectedGameObject(first);
     }
 
     public void CustomerOrder(GameObject custO, AI_Customer customer)
