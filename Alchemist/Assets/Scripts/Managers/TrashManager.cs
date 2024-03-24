@@ -6,13 +6,15 @@ public class TrashManager : MonoBehaviour
 {
 
     private PlayerController player;
+    private PlayerController2 player2;
     private InputManager inputManager;
 
     private bool isclose = false;
+    private bool isclose2 = false;
+    private bool joined = false;
 
     private Currency currency;
 
-    // Start is called before the first frame update
     void Start()
     {
         inputManager = InputManager.Instance;
@@ -20,13 +22,23 @@ public class TrashManager : MonoBehaviour
         currency = GameObject.FindGameObjectWithTag("Currency").GetComponent<Currency>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (player.P2S == true && joined == false)
+        {
+            joined = true;
+            player2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerController2>();
+        }
         if (isclose == true && inputManager.Interact() == true && player.isHolding == true)
         {
             player.isHolding = false;
             Destroy(player.carry);
+            currency.GetGold(3);
+        }
+        if (isclose2 == true && inputManager.InteractP2() == true && player2.isHolding == true)
+        {
+            player2.isHolding = false;
+            Destroy(player2.carry);
             currency.GetGold(3);
         }
     }
@@ -37,6 +49,10 @@ public class TrashManager : MonoBehaviour
         {
             isclose = true;
         }
+        if (other.tag == "Player2")
+        {
+            isclose2 = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -44,6 +60,10 @@ public class TrashManager : MonoBehaviour
         if (other.tag == "Player")
         {
             isclose = false;
+        }
+        if (other.tag == "Player2")
+        {
+            isclose2 = false;
         }
     }
 }

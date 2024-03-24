@@ -14,7 +14,7 @@ public class InventoryManager : MonoBehaviour
     private GameObject setingredient;
     public GameObject first;
     private PlayerController player;
-    private PlayerController2 player2;
+    public PlayerController2 player2;
     public bool isP2 = false;
     private void Start()
     {

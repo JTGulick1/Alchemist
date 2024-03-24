@@ -95,7 +95,7 @@ public class MuddingManager : MonoBehaviour
                 conditions = true;
                 progress.fillAmount += 0.10f;
             }
-            if (cutCount >= 10 && player.isHolding == false)
+            if (cutCount >= 10 && player2.isHolding == false)
             {
                 progress.fillAmount = 0;
                 cutCount = 0;

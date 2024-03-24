@@ -1091,6 +1091,7 @@ MonoBehaviour:
   cap: 56
   ingredient: {fileID: 2692951179463274471, guid: 70dc9c900a74e1143955b9578d2a6700, type: 3}
   first: {fileID: 0}
+  player2: {fileID: 0}
   isP2: 0
 --- !u!1 &285424243
 GameObject:
@@ -3195,8 +3196,8 @@ MonoBehaviour:
   closedtxt: {fileID: 1873736262}
   dayOfWeek: {fileID: 520159806}
   tempTime: 0
-  closed: 1
-  custCount: 5
+  closed: 0
+  custCount: 0
   Customers:
   - {fileID: 6968808707344251534, guid: f701e64d80cac4d49bfc5b42cd858f25, type: 3}
   CustSpawn: {fileID: 1594661412}

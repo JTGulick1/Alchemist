@@ -91,12 +91,12 @@ public class CuttingManager : MonoBehaviour
                 player2.isHolding = false;
                 player2.FreezePlayer();
                 item = Instantiate(player2.carry, placement.transform.position, placement.transform.rotation, placement.transform);
-                player2.carry = null;
+                Destroy(player2.carry);
                 cutCount++;
                 conditions = true;
                 progress.fillAmount += 0.10f;
             }
-            if (cutCount >= 10 && player.isHolding == false)
+            if (cutCount >= 10 && player2.isHolding == false)
             {
                 progress.fillAmount = 0;
                 cutCount = 0;
