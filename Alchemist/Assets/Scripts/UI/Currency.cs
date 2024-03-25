@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Currency : MonoBehaviour
+public class Currency : MonoBehaviour, IDataPersistance
 {
     public int gold = 0;
     public TMPro.TMP_Text goldTXT;
@@ -10,6 +10,16 @@ public class Currency : MonoBehaviour
     void Start()
     {
         goldTXT.text = "Gold: " + gold;
+    }
+
+    public void LoadData(GameData data)
+    {
+        gold = data.coins;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.coins = gold;
     }
 
     public void GetGold(int cur)
