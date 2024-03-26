@@ -10,8 +10,9 @@ public class DataPersistanceManager : MonoBehaviour
     [SerializeField] private string fileName;
     [SerializeField] private bool useEncription;
     private FileDataHandler dataHandler;
+    public SaveSystem saveSystem;
     public static DataPersistanceManager instance { get; private set; }
-
+    
     private void Awake()
     {
         if (instance != null)
@@ -19,10 +20,12 @@ public class DataPersistanceManager : MonoBehaviour
             Debug.LogError("Found more then one data persistance managers in the scene");
         }
         instance = this;
+        saveSystem = GameObject.FindGameObjectWithTag("SaveSystem").GetComponent<SaveSystem>();
     }
 
     public void Start()
     {
+        fileName = saveSystem.filename;
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncription);
         this.DataPersistanceObjects = FindAllDataPersistanceObjects();
         LoadGame();
@@ -47,7 +50,6 @@ public class DataPersistanceManager : MonoBehaviour
             dataPersistance.LoadData(gameData);
         }
 
-        Debug.Log("Loaded Currency Count:" + gameData.coins);
     }
 
     public void SaveData()
@@ -56,7 +58,6 @@ public class DataPersistanceManager : MonoBehaviour
         {
             dataPersistance.SaveData(ref gameData);
         }
-        Debug.Log("Saved Currency Count:" + gameData.coins);
 
         dataHandler.Save(gameData);
     }
@@ -66,10 +67,5 @@ public class DataPersistanceManager : MonoBehaviour
         IEnumerable<IDataPersistance> dataPersistances = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistance>();
 
         return new List<IDataPersistance>(dataPersistances);
-    }
-
-    private void OnApplicationQuit()
-    {
-        SaveData();
     }
 }

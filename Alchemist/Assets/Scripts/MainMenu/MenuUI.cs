@@ -15,11 +15,6 @@ public class MenuUI : MonoBehaviour
         optionsCan.SetActive(false);
     }
 
-    public void StartNew()
-    {
-        SceneManager.LoadScene("Shop");
-    }
-
     public void OpenLoadMenu()
     {
         SavesCan.SetActive(true);
@@ -28,7 +23,7 @@ public class MenuUI : MonoBehaviour
 
     public void OpenSave(int n)
     {
-
+        SceneManager.LoadScene("Shop");
     }
 
     public void OpenOptions()

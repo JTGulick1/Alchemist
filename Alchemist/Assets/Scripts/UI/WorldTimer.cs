@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WorldTimer : MonoBehaviour
+public class WorldTimer : MonoBehaviour , IDataPersistance
 {
     [Header("Time")]
     public TMPro.TMP_Text timeShown;
@@ -16,6 +16,7 @@ public class WorldTimer : MonoBehaviour
     private bool PM = true;
     public bool closed = false;
     private int day = 0;
+    private int totaldays = 0;
     public int custCount = 0;
     public GameObject[] Customers;
     public GameObject CustSpawn;
@@ -44,6 +45,17 @@ public class WorldTimer : MonoBehaviour
         }
     }
 
+    public void LoadData(GameData data)
+    {
+        day = data.currentday;
+        totaldays = data.dayCount;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.currentday = day;
+        data.dayCount = totaldays;
+    }
 
 
     void TimeUpdate()
@@ -87,6 +99,7 @@ public class WorldTimer : MonoBehaviour
     public void UpdateDay()
     {
         day++;
+        totaldays++;
         if (day == 8)
         {
             day = 1;

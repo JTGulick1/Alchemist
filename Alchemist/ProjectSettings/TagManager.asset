@@ -21,6 +21,7 @@ TagManager:
   - P2Click
   - Shop
   - EventSystem
+  - SaveSystem
   layers:
   - Default
   - TransparentFX

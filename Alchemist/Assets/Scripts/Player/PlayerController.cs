@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour , IDataPersistance
+public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private float playerSpeed = 30.0f;
@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour , IDataPersistance
     private float playerBaseSpeed = 30.0f;
     private float sprintingSpeed = 50.0f;
     public PlayerInput PlayerInput => playerInput;
-    private DataPersistanceManager dataPersistance;
     public bool isHolding = false;
     public GameObject playerHolder;
     public GameObject carry;
@@ -32,27 +31,15 @@ public class PlayerController : MonoBehaviour , IDataPersistance
     public Camera cam;
 
 
-
     private void Start()
     {
         inputManager = InputManager.Instance;
-        dataPersistance = DataPersistanceManager.instance;
         playerInput = GetComponent<PlayerInput>();
         controller = GetComponent<CharacterController>();
         currency = GameObject.FindGameObjectWithTag("Currency").GetComponent<Currency>();
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
         shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<ShopManager>();
         Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    public void LoadData(GameData data)
-    {
-        
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        
     }
 
     private void Update()

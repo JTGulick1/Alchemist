@@ -14,9 +14,12 @@ public class Bed : MonoBehaviour
     private float waitTime = 0.0f;
     private int isclose = 0;
     private int total = 2;
+    public DataPersistanceManager dataPersistance;
+
     void Start()
     {
         inputManager = InputManager.Instance;
+        dataPersistance = DataPersistanceManager.instance;
         timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<WorldTimer>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         fadeIMG.gameObject.SetActive(false);
@@ -51,6 +54,8 @@ public class Bed : MonoBehaviour
         }
         if (isclose == total && timer.closed == true && timer.custCount == 0 && (inputManager.Interact() || inputManager.InteractP2()))
         {
+            Debug.Log("Saved");
+            dataPersistance.SaveData();
             timer.StartDay();
             fadeIMG.gameObject.SetActive(true);
             bedtime = true;
