@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : MonoBehaviour, IDataPersistance
 {
     public GameObject invCan;
     public GameObject invCanP1;
     public GameObject invCanP2;
     public List<Item> items = new List<Item>();
+    public List<Item> itemsSaveNum = new List<Item>();
     public int count = 0;
     public int cap = 56;
     public GameObject ingredient;
@@ -25,6 +26,7 @@ public class InventoryManager : MonoBehaviour
         count = items.Count;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
+
     public void UpdateInv()
     {
         for (int i = 0; i < items.Count; i++)
@@ -135,5 +137,20 @@ public class InventoryManager : MonoBehaviour
             invCanP2.SetActive(false);
         }
 
+    }
+
+    public void LoadData(GameData data)
+    {
+        List<int> newitems = data.inventory;
+
+        for (int i = 0; i < newitems.Count; i++)
+        {
+            items.Add(itemsSaveNum[newitems[i] - 1]);
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.GetInv(items);
     }
 }

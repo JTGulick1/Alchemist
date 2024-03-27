@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Item
   cost: 3
+  saveNum: 1
   physicalForm: {fileID: 1830315428488052390, guid: 6163a960b1d30be45a45bd4504a54da4, type: 3}
