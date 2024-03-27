@@ -20,6 +20,7 @@ public class WorldTimer : MonoBehaviour , IDataPersistance
     public int custCount = 0;
     public GameObject[] Customers;
     public GameObject CustSpawn;
+    public bool stopTime = false;
     private void Start()
     {
         StartDay();
@@ -60,6 +61,10 @@ public class WorldTimer : MonoBehaviour , IDataPersistance
 
     void TimeUpdate()
     {
+        if (stopTime == true)
+        {
+            return;
+        }
         tempTime += Time.deltaTime;
         if (tempTime >= 10.0f)
         {

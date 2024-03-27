@@ -6,10 +6,16 @@ public class ReDecoracate : MonoBehaviour
 {
     private bool isclose;
     private InputManager inputManager;
+    private PlayerController player;
+    public Camera cam;
+    private WorldTimer timer;
+
     // Start is called before the first frame update
     void Start()
     {
         inputManager = InputManager.Instance;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<WorldTimer>();
     }
 
     // Update is called once per frame
@@ -17,7 +23,14 @@ public class ReDecoracate : MonoBehaviour
     {
         if (isclose == true && inputManager.Interact() == true)
         {
-            //Open Decoraction
+            Cursor.lockState = CursorLockMode.None;
+            timer.stopTime = true;
+            if (player.P2S == true)
+            {
+                player.player1Action();
+            }
+            player.cam.gameObject.SetActive(false);
+            cam.gameObject.SetActive(true);
         }
     }
 
@@ -33,7 +46,15 @@ public class ReDecoracate : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            Cursor.lockState = CursorLockMode.Locked;
             isclose = false;
+            timer.stopTime = false;
+            if (player.P2S == true)
+            {
+                player.player1ActionExit();
+            }
+            cam.gameObject.SetActive(false);
+            player.cam.gameObject.SetActive(true);
         }
     }
 }

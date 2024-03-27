@@ -23,9 +23,8 @@ public class PlayerController : MonoBehaviour
 
     public bool closeToCust = false;
     public GameObject order;
-    AI_Customer closestCust;
+    private AI_Customer closestCust;
     private Currency currency;
-
     public bool P2S = false;
     public GameObject Player2;
     public Camera cam;
