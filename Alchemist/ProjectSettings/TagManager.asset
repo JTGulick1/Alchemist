@@ -22,6 +22,7 @@ TagManager:
   - Shop
   - EventSystem
   - SaveSystem
+  - Decoraction
   layers:
   - Default
   - TransparentFX
