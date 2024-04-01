@@ -58,6 +58,11 @@ public class InputManager : MonoBehaviour
         return inputActions.Keyboard.SpawnP2.IsPressed();
     }
 
+    public bool Exit()
+    {
+        return inputActions.Keyboard.Exit.IsPressed();
+    }
+
     // Player 2 Controls
     public bool InteractP2()
     {

@@ -58,7 +58,6 @@ public class CuttingManager : MonoBehaviour
                 && player.GetType() == ItemSettings.Itemtype.Fresh)
             {
                 player.isHolding = false;
-                player.FreezePlayer();
                 item = Instantiate(player.carry, placement.transform.position, placement.transform.rotation, placement.transform);
                 Destroy(player.carry);
                 cutCount++;
@@ -69,7 +68,6 @@ public class CuttingManager : MonoBehaviour
             {
                 progress.fillAmount = 0;
                 cutCount = 0;
-                player.UnFreezePlayer();
                 player.isHolding = true;
                 player.carry = Instantiate(item, player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
                 player.SetType(ItemSettings.Itemtype.Cut);

@@ -5,13 +5,18 @@ using UnityEngine.UI;
 
 public class Mirror : MonoBehaviour
 {
-
+    public GameObject vestHolder;
+    public List<GameObject> vests = new List<GameObject>();
+    public Camera vestCam;
     private bool isclose;
+    private PlayerController player;
     private InputManager inputManager;
-    // Start is called before the first frame update
     void Start()
     {
         inputManager = InputManager.Instance;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        vestHolder.SetActive(false);
+        vestCam.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -19,7 +24,18 @@ public class Mirror : MonoBehaviour
     {
         if (isclose == true && inputManager.Interact() == true)
         {
-            //Open Mirror
+            vestCam.gameObject.SetActive(true);
+            player.cam.gameObject.SetActive(false);
+            player.FreezePlayer();
+            vestHolder.SetActive(true);
+        }
+        if (inputManager.Exit()== true)
+        {
+            isclose = false;
+            vestCam.gameObject.SetActive(false);
+            player.cam.gameObject.SetActive(true);
+            player.UnFreezePlayer();
+            vestHolder.SetActive(false);
         }
     }
 

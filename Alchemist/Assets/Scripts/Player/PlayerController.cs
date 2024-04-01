@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private float playerSpeed = 30.0f;
+    private bool frovenPlayer = false;
     private PlayerInput playerInput = null;
     private InputManager inputManager;
     private CharacterController controller;
@@ -43,6 +44,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (frovenPlayer == true)
+        {
+            playerSpeed = 0;
+            return;
+        }
         if (P2S == false && inputManager.SpawnP2() == true)
         {
             SpawnP2();
@@ -107,11 +113,11 @@ public class PlayerController : MonoBehaviour
 
     public void FreezePlayer()
     {
-        playerSpeed = 0.0f;
+        frovenPlayer = true;
     }
     public void UnFreezePlayer()
     {
-        playerSpeed = playerBaseSpeed;
+        frovenPlayer = false;
     }
 
     public ItemSettings.Itemtype GetType()

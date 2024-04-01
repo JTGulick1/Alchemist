@@ -62,6 +62,15 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Exit"",
+                    ""type"": ""Button"",
+                    ""id"": ""5e28423c-b318-4d98-bc89-4e1d4b9289b7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -150,6 +159,17 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SpawnP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8906016f-f78f-47ae-a617-5fedf974ff66"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -623,6 +643,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         m_Keyboard_Movement = m_Keyboard.FindAction("Movement", throwIfNotFound: true);
         m_Keyboard_Sprint = m_Keyboard.FindAction("Sprint", throwIfNotFound: true);
         m_Keyboard_SpawnP2 = m_Keyboard.FindAction("SpawnP2", throwIfNotFound: true);
+        m_Keyboard_Exit = m_Keyboard.FindAction("Exit", throwIfNotFound: true);
         // Controller
         m_Controller = asset.FindActionMap("Controller", throwIfNotFound: true);
         m_Controller_Movement = m_Controller.FindAction("Movement", throwIfNotFound: true);
@@ -705,6 +726,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Keyboard_Movement;
     private readonly InputAction m_Keyboard_Sprint;
     private readonly InputAction m_Keyboard_SpawnP2;
+    private readonly InputAction m_Keyboard_Exit;
     public struct KeyboardActions
     {
         private @PlayerControlls m_Wrapper;
@@ -713,6 +735,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Keyboard_Movement;
         public InputAction @Sprint => m_Wrapper.m_Keyboard_Sprint;
         public InputAction @SpawnP2 => m_Wrapper.m_Keyboard_SpawnP2;
+        public InputAction @Exit => m_Wrapper.m_Keyboard_Exit;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -734,6 +757,9 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                 @SpawnP2.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnSpawnP2;
                 @SpawnP2.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnSpawnP2;
                 @SpawnP2.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnSpawnP2;
+                @Exit.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnExit;
+                @Exit.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnExit;
+                @Exit.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnExit;
             }
             m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
             if (instance != null)
@@ -750,6 +776,9 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                 @SpawnP2.started += instance.OnSpawnP2;
                 @SpawnP2.performed += instance.OnSpawnP2;
                 @SpawnP2.canceled += instance.OnSpawnP2;
+                @Exit.started += instance.OnExit;
+                @Exit.performed += instance.OnExit;
+                @Exit.canceled += instance.OnExit;
             }
         }
     }
@@ -930,6 +959,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnSpawnP2(InputAction.CallbackContext context);
+        void OnExit(InputAction.CallbackContext context);
     }
     public interface IControllerActions
     {

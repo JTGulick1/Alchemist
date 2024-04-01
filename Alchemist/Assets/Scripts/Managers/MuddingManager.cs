@@ -57,7 +57,6 @@ public class MuddingManager : MonoBehaviour
                 && player.GetType() == ItemSettings.Itemtype.Cut)
             {
                 player.isHolding = false;
-                player.FreezePlayer();
                 item = Instantiate(player.carry, placement.transform.position, placement.transform.rotation, placement.transform);
                 Destroy(player.carry);
                 cutCount++;
@@ -68,7 +67,6 @@ public class MuddingManager : MonoBehaviour
             {
                 progress.fillAmount = 0;
                 cutCount = 0;
-                player.UnFreezePlayer();
                 player.isHolding = true;
                 player.carry = Instantiate(item, player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
                 player.SetType(ItemSettings.Itemtype.Molded);
