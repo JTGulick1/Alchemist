@@ -5,41 +5,46 @@ using UnityEngine.UI;
 
 public class Mirror : MonoBehaviour
 {
-    public GameObject vestHolder;
     public List<GameObject> vests = new List<GameObject>();
-    public Camera vestCam;
     private bool isclose;
     private PlayerController player;
     private InputManager inputManager;
+    public GameObject vestUI;
     void Start()
     {
         inputManager = InputManager.Instance;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        vestHolder.SetActive(false);
-        vestCam.gameObject.SetActive(false);
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isclose == true && inputManager.Interact() == true)
         {
-            vestCam.gameObject.SetActive(true);
-            player.cam.gameObject.SetActive(false);
-            player.FreezePlayer();
-            vestHolder.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            vestUI.SetActive(true);
         }
-        if (inputManager.Exit()== true)
+        if (inputManager.Exit()== true || isclose == false)
         {
+            Cursor.lockState = CursorLockMode.Locked;
             isclose = false;
-            vestCam.gameObject.SetActive(false);
-            player.cam.gameObject.SetActive(true);
-            player.UnFreezePlayer();
-            vestHolder.SetActive(false);
+            vestUI.SetActive(false);
+        }
+    }
+    public void SetVest(int num)
+    {
+        if (player.vest == null)
+        {
+            player.vest = Instantiate(vests[num], player.vestHolder.transform.position, player.vestHolder.transform.rotation, player.vestHolder.transform);
+        }
+        if (player != null)
+        {
+            Destroy(player.vest);
+            player.vest = Instantiate(vests[num], player.vestHolder.transform.position, player.vestHolder.transform.rotation, player.vestHolder.transform);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {

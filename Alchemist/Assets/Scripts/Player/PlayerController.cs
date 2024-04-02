@@ -29,7 +29,8 @@ public class PlayerController : MonoBehaviour
     public bool P2S = false;
     public GameObject Player2;
     public Camera cam;
-
+    public GameObject vestHolder;
+    public GameObject vest;
 
     private void Start()
     {
