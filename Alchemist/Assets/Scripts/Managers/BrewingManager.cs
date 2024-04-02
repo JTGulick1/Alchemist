@@ -54,7 +54,7 @@ public class BrewingManager : MonoBehaviour
             Brew(1);
         }
         if (isclose == true && items[2] == null &&
-            player.isHolding == true && inputManager.Interact() == true)
+            player.isHolding == true && inputManager.Interact() == true && player.cBrew == false)
         {
             GameObject temp;
             temp = Instantiate(player.carry, pot.transform.position, pot.transform.rotation, pot.transform);
@@ -64,7 +64,7 @@ public class BrewingManager : MonoBehaviour
             Destroy(player.carry);
         }
         if (isclose2 == true && items[2] == null &&
-            player2.isHolding == true && inputManager.InteractP2() == true)
+            player2.isHolding == true && inputManager.InteractP2() == true && player2.cBrew == false)
         {
             GameObject temp;
             temp = Instantiate(player2.carry, pot.transform.position, pot.transform.rotation, pot.transform);
@@ -112,11 +112,13 @@ public class BrewingManager : MonoBehaviour
                 {
                     player.carry = Instantiate(avaliableBrews[i].physicalForm, player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
                     player.carry.GetComponent<BrewSettings>().ChangeToBrew();
+                    player.cBrew = true;
                     return;
                 }
             }
             player.carry = Instantiate(poop, player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
             player.carry.GetComponent<BrewSettings>().ChangeToBrew();
+            player.cBrew = true;
         }
         if (num == 1)
         {
@@ -132,12 +134,14 @@ public class BrewingManager : MonoBehaviour
                 {
                     player2.carry = Instantiate(avaliableBrews[i].physicalForm, player2.playerHolder.transform.position, player2.playerHolder.transform.rotation, player2.playerHolder.transform);
                     player2.carry.GetComponent<BrewSettings>().ChangeToBrew();
+                    player2.cBrew = true;
                     return;
                 }
             }
             player2.carry = Instantiate(poop, player2.playerHolder.transform.position, player2.playerHolder.transform.rotation, player2.playerHolder.transform);
             player2.carry.GetComponent<BrewSettings>().ChangeToBrew();
-        }        
+            player2.cBrew = true;
+        }
     }
 
     private void DestroyIngredients()

@@ -17,6 +17,7 @@ public class PlayerController2 : MonoBehaviour
     private float sprintingSpeed = 50.0f;
     public PlayerInput PlayerInput => playerInput;
 
+    public bool cBrew = false;
     public bool isHolding = false;
     public GameObject playerHolder;
     public GameObject carry;

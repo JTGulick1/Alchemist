@@ -14,6 +14,7 @@ public class Mirror : MonoBehaviour
     {
         inputManager = InputManager.Instance;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        vestUI.SetActive(false);
 
     }
 
@@ -24,7 +25,7 @@ public class Mirror : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             vestUI.SetActive(true);
         }
-        if (inputManager.Exit()== true || isclose == false)
+        if (inputManager.Exit()== true)
         {
             Cursor.lockState = CursorLockMode.Locked;
             isclose = false;
@@ -56,7 +57,9 @@ public class Mirror : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            Cursor.lockState = CursorLockMode.Locked;
             isclose = false;
+            vestUI.SetActive(false);
         }
     }
 }

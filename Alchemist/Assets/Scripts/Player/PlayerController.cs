@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public GameObject playerHolder;
     public GameObject carry;
 
+    public bool cBrew = false;
     public bool closeToCust = false;
     public GameObject order;
     private AI_Customer closestCust;

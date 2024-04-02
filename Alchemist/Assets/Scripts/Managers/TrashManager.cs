@@ -34,12 +34,20 @@ public class TrashManager : MonoBehaviour
             player.isHolding = false;
             Destroy(player.carry);
             currency.GetGold(3);
+            if (player.cBrew == true)
+            {
+                player.cBrew = false;
+            }
         }
         if (isclose2 == true && inputManager.InteractP2() == true && player2.isHolding == true)
         {
             player2.isHolding = false;
             Destroy(player2.carry);
             currency.GetGold(3);
+            if (player2.cBrew == true)
+            {
+                player2.cBrew = false;
+            }
         }
     }
 

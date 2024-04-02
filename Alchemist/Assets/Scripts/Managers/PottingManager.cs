@@ -7,7 +7,7 @@ public class PottingManager : MonoBehaviour
 {
     private bool stBrew = false;
     private bool isclose = false;
-    private bool isclose2 = false;
+    public bool isclose2 = false;
     private PlayerController player;
     private PlayerController2 player2;
     private bool joined = false;
@@ -44,8 +44,9 @@ public class PottingManager : MonoBehaviour
             timer += Time.deltaTime;
             progress.fillAmount = timer / 10;
         }
-        if (isclose == true && inputManager.Interact() == true && player.isHolding == true)
+        if (isclose == true && inputManager.Interact() == true && player.isHolding == true && player.cBrew == true)
         {
+            player.cBrew = false;
             stBrew = true;
             brew = Instantiate(player.carry, station.transform.position, station.transform.rotation, station.transform);
             Destroy(player.carry);
@@ -61,8 +62,9 @@ public class PottingManager : MonoBehaviour
             player.isHolding = true;
             progress.fillAmount = 0.0f;
         }
-        if (isclose2 == true && inputManager.InteractP2() == true && player2.isHolding == true)
+        if (isclose2 == true && inputManager.InteractP2() == true && player2.isHolding == true && player2.cBrew == true)
         {
+            player2.cBrew = false;
             stBrew = true;
             brew = Instantiate(player2.carry, station.transform.position, station.transform.rotation, station.transform);
             Destroy(player2.carry);
