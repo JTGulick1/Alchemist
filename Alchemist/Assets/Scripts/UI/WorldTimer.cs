@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WorldTimer : MonoBehaviour , IDataPersistance
+public class WorldTimer : MonoBehaviour, IDataPersistance
 {
     [Header("Time")]
     public TMPro.TMP_Text timeShown;
@@ -21,6 +21,7 @@ public class WorldTimer : MonoBehaviour , IDataPersistance
     public GameObject[] Customers;
     public GameObject CustSpawn;
     public bool stopTime = false;
+    public Bed bed;
     private void Start()
     {
         StartDay();
@@ -44,6 +45,17 @@ public class WorldTimer : MonoBehaviour , IDataPersistance
             UpdateDay();
             PM = false;
         }
+    }
+    public void StartDayLate()
+    {
+        hrs = 9;
+        ten = 0;
+        timeShown.text = "[" + hrs + ":" + ten + single + "]";
+        closedtxt.gameObject.SetActive(false);
+        closed = false;
+        SpawnCust();
+        UpdateDay();
+        PM = false;
     }
 
     public void LoadData(GameData data)
@@ -96,8 +108,15 @@ public class WorldTimer : MonoBehaviour , IDataPersistance
         if (hrs == 13 && PM == true)
         {
             hrs = 1;
+            PM = false;
             timeShown.text = "[" + hrs + ":" + ten + single + "]";
             UpdateDay();
+        }
+        if (hrs == 2 && PM == false)
+        {
+            bed.CheckFade(true);
+            UpdateDay();
+            StartDayLate();
         }
     }
 

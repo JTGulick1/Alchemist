@@ -27,6 +27,11 @@ public class Bed : MonoBehaviour
 
     private void Update()
     {
+        CheckFade(false);
+    }
+
+    public void CheckFade(bool check)
+    {
         if (player.P2S == true)
         {
             total = 4;
@@ -52,7 +57,7 @@ public class Bed : MonoBehaviour
         {
             fade.a -= 0.01f;
         }
-        if (isclose == total && timer.closed == true && timer.custCount == 0 && (inputManager.Interact() || inputManager.InteractP2()))
+        if ((isclose == total && timer.closed == true && (inputManager.Interact() || inputManager.InteractP2())) || check == true)
         {
             Debug.Log("Saved");
             dataPersistance.SaveData();
