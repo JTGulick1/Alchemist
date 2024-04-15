@@ -58,6 +58,7 @@ public class PlayerController2 : MonoBehaviour
                    carry.GetComponent<BrewSettings>().isPot == true && inputManager.InteractP2())
             {
                 closestCust.LeaveStore();
+                closestCust.Served();
                 currency.GetGold(carry.GetComponent<BrewSettings>().price);
                 Destroy(carry);
                 isHolding = false;

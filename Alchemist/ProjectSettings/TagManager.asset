@@ -23,6 +23,7 @@ TagManager:
   - EventSystem
   - SaveSystem
   - Decoraction
+  - Book
   layers:
   - Default
   - TransparentFX

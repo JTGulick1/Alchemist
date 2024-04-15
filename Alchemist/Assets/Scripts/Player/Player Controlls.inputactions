@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PotionsBook",
+                    "type": "Button",
+                    "id": "6f46f8b4-b49c-4188-bf47-fc259d0acb01",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -150,6 +159,17 @@
                     "action": "Exit",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6935748f-b791-44f5-9b33-315db812e534",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PotionsBook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -197,6 +217,15 @@
                     "name": "ControllerSelect",
                     "type": "Button",
                     "id": "a6e7e65c-2cf4-47bd-8ce3-0e6612f6d032",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PotionsBook",
+                    "type": "Button",
+                    "id": "778b1834-8748-42f7-9ebf-5fc230c59e03",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -344,6 +373,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ControllerSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b7eede2a-2ac2-4d62-8883-091c726971a4",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PotionsBook",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

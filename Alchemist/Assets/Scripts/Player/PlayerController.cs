@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour
     public Camera cam;
     public GameObject vestHolder;
     public GameObject vest;
+    public GameObject Pbook;
+    public Book book;
+    private bool isBookOpen = false;
 
     private void Start()
     {
@@ -42,6 +45,8 @@ public class PlayerController : MonoBehaviour
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
         shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<ShopManager>();
         Cursor.lockState = CursorLockMode.Locked;
+        Pbook.SetActive(false);
+        book = Pbook.GetComponent<Book>();
     }
 
     private void Update()
@@ -50,6 +55,10 @@ public class PlayerController : MonoBehaviour
         {
             playerSpeed = 0;
             return;
+        }
+        if (inputManager.PotionsBook())
+        {
+            OpenPotionBook();
         }
         if (P2S == false && inputManager.SpawnP2() == true)
         {
@@ -75,6 +84,7 @@ public class PlayerController : MonoBehaviour
                    carry.GetComponent<BrewSettings>().isPot == true && inputManager.Interact())
             {
                 closestCust.LeaveStore();
+                closestCust.Served();
                 currency.GetGold(carry.GetComponent<BrewSettings>().price);
                 Destroy(carry);
                 isHolding = false;
@@ -87,6 +97,22 @@ public class PlayerController : MonoBehaviour
         cam.rect = new Rect(0, 0.5f, 1, 0.5f);
         P2S = true;
         Player2IRL = Instantiate(Player2);
+    }
+
+    public void OpenPotionBook()
+    {
+        if (isBookOpen == false)
+        {
+            Pbook.SetActive(true);
+            isBookOpen = true;
+            return;
+        }
+        if (isBookOpen == true)
+        {
+            Pbook.SetActive(false);
+            isBookOpen = false;
+            return;
+        }
     }
 
     public void player1Action()

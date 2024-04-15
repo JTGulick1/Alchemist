@@ -71,6 +71,15 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PotionsBook"",
+                    ""type"": ""Button"",
+                    ""id"": ""6f46f8b4-b49c-4188-bf47-fc259d0acb01"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                     ""action"": ""Exit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6935748f-b791-44f5-9b33-315db812e534"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PotionsBook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -219,6 +239,15 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                     ""name"": ""ControllerSelect"",
                     ""type"": ""Button"",
                     ""id"": ""a6e7e65c-2cf4-47bd-8ce3-0e6612f6d032"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PotionsBook"",
+                    ""type"": ""Button"",
+                    ""id"": ""778b1834-8748-42f7-9ebf-5fc230c59e03"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -366,6 +395,17 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ControllerSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b7eede2a-2ac2-4d62-8883-091c726971a4"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PotionsBook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -644,6 +684,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         m_Keyboard_Sprint = m_Keyboard.FindAction("Sprint", throwIfNotFound: true);
         m_Keyboard_SpawnP2 = m_Keyboard.FindAction("SpawnP2", throwIfNotFound: true);
         m_Keyboard_Exit = m_Keyboard.FindAction("Exit", throwIfNotFound: true);
+        m_Keyboard_PotionsBook = m_Keyboard.FindAction("PotionsBook", throwIfNotFound: true);
         // Controller
         m_Controller = asset.FindActionMap("Controller", throwIfNotFound: true);
         m_Controller_Movement = m_Controller.FindAction("Movement", throwIfNotFound: true);
@@ -651,6 +692,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         m_Controller_Sprint = m_Controller.FindAction("Sprint", throwIfNotFound: true);
         m_Controller_MouseMovement = m_Controller.FindAction("MouseMovement", throwIfNotFound: true);
         m_Controller_ControllerSelect = m_Controller.FindAction("ControllerSelect", throwIfNotFound: true);
+        m_Controller_PotionsBook = m_Controller.FindAction("PotionsBook", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -727,6 +769,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Keyboard_Sprint;
     private readonly InputAction m_Keyboard_SpawnP2;
     private readonly InputAction m_Keyboard_Exit;
+    private readonly InputAction m_Keyboard_PotionsBook;
     public struct KeyboardActions
     {
         private @PlayerControlls m_Wrapper;
@@ -736,6 +779,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_Keyboard_Sprint;
         public InputAction @SpawnP2 => m_Wrapper.m_Keyboard_SpawnP2;
         public InputAction @Exit => m_Wrapper.m_Keyboard_Exit;
+        public InputAction @PotionsBook => m_Wrapper.m_Keyboard_PotionsBook;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -760,6 +804,9 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                 @Exit.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnExit;
                 @Exit.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnExit;
                 @Exit.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnExit;
+                @PotionsBook.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnPotionsBook;
+                @PotionsBook.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnPotionsBook;
+                @PotionsBook.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnPotionsBook;
             }
             m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
             if (instance != null)
@@ -779,6 +826,9 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                 @Exit.started += instance.OnExit;
                 @Exit.performed += instance.OnExit;
                 @Exit.canceled += instance.OnExit;
+                @PotionsBook.started += instance.OnPotionsBook;
+                @PotionsBook.performed += instance.OnPotionsBook;
+                @PotionsBook.canceled += instance.OnPotionsBook;
             }
         }
     }
@@ -792,6 +842,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Controller_Sprint;
     private readonly InputAction m_Controller_MouseMovement;
     private readonly InputAction m_Controller_ControllerSelect;
+    private readonly InputAction m_Controller_PotionsBook;
     public struct ControllerActions
     {
         private @PlayerControlls m_Wrapper;
@@ -801,6 +852,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_Controller_Sprint;
         public InputAction @MouseMovement => m_Wrapper.m_Controller_MouseMovement;
         public InputAction @ControllerSelect => m_Wrapper.m_Controller_ControllerSelect;
+        public InputAction @PotionsBook => m_Wrapper.m_Controller_PotionsBook;
         public InputActionMap Get() { return m_Wrapper.m_Controller; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -825,6 +877,9 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                 @ControllerSelect.started -= m_Wrapper.m_ControllerActionsCallbackInterface.OnControllerSelect;
                 @ControllerSelect.performed -= m_Wrapper.m_ControllerActionsCallbackInterface.OnControllerSelect;
                 @ControllerSelect.canceled -= m_Wrapper.m_ControllerActionsCallbackInterface.OnControllerSelect;
+                @PotionsBook.started -= m_Wrapper.m_ControllerActionsCallbackInterface.OnPotionsBook;
+                @PotionsBook.performed -= m_Wrapper.m_ControllerActionsCallbackInterface.OnPotionsBook;
+                @PotionsBook.canceled -= m_Wrapper.m_ControllerActionsCallbackInterface.OnPotionsBook;
             }
             m_Wrapper.m_ControllerActionsCallbackInterface = instance;
             if (instance != null)
@@ -844,6 +899,9 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                 @ControllerSelect.started += instance.OnControllerSelect;
                 @ControllerSelect.performed += instance.OnControllerSelect;
                 @ControllerSelect.canceled += instance.OnControllerSelect;
+                @PotionsBook.started += instance.OnPotionsBook;
+                @PotionsBook.performed += instance.OnPotionsBook;
+                @PotionsBook.canceled += instance.OnPotionsBook;
             }
         }
     }
@@ -960,6 +1018,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnSpawnP2(InputAction.CallbackContext context);
         void OnExit(InputAction.CallbackContext context);
+        void OnPotionsBook(InputAction.CallbackContext context);
     }
     public interface IControllerActions
     {
@@ -968,6 +1027,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnMouseMovement(InputAction.CallbackContext context);
         void OnControllerSelect(InputAction.CallbackContext context);
+        void OnPotionsBook(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

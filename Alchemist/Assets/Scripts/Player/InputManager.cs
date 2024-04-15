@@ -63,6 +63,11 @@ public class InputManager : MonoBehaviour
         return inputActions.Keyboard.Exit.IsPressed();
     }
 
+    public bool PotionsBook()
+    {
+        return inputActions.Keyboard.PotionsBook.triggered;
+    }
+
     // Player 2 Controls
     public bool InteractP2()
     {
@@ -87,6 +92,11 @@ public class InputManager : MonoBehaviour
     public bool P2Select()
     {
         return inputActions.Controller.ControllerSelect.triggered;
+    }
+
+    public bool PotionsBookP2()
+    {
+        return inputActions.Controller.PotionsBook.triggered;
     }
 
 }

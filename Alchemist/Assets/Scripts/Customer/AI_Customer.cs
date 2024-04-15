@@ -21,6 +21,8 @@ public class AI_Customer : MonoBehaviour
     private PlayerController2 player2;
     private bool joined = false;
     private WorldTimer timer;
+    private Book book;
+    public int custID;
 
     void Start()
     {
@@ -35,6 +37,7 @@ public class AI_Customer : MonoBehaviour
         ordertxt.text = order.brewName;
         ordertxt.gameObject.SetActive(false);
         patience.gameObject.SetActive(false);
+        book = player.book;
     }
 
     private void Update()
@@ -85,6 +88,11 @@ public class AI_Customer : MonoBehaviour
         currentSpot = orderSpot[Random.Range(0, orderSpot.Length)];
         agent.destination = currentSpot.transform.position;
         currentSpot.tag = "Occ";
+    }
+
+    public void Served()
+    {
+        book.relation(custID);
     }
 
     public void LeaveStore()
