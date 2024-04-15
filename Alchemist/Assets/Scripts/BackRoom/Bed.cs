@@ -59,6 +59,7 @@ public class Bed : MonoBehaviour
         }
         if ((isclose == total && timer.closed == true && (inputManager.Interact() || inputManager.InteractP2())))
         {
+            timer.KickCustsOut();
             Debug.Log("Saved");
             dataPersistance.SaveData();
             timer.StartDay();
@@ -69,7 +70,6 @@ public class Bed : MonoBehaviour
         {
             Debug.Log("Saved");
             dataPersistance.SaveData();
-            timer.StartDay();
             fadeIMG.gameObject.SetActive(true);
             bedtime = true;
         }

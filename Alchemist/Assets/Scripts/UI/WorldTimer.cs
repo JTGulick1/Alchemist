@@ -114,10 +114,20 @@ public class WorldTimer : MonoBehaviour, IDataPersistance
         }
         if (hrs == 2 && PM == false)
         {
+            KickCustsOut();
             Debug.Log("Stayed Up Too Late");
             bed.CheckFade(true);
             UpdateDay();
             StartDayLate();
+        }
+    }
+
+    public void KickCustsOut()
+    {
+        foreach (GameObject cust in GameObject.FindGameObjectsWithTag("Customer"))
+        {
+            cust.GetComponent<AI_Customer>().LeaveStore();
+            cust.GetComponent<AI_Customer>().Leave();
         }
     }
 
@@ -170,6 +180,7 @@ public class WorldTimer : MonoBehaviour, IDataPersistance
         custCount += 1;
         Instantiate(Customers[Random.Range(0, Customers.Length)], CustSpawn.transform.position, CustSpawn.transform.rotation);
     }
+
 
     public void CustLeft()
     {

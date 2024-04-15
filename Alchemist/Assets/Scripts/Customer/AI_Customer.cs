@@ -12,6 +12,8 @@ public class AI_Customer : MonoBehaviour
 
     private GameObject[] orderSpot;
     public TMPro.TMP_Text ordertxt;
+    public Image patience;
+    private float Ptimer = 100.0f;
     public GameObject currentSpot;
 
     private GameObject storeDoor;
@@ -32,10 +34,17 @@ public class AI_Customer : MonoBehaviour
         WalkToCounter();
         ordertxt.text = order.brewName;
         ordertxt.gameObject.SetActive(false);
+        patience.gameObject.SetActive(false);
     }
 
     private void Update()
     {
+        Ptimer -= Time.deltaTime;
+        patience.fillAmount = Ptimer / 100;
+        if (Ptimer <= 0.0f)
+        {
+            LeaveStore();
+        }
         if (player.P2S == true && joined == false)
         {
             joined = true;
@@ -94,11 +103,13 @@ public class AI_Customer : MonoBehaviour
         if (other.tag == "Player")
         {
             ordertxt.gameObject.SetActive(true);
+            patience.gameObject.SetActive(true);
             player.CustomerOrder(order.physicalForm, this.gameObject.GetComponent<AI_Customer>());
         }
         if (other.tag == "Player2")
         {
             ordertxt.gameObject.SetActive(true);
+            patience.gameObject.SetActive(true);
             player2.CustomerOrder(order.physicalForm, this.gameObject.GetComponent<AI_Customer>());
         }
     }
@@ -108,11 +119,13 @@ public class AI_Customer : MonoBehaviour
         if (other.tag == "Player")
         {
             ordertxt.gameObject.SetActive(false);
+            patience.gameObject.SetActive(false);
             player.ToFarFromCust();
         }
         if (other.tag == "Player2")
         {
             ordertxt.gameObject.SetActive(false);
+            patience.gameObject.SetActive(false);
             player2.ToFarFromCust();
         }
     }
