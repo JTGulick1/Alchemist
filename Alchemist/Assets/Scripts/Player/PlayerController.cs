@@ -103,12 +103,14 @@ public class PlayerController : MonoBehaviour
     {
         if (isBookOpen == false)
         {
+            Cursor.lockState = CursorLockMode.None;
             Pbook.SetActive(true);
             isBookOpen = true;
             return;
         }
         if (isBookOpen == true)
         {
+            Cursor.lockState = CursorLockMode.Locked;
             Pbook.SetActive(false);
             isBookOpen = false;
             return;

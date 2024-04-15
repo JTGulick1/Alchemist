@@ -15,6 +15,15 @@ public class Book : MonoBehaviour
     public GameObject Iso;
     public GameObject Row;
 
+    public GameObject relationPage;
+    public GameObject potion1Page;
+
+    private void Start()
+    {
+        relationPage.SetActive(true);
+        potion1Page.SetActive(false);
+    }
+
     public void relation(int cust)
     {
         if (cust == 1)
@@ -38,4 +47,16 @@ public class Book : MonoBehaviour
             Instantiate(Heart, Row.transform.position, Row.transform.rotation, Row.transform);
         }
     }
+
+    public void R2P1()
+    {
+        relationPage.SetActive(false);
+        potion1Page.SetActive(true);
+    }
+    public void P12R()
+    {
+        relationPage.SetActive(true);
+        potion1Page.SetActive(false);
+    }
+
 }
