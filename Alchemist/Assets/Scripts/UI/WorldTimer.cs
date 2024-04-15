@@ -13,7 +13,7 @@ public class WorldTimer : MonoBehaviour, IDataPersistance
     private int ten;
     private int hrs = 6;
     public float tempTime;
-    private bool PM = true;
+    public bool PM = true;
     public bool closed = false;
     private int day = 0;
     private int totaldays = 0;
@@ -94,7 +94,7 @@ public class WorldTimer : MonoBehaviour, IDataPersistance
                 SpawnCust();
             }
         }
-        if (hrs == 13)
+        if (hrs == 13 && PM == false)
         {
             PM = true;
             hrs = 1;
@@ -114,6 +114,7 @@ public class WorldTimer : MonoBehaviour, IDataPersistance
         }
         if (hrs == 2 && PM == false)
         {
+            Debug.Log("Stayed Up Too Late");
             bed.CheckFade(true);
             UpdateDay();
             StartDayLate();
