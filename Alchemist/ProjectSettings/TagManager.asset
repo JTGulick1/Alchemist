@@ -26,6 +26,7 @@ TagManager:
   - Book
   - poting
   - PotionChest
+  - QuestBoard
   layers:
   - Default
   - TransparentFX

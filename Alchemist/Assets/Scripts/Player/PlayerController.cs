@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private InventoryManager inventory;
     private ShopManager shop;
+    private QuestBoard questBoard;
     private GameObject Player2IRL;
     private float playerBaseSpeed = 30.0f;
     private float sprintingSpeed = 50.0f;
@@ -24,7 +25,9 @@ public class PlayerController : MonoBehaviour
 
     public bool cBrew = false;
     public bool closeToCust = false;
+    public bool closeToBoard = false;
     public GameObject order;
+    public GameObject bOrder;
     private AI_Customer closestCust;
     private Currency currency;
     public bool P2S = false;
@@ -44,6 +47,7 @@ public class PlayerController : MonoBehaviour
         currency = GameObject.FindGameObjectWithTag("Currency").GetComponent<Currency>();
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
         shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<ShopManager>();
+        questBoard = GameObject.FindGameObjectWithTag("QuestBoard").GetComponent<QuestBoard>();
         Cursor.lockState = CursorLockMode.Locked;
         Pbook.SetActive(false);
         book = Pbook.GetComponent<Book>();
@@ -88,6 +92,22 @@ public class PlayerController : MonoBehaviour
                 currency.GetGold(carry.GetComponent<BrewSettings>().price);
                 Destroy(carry);
                 isHolding = false;
+            }
+        }
+
+        if (carry != null && carry.tag == "Holder")
+        {
+            if (closeToBoard == true && carry.GetComponent<BrewSettings>().temp == bOrder.GetComponent<BrewSettings>().title &&
+                   carry.GetComponent<BrewSettings>().isPot == true && inputManager.Interact())
+            {
+                questBoard.stock++;
+                Destroy(carry);
+                isHolding = false;
+                if (questBoard.stock >= questBoard.quota)
+                {
+                    questBoard.QuestComplete();
+                }
+                questBoard.UpdateText();
             }
         }
     }
@@ -136,9 +156,20 @@ public class PlayerController : MonoBehaviour
         closestCust = customer;
     }
 
+    public void QuestBoard(GameObject boardO)
+    {
+        closeToBoard = true;
+        bOrder = boardO;
+    }
+
     public void ToFarFromCust()
     {
         closeToCust = false;
+    }
+
+    public void ToFarFromBoard()
+    {
+        closeToBoard = false;
     }
 
     public void FreezePlayer()
@@ -148,6 +179,11 @@ public class PlayerController : MonoBehaviour
     public void UnFreezePlayer()
     {
         frovenPlayer = false;
+    }
+
+    public void CompletedQuest(int q)
+    {
+        currency.GetGold(q);
     }
 
     public ItemSettings.Itemtype GetType()
