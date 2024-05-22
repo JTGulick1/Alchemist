@@ -106,16 +106,28 @@ public class InventoryManager : MonoBehaviour, IDataPersistance
     {
         if (num == 0)
         {
+            if (player.isHolding == true)
+            {
+                return;
+            }
             Cursor.lockState = CursorLockMode.None;
             invCan.SetActive(true);
         }
         if (num == 1)
         {
+            if (player.isHolding == true)
+            {
+                return;
+            }
             Cursor.lockState = CursorLockMode.None;
             invCanP1.SetActive(true);
         }
         if (num == 2)
         {
+            if (player.isHolding == true)
+            {
+                return;
+            }
             player2.selected(first);
             invCanP2.SetActive(true);
         }

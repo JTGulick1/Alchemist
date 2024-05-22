@@ -6,11 +6,13 @@ public class ItemNumber : MonoBehaviour
 {
     public int number = 0;
     private InventoryManager inventory;
+    private PotionsChest potionsChest;
     private PlayerController player;
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        potionsChest = GameObject.FindGameObjectWithTag("PotionChest").GetComponent<PotionsChest>();
     }
 
     public void SetNumber(int num)
@@ -36,6 +38,16 @@ public class ItemNumber : MonoBehaviour
         {
             inventory.player2.isHolding = true;
             inventory.GrabbedItem(number);
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void GrabbedPotion()
+    {
+        if (player.isHolding == false && potionsChest.isP2 == false)
+        {
+            player.isHolding = true;
+            potionsChest.GrabbedItem(number);
             Destroy(this.gameObject);
         }
     }

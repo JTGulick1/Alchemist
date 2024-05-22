@@ -24,6 +24,8 @@ TagManager:
   - SaveSystem
   - Decoraction
   - Book
+  - poting
+  - PotionChest
   layers:
   - Default
   - TransparentFX

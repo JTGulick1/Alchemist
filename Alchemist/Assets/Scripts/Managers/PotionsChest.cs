@@ -15,6 +15,8 @@ public class PotionsChest : MonoBehaviour
     public GameObject first;
     public int count = 0;
     public int cap = 30;
+    public bool isP2 = false;
+    private GameObject temp;
 
     public GameObject chestUI;
     //public GameObject chestUIp1;
@@ -71,7 +73,7 @@ public class PotionsChest : MonoBehaviour
         chestUI.SetActive(true);
         //invCanP1.SetActive(true);
         //invCanP2.SetActive(true);
-        foreach (GameObject item in GameObject.FindGameObjectsWithTag("Ing"))
+        foreach (GameObject item in GameObject.FindGameObjectsWithTag("poting"))
         {
             Destroy(item);
         }
@@ -91,10 +93,18 @@ public class PotionsChest : MonoBehaviour
         if (num == 0)
         {
             if (isclose == true && inputManager.Interact() == true
+                && player.isHolding == false)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                chestUI.SetActive(true);
+                return;
+            }
+            if (isclose == true && inputManager.Interact() == true
                 && player.carry.GetComponent<BrewSettings>().isPot == true)
             {
                 player.isHolding = false;
-                PlacedItem(player.carry);
+                temp = Instantiate(player.carry, this.transform.position, this.transform.rotation);
+                PlacedItem(temp);
                 Destroy(player.carry);
                 return;
             }
@@ -116,6 +126,7 @@ public class PotionsChest : MonoBehaviour
         if (player.P2S == false)
         {
             player.carry = Instantiate(potions[number], player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
+            Destroy(potions[number]);
         }
         /*if (player.P2S == true && isP2 == false)
         {
@@ -145,6 +156,15 @@ public class PotionsChest : MonoBehaviour
         }*/
     }
 
+    public void CloseInventory(int num)
+    {
+        if (num == 0)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            chestUI.SetActive(false);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -161,6 +181,8 @@ public class PotionsChest : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            CloseInventory(0);
+            CloseInventory(1);
             isclose = false;
         }
         if (other.tag == "Player2")
