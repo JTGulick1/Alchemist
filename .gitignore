@@ -6,6 +6,7 @@ Alchemist/Alchemist.sln
 Alchemist/ProjectSettings/Packages/com.unity.probuilder/Settings.json
 Alchemist/Library
 Alchemist/Library/Bee
+Alchemist/ScriptAssemblies
 Alchemist/Logs
 *.suo
 *.csproj
