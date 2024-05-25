@@ -15,4 +15,4 @@ MonoBehaviour:
   title: Mountain Frog Posion
   cost: 3
   saveNum: 22
-  physicalForm: {fileID: 1830315428488052390, guid: a511ab4b0392ae64db06363e1f262ca1, type: 3}
+  physicalForm: {fileID: 1830315428488052390, guid: 386afb1ece184f44caf36c85c89ba33b, type: 3}

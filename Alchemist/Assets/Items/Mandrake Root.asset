@@ -15,4 +15,4 @@ MonoBehaviour:
   title: Mandrake Root
   cost: 3
   saveNum: 28
-  physicalForm: {fileID: 1830315428488052390, guid: a511ab4b0392ae64db06363e1f262ca1, type: 3}
+  physicalForm: {fileID: 1830315428488052390, guid: 8e9287ef75e78f748b90ea5534b84f8f, type: 3}

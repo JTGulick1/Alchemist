@@ -15,4 +15,4 @@ MonoBehaviour:
   title: Elf Ears
   cost: 4
   saveNum: 12
-  physicalForm: {fileID: 1830315428488052390, guid: a511ab4b0392ae64db06363e1f262ca1, type: 3}
+  physicalForm: {fileID: 1830315428488052390, guid: 355cf496af991a043bbad5ba3a7900c4, type: 3}

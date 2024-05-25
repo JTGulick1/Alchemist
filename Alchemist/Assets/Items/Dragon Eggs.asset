@@ -15,4 +15,4 @@ MonoBehaviour:
   title: Dragon Eggs
   cost: 5
   saveNum: 21
-  physicalForm: {fileID: 1830315428488052390, guid: a511ab4b0392ae64db06363e1f262ca1, type: 3}
+  physicalForm: {fileID: 1830315428488052390, guid: 1f1249f75b0e1524a88dafa44dbd2ce6, type: 3}

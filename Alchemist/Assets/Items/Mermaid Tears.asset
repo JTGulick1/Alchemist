@@ -15,4 +15,4 @@ MonoBehaviour:
   title: Mermaid Tears
   cost: 4
   saveNum: 32
-  physicalForm: {fileID: 1830315428488052390, guid: a511ab4b0392ae64db06363e1f262ca1, type: 3}
+  physicalForm: {fileID: 1830315428488052390, guid: 0942c6bcb9a3e634286b5a7027d8289d, type: 3}

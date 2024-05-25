@@ -15,4 +15,4 @@ MonoBehaviour:
   title: Basilisk Venom
   cost: 6
   saveNum: 19
-  physicalForm: {fileID: 1830315428488052390, guid: a511ab4b0392ae64db06363e1f262ca1, type: 3}
+  physicalForm: {fileID: 1830315428488052390, guid: 311c2dd0f957911439716d9a1839fb0b, type: 3}

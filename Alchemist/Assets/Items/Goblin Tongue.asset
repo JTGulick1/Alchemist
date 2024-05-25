@@ -15,4 +15,4 @@ MonoBehaviour:
   title: Goblin Tongue
   cost: 3
   saveNum: 14
-  physicalForm: {fileID: 1830315428488052390, guid: a511ab4b0392ae64db06363e1f262ca1, type: 3}
+  physicalForm: {fileID: 1830315428488052390, guid: b4dc9a1f00788ee41985dba66720ea25, type: 3}

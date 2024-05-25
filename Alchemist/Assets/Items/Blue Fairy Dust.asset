@@ -15,4 +15,4 @@ MonoBehaviour:
   title: Blue Fairy Dust
   cost: 3
   saveNum: 35
-  physicalForm: {fileID: 1830315428488052390, guid: a511ab4b0392ae64db06363e1f262ca1, type: 3}
+  physicalForm: {fileID: 1830315428488052390, guid: af5342beea9aabb4f82f9139420d3bdc, type: 3}

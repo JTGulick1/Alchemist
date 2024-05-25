@@ -15,4 +15,4 @@ MonoBehaviour:
   title: Banshee Wail
   cost: 3
   saveNum: 40
-  physicalForm: {fileID: 1830315428488052390, guid: a511ab4b0392ae64db06363e1f262ca1, type: 3}
+  physicalForm: {fileID: 1830315428488052390, guid: b1c366402e7b07a46aa97f8fae39d421, type: 3}

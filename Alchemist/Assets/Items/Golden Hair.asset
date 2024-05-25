@@ -15,4 +15,4 @@ MonoBehaviour:
   title: Golden Hair
   cost: 3
   saveNum: 8
-  physicalForm: {fileID: 1830315428488052390, guid: a511ab4b0392ae64db06363e1f262ca1, type: 3}
+  physicalForm: {fileID: 1830315428488052390, guid: d381ef481c6cfe247ad524aa159b9f1c, type: 3}

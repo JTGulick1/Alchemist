@@ -15,4 +15,4 @@ MonoBehaviour:
   title: Dryad Sap
   cost: 4
   saveNum: 38
-  physicalForm: {fileID: 1830315428488052390, guid: a511ab4b0392ae64db06363e1f262ca1, type: 3}
+  physicalForm: {fileID: 1830315428488052390, guid: 81b1332ab767d514bb48fc0ef6c6ac22, type: 3}

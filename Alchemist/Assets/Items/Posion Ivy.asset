@@ -15,4 +15,4 @@ MonoBehaviour:
   title: Posion Ivy
   cost: 2
   saveNum: 15
-  physicalForm: {fileID: 1830315428488052390, guid: a511ab4b0392ae64db06363e1f262ca1, type: 3}
+  physicalForm: {fileID: 1830315428488052390, guid: b4fda6f680bfc354886c70182a7befb1, type: 3}

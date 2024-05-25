@@ -15,4 +15,4 @@ MonoBehaviour:
   title: Chimera Horn
   cost: 3
   saveNum: 37
-  physicalForm: {fileID: 1830315428488052390, guid: a511ab4b0392ae64db06363e1f262ca1, type: 3}
+  physicalForm: {fileID: 1830315428488052390, guid: 4fe253821a3ea78429d85556439dfbf2, type: 3}
