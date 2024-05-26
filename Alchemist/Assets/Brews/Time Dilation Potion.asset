@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb9797eec2483846a57fa17b251066e, type: 3}
   m_Name: Time Dilation Potion
   m_EditorClassIdentifier: 
-  brewName: Perception Potion
-  physicalForm: {fileID: 4283784783637136618, guid: 6b54e99ca4174114586809591e29f5aa, type: 3}
+  brewName: Time Dilation Potion
+  physicalForm: {fileID: 4283784783637136618, guid: 823248998c396ef4092567144c71b1a8, type: 3}
   price: 30
-  Ing1: {fileID: 4480128842210386722, guid: 003922baf6cd0e048a0c559a43bb290a, type: 3}
-  Ing2: {fileID: 4480128842210386722, guid: a8d56e027aba0604fb0150d7bb3b46b3, type: 3}
-  Ing3: {fileID: 4480128842210386722, guid: f765746303d8e6442a81cc2e51d8db06, type: 3}
+  saveInt: 0
+  Ing1: {fileID: 4480128842210386722, guid: 25901cbbb9a968443b12b3d3880b6b02, type: 3}
+  Ing2: {fileID: 4480128842210386722, guid: 6c2e1ad16f76604418fa742d7fdf7be6, type: 3}
+  Ing3: {fileID: 4480128842210386722, guid: 809f72b1fa9fe3c46a92280f0004f1e4, type: 3}

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb9797eec2483846a57fa17b251066e, type: 3}
   m_Name: Levitation Potion
   m_EditorClassIdentifier: 
-  brewName: Perception Potion
-  physicalForm: {fileID: 4283784783637136618, guid: 6b54e99ca4174114586809591e29f5aa, type: 3}
+  brewName: Levitation Potion
+  physicalForm: {fileID: 4283784783637136618, guid: 4bf2687e230d48443bd3e7bcdb992a2a, type: 3}
   price: 30
-  Ing1: {fileID: 4480128842210386722, guid: 003922baf6cd0e048a0c559a43bb290a, type: 3}
-  Ing2: {fileID: 4480128842210386722, guid: a8d56e027aba0604fb0150d7bb3b46b3, type: 3}
-  Ing3: {fileID: 4480128842210386722, guid: f765746303d8e6442a81cc2e51d8db06, type: 3}
+  saveInt: 0
+  Ing1: {fileID: 4480128842210386722, guid: 7388bd495d3a6df4091b1bb5fc2bddea, type: 3}
+  Ing2: {fileID: 4480128842210386722, guid: d25d9bb3487e52a45956397ff7502f82, type: 3}
+  Ing3: {fileID: 4480128842210386722, guid: 920b0364bdad83042973a3deaff6919c, type: 3}

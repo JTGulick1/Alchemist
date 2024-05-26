@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb9797eec2483846a57fa17b251066e, type: 3}
   m_Name: Charm Potion
   m_EditorClassIdentifier: 
-  brewName: Perception Potion
-  physicalForm: {fileID: 4283784783637136618, guid: 6b54e99ca4174114586809591e29f5aa, type: 3}
+  brewName: Charm Potion
+  physicalForm: {fileID: 4283784783637136618, guid: 9626c07b042ec2a4fb1b6b1d52010bf4, type: 3}
   price: 30
-  Ing1: {fileID: 4480128842210386722, guid: 003922baf6cd0e048a0c559a43bb290a, type: 3}
-  Ing2: {fileID: 4480128842210386722, guid: a8d56e027aba0604fb0150d7bb3b46b3, type: 3}
-  Ing3: {fileID: 4480128842210386722, guid: f765746303d8e6442a81cc2e51d8db06, type: 3}
+  saveInt: 0
+  Ing1: {fileID: 4480128842210386722, guid: 6042a4a76edde4b40a35203c4d439474, type: 3}
+  Ing2: {fileID: 4480128842210386722, guid: 6f78135d853a37144a157f200bc61b62, type: 3}
+  Ing3: {fileID: 4480128842210386722, guid: ba0fe15b48b97174daaed3567afb1e10, type: 3}

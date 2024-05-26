@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb9797eec2483846a57fa17b251066e, type: 3}
   m_Name: Berserker Potion
   m_EditorClassIdentifier: 
-  brewName: Perception Potion
-  physicalForm: {fileID: 4283784783637136618, guid: 6b54e99ca4174114586809591e29f5aa, type: 3}
+  brewName: Berserker Potion
+  physicalForm: {fileID: 4283784783637136618, guid: b4814ea20ab693f4584e77860c0eb9d7, type: 3}
   price: 30
-  Ing1: {fileID: 4480128842210386722, guid: 003922baf6cd0e048a0c559a43bb290a, type: 3}
-  Ing2: {fileID: 4480128842210386722, guid: a8d56e027aba0604fb0150d7bb3b46b3, type: 3}
-  Ing3: {fileID: 4480128842210386722, guid: f765746303d8e6442a81cc2e51d8db06, type: 3}
+  saveInt: 0
+  Ing1: {fileID: 4480128842210386722, guid: 9d90cecc6d77f154393c49d6c30a4b0a, type: 3}
+  Ing2: {fileID: 4480128842210386722, guid: 1b7aa327ce91e5e489805987685f8b36, type: 3}
+  Ing3: {fileID: 4480128842210386722, guid: 2e91e6f5d55f2b5459ff22b1741bb92e, type: 3}

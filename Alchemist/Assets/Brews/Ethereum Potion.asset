@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb9797eec2483846a57fa17b251066e, type: 3}
   m_Name: Ethereum Potion
   m_EditorClassIdentifier: 
-  brewName: Perception Potion
-  physicalForm: {fileID: 4283784783637136618, guid: 6b54e99ca4174114586809591e29f5aa, type: 3}
+  brewName: Ethereum Potion
+  physicalForm: {fileID: 4283784783637136618, guid: 244fe142aa97f824d9337af8e6903145, type: 3}
   price: 30
-  Ing1: {fileID: 4480128842210386722, guid: 003922baf6cd0e048a0c559a43bb290a, type: 3}
-  Ing2: {fileID: 4480128842210386722, guid: a8d56e027aba0604fb0150d7bb3b46b3, type: 3}
-  Ing3: {fileID: 4480128842210386722, guid: f765746303d8e6442a81cc2e51d8db06, type: 3}
+  saveInt: 0
+  Ing1: {fileID: 4480128842210386722, guid: d2a41691b4aeef84db68358848e376a5, type: 3}
+  Ing2: {fileID: 4480128842210386722, guid: dfcc88e2c6c00634c972e3dbb2b0ee91, type: 3}
+  Ing3: {fileID: 4480128842210386722, guid: 1c72641491bc62547bc7495659263c67, type: 3}

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb9797eec2483846a57fa17b251066e, type: 3}
   m_Name: Frostbite Potion
   m_EditorClassIdentifier: 
-  brewName: Perception Potion
-  physicalForm: {fileID: 4283784783637136618, guid: 6b54e99ca4174114586809591e29f5aa, type: 3}
+  brewName: Frostbite Potion
+  physicalForm: {fileID: 4283784783637136618, guid: c133746ac70fa7a46bc5b0aa3bf555ee, type: 3}
   price: 30
-  Ing1: {fileID: 4480128842210386722, guid: 003922baf6cd0e048a0c559a43bb290a, type: 3}
-  Ing2: {fileID: 4480128842210386722, guid: a8d56e027aba0604fb0150d7bb3b46b3, type: 3}
-  Ing3: {fileID: 4480128842210386722, guid: f765746303d8e6442a81cc2e51d8db06, type: 3}
+  saveInt: 0
+  Ing1: {fileID: 4480128842210386722, guid: a2407c91ce8538e4b91600732234ec4a, type: 3}
+  Ing2: {fileID: 4480128842210386722, guid: bc384b1ef8a9a824c9c609d8c86e3b6f, type: 3}
+  Ing3: {fileID: 4480128842210386722, guid: bf7b0f0d786ecfd458e4e077482407cf, type: 3}

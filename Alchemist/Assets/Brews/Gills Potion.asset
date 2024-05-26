@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb9797eec2483846a57fa17b251066e, type: 3}
   m_Name: Gills Potion
   m_EditorClassIdentifier: 
-  brewName: Perception Potion
-  physicalForm: {fileID: 4283784783637136618, guid: 6b54e99ca4174114586809591e29f5aa, type: 3}
+  brewName: Gills Potion
+  physicalForm: {fileID: 4283784783637136618, guid: 8c597c63ad43f6a43a354711e47729a4, type: 3}
   price: 30
-  Ing1: {fileID: 4480128842210386722, guid: 003922baf6cd0e048a0c559a43bb290a, type: 3}
-  Ing2: {fileID: 4480128842210386722, guid: a8d56e027aba0604fb0150d7bb3b46b3, type: 3}
-  Ing3: {fileID: 4480128842210386722, guid: f765746303d8e6442a81cc2e51d8db06, type: 3}
+  saveInt: 0
+  Ing1: {fileID: 4480128842210386722, guid: 80983ae6eae0f3744be58e5fb99a417d, type: 3}
+  Ing2: {fileID: 4480128842210386722, guid: 4f5e11f529db7d14d84dd0389dcf7b88, type: 3}
+  Ing3: {fileID: 4480128842210386722, guid: 364c2c375f384b54fbac474c9d8f9903, type: 3}

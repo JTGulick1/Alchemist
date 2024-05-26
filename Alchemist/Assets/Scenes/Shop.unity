@@ -25420,6 +25420,9 @@ MonoBehaviour:
   - {fileID: 0}
   avaliableBrews:
   - {fileID: 11400000, guid: 476a965320bf1d04997b12d605703ad6, type: 2}
+  - {fileID: 11400000, guid: b322c9bf414832543955d1f0ced718f9, type: 2}
+  - {fileID: 11400000, guid: e79532c792f58ca47a54c30440ac7cd9, type: 2}
+  - {fileID: 11400000, guid: 0e2ffcab1d4a2c24e864222b540452ae, type: 2}
   pot: {fileID: 1436084530}
   poop: {fileID: 4283784783637136618, guid: 25837904ec87843419b1efc78130cae2, type: 3}
   progress: {fileID: 688240378}

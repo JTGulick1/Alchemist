@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb9797eec2483846a57fa17b251066e, type: 3}
   m_Name: Stamina Potion
   m_EditorClassIdentifier: 
-  brewName: Perception Potion
-  physicalForm: {fileID: 4283784783637136618, guid: 6b54e99ca4174114586809591e29f5aa, type: 3}
+  brewName: Stamina Potion
+  physicalForm: {fileID: 4283784783637136618, guid: ddba27483771ca5499113ba439073a42, type: 3}
   price: 30
-  Ing1: {fileID: 4480128842210386722, guid: 003922baf6cd0e048a0c559a43bb290a, type: 3}
-  Ing2: {fileID: 4480128842210386722, guid: a8d56e027aba0604fb0150d7bb3b46b3, type: 3}
-  Ing3: {fileID: 4480128842210386722, guid: f765746303d8e6442a81cc2e51d8db06, type: 3}
+  saveInt: 0
+  Ing1: {fileID: 4480128842210386722, guid: a8fbb2f40d035cd42bbcc99a2b5bd2fb, type: 3}
+  Ing2: {fileID: 4480128842210386722, guid: d3d0a389f9cf9624da14107a8b21a4fe, type: 3}
+  Ing3: {fileID: 4480128842210386722, guid: a708cccf14d776a4e884e49696cd0c0f, type: 3}

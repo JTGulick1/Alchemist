@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb9797eec2483846a57fa17b251066e, type: 3}
   m_Name: Cold Resistance Potion
   m_EditorClassIdentifier: 
-  brewName: Perception Potion
-  physicalForm: {fileID: 4283784783637136618, guid: 6b54e99ca4174114586809591e29f5aa, type: 3}
+  brewName: Cold Resistance Potion
+  physicalForm: {fileID: 4283784783637136618, guid: 4c0d53487f366cd4babf36e620285eec, type: 3}
   price: 30
-  Ing1: {fileID: 4480128842210386722, guid: 003922baf6cd0e048a0c559a43bb290a, type: 3}
-  Ing2: {fileID: 4480128842210386722, guid: a8d56e027aba0604fb0150d7bb3b46b3, type: 3}
-  Ing3: {fileID: 4480128842210386722, guid: f765746303d8e6442a81cc2e51d8db06, type: 3}
+  saveInt: 0
+  Ing1: {fileID: 4480128842210386722, guid: d30c788ba18278b43a7a4b9cc3368ebf, type: 3}
+  Ing2: {fileID: 4480128842210386722, guid: 4a6775cd057325a4fae26da17d6e61ed, type: 3}
+  Ing3: {fileID: 4480128842210386722, guid: bc1fa6ac155795042976cc011a0d39a9, type: 3}

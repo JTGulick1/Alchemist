@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4533496605182902809}
   - component: {fileID: 4762851595073956922}
   m_Layer: 0
-  m_Name: Healing Pot 1 Brew
+  m_Name: Charm Pot Brew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 87cbcf2bcaf5dee4cafdadc67776832c, type: 2}
+  - {fileID: 2100000, guid: 97d62e67b36bb7b48a2cd8d399a63c34, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4063514720355419933}
   - component: {fileID: 1020280202430463363}
   m_Layer: 0
-  m_Name: Hpot Holder
+  m_Name: Gills Potion Holder
   m_TagString: Holder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b76eca14eec23649b9b2fd2387b93b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Healing Pot
+  title: Gills Potion
   temp: 
   C: {fileID: 3002992611080257839}
   B: {fileID: 7022533315237930111}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 522829549777491738}
   - component: {fileID: 5120625109905280969}
   m_Layer: 0
-  m_Name: Hpot 1
+  m_Name: Charm Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,7 +211,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5fc57d0ec50f1934695d856d538c3fa3, type: 2}
+  - {fileID: 2100000, guid: 5a24a40cfa139a140915c7d4fedf6895, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
