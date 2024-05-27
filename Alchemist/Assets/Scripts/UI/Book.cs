@@ -17,6 +17,8 @@ public class Book : MonoBehaviour
 
     public GameObject relationPage;
     public GameObject potion1Page;
+    public GameObject potion2Page;
+    public GameObject potion3Page;
 
     private void Start()
     {
@@ -58,5 +60,29 @@ public class Book : MonoBehaviour
         relationPage.SetActive(true);
         potion1Page.SetActive(false);
     }
-
+    public void P32R()
+    {
+        relationPage.SetActive(true);
+        potion3Page.SetActive(false);
+    }
+    public void P12P2()
+    {
+        potion2Page.SetActive(true);
+        potion1Page.SetActive(false);
+    }
+    public void P22P3()
+    {
+        potion2Page.SetActive(false);
+        potion3Page.SetActive(true);
+    }
+    public void P22P1()
+    {
+        potion2Page.SetActive(false);
+        potion1Page.SetActive(true);
+    }
+    public void P32P2()
+    {
+        potion3Page.SetActive(false);
+        potion2Page.SetActive(true);
+    }
 }

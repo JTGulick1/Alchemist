@@ -238,13 +238,208 @@ public class WitchShop : MonoBehaviour, IDataPersistance
             buyingBrews.Remove(Eagle);
             brewing.avaliableBrews.Add(Eagle);
         }
+        if (Ethereum == true)
+        {
+            buyingBrews.Remove(Eth);
+            brewing.avaliableBrews.Add(Eth);
+        }
+        if (FireResstance == true)
+        {
+            buyingBrews.Remove(Fire);
+            brewing.avaliableBrews.Add(Fire);
+        }
+        if (Frostbite == true)
+        {
+            buyingBrews.Remove(Frost);
+            brewing.avaliableBrews.Add(Frost);
+        }
+        if (Gills == true)
+        {
+            buyingBrews.Remove(Gil);
+            brewing.avaliableBrews.Add(Gil);
+        }
+        if (Heroism == true)
+        {
+            buyingBrews.Remove(Hero);
+            brewing.avaliableBrews.Add(Hero);
+        }
+        if (Invisibillity == true)
+        {
+            buyingBrews.Remove(Inv);
+            brewing.avaliableBrews.Add(Inv);
+        }
+        if (Levitation == true)
+        {
+            buyingBrews.Remove(Lev);
+            brewing.avaliableBrews.Add(Lev);
+        }
+        if (Luck == true)
+        {
+            buyingBrews.Remove(Luc);
+            brewing.avaliableBrews.Add(Luc);
+        }
+        if (MindClarity == true)
+        {
+            buyingBrews.Remove(Min);
+            brewing.avaliableBrews.Add(Min);
+        }
+        if (PhoenixFeather == true)
+        {
+            buyingBrews.Remove(Pho);
+            brewing.avaliableBrews.Add(Pho);
+        }
+        if (PoisonAntidote == true)
+        {
+            buyingBrews.Remove(Pois);
+            brewing.avaliableBrews.Add(Pois);
+        }
+        if (Recall == true)
+        {
+            buyingBrews.Remove(Rec);
+            brewing.avaliableBrews.Add(Rec);
+        }
+        if (Regeneration == true)
+        {
+            buyingBrews.Remove(Regen);
+            brewing.avaliableBrews.Add(Regen);
+        }
+        if (ShadowStep == true)
+        {
+            buyingBrews.Remove(Sha);
+            brewing.avaliableBrews.Add(Sha);
+        }
+        if (ShapeShifting == true)
+        {
+            buyingBrews.Remove(Shape);
+            brewing.avaliableBrews.Add(Shape);
+        }
+        if (Speed == true)
+        {
+            buyingBrews.Remove(Sped);
+            brewing.avaliableBrews.Add(Sped);
+        }
+        if (StoneSkin == true)
+        {
+            buyingBrews.Remove(Stone);
+            brewing.avaliableBrews.Add(Stone);
+        }
+        if (TimeDilation == true)
+        {
+            buyingBrews.Remove(Time);
+            brewing.avaliableBrews.Add(Time);
+        }
+        if (WaterBreathing == true)
+        {
+            buyingBrews.Remove(Water);
+            brewing.avaliableBrews.Add(Water);
+        }
     }
 
     private void CheckSaves(int num)
     {
-        if (buyingBrews[num].brewName == "Perception Potion")
+        if (buyingBrews[num].brewName == Per1.brewName)
         {
             Perception = true;
+        }
+        if (buyingBrews[num].brewName == Ber.brewName)
+        {
+            Berserker = true;
+        }
+        if (buyingBrews[num].brewName == Cha.brewName)
+        {
+            Charm = true;
+        }
+        if (buyingBrews[num].brewName == Cold.brewName)
+        {
+            ColdResistance = true;
+        }
+        if (buyingBrews[num].brewName == Dead.brewName)
+        {
+            DeadSilence = true;
+        }
+        if (buyingBrews[num].brewName == Def.brewName)
+        {
+            Defence = true;
+        }
+        if (buyingBrews[num].brewName == Eagle.brewName)
+        {
+            EagleEye = true;
+        }
+        if (buyingBrews[num].brewName == Eth.brewName)
+        {
+            Ethereum = true;
+        }
+        if (buyingBrews[num].brewName == Fire.brewName)
+        {
+            FireResstance = true;
+        }
+        if (buyingBrews[num].brewName == Frost.brewName)
+        {
+            Frostbite = true;
+        }
+        if (buyingBrews[num].brewName == Gil.brewName)
+        {
+            Gills = true;
+        }
+        if (buyingBrews[num].brewName == Hero.brewName)
+        {
+            Heroism = true;
+        }
+        if (buyingBrews[num].brewName == Inv.brewName)
+        {
+            Invisibillity = true;
+        }
+        if (buyingBrews[num].brewName == Lev.brewName)
+        {
+            Levitation = true;
+        }
+        if (buyingBrews[num].brewName == Luc.brewName)
+        {
+            Luck = true;
+        }
+        if (buyingBrews[num].brewName == Min.brewName)
+        {
+            MindClarity = true;
+        }
+        if (buyingBrews[num].brewName == Pho.brewName)
+        {
+            PhoenixFeather = true;
+        }
+        if (buyingBrews[num].brewName == Pois.brewName)
+        {
+            PoisonAntidote = true;
+        }
+        if (buyingBrews[num].brewName == Rec.brewName)
+        {
+            Recall = true;
+        }
+        if (buyingBrews[num].brewName == Regen.brewName)
+        {
+            Regeneration = true;
+        }
+        if (buyingBrews[num].brewName == Sha.brewName)
+        {
+            ShadowStep = true;
+        }
+        if (buyingBrews[num].brewName == Shape.brewName)
+        {
+            ShapeShifting = true;
+        }
+        if (buyingBrews[num].brewName == Sped.brewName)
+        {
+            Speed = true;
+        }
+        if (buyingBrews[num].brewName == Stone.brewName)
+        {
+            StoneSkin = true;
+        }
+        if (buyingBrews[num].brewName == Time.brewName)
+        {
+            TimeDilation = true;
+        }
+        if (buyingBrews[num].brewName == Water.brewName)
+        {
+            WaterBreathing = true;
         }
     }
 }
