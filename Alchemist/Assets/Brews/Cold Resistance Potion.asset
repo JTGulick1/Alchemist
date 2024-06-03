@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brewName: Cold Resistance Potion
   physicalForm: {fileID: 4283784783637136618, guid: 4c0d53487f366cd4babf36e620285eec, type: 3}
+  image: {fileID: 21300000, guid: 2602c14c758254647b7adfa99111072b, type: 3}
   price: 30
   saveInt: 0
   Ing1: {fileID: 4480128842210386722, guid: d30c788ba18278b43a7a4b9cc3368ebf, type: 3}

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brewName: Regeneration Potion
   physicalForm: {fileID: 4283784783637136618, guid: 2548d91b4b55f2b4985cfaaa38421264, type: 3}
+  image: {fileID: 21300000, guid: 85f08d6f7f6ecda4ab3c4accf6f955df, type: 3}
   price: 30
   saveInt: 0
   Ing1: {fileID: 4480128842210386722, guid: b62c9f559f4669c4896f493cee65dc3b, type: 3}

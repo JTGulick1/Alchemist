@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brewName: Defence Potion
   physicalForm: {fileID: 4283784783637136618, guid: 6c410ddf84aa4814b9f6e3a1d2165f45, type: 3}
+  image: {fileID: 21300000, guid: 110587fc9bed1874d9750cd3208a5328, type: 3}
   price: 30
   saveInt: 0
   Ing1: {fileID: 4480128842210386722, guid: 8d3019d72065d014b9bada5e311d0879, type: 3}

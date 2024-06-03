@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brewName: Healing Potion
   physicalForm: {fileID: 4283784783637136618, guid: 2e3b1760fe233ed49a6458863e785f78, type: 3}
+  image: {fileID: 21300000, guid: bfd3580eaaf51534d8f25f2f7e59ce1d, type: 3}
+  price: 0
+  saveInt: 0
   Ing1: {fileID: 4480128842210386722, guid: 22e06619d49863d43bfd0c4c4fd14db6, type: 3}
   Ing2: {fileID: 4480128842210386722, guid: 696f01f649d33364ebf45f9703ddda71, type: 3}
   Ing3: {fileID: 4480128842210386722, guid: 65fb1def2169a4146875dbc76fd1ea36, type: 3}

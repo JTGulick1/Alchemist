@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brewName: Shape-Shifting Potion
   physicalForm: {fileID: 4283784783637136618, guid: ac03939525930a24bacfe135576d91e2, type: 3}
+  image: {fileID: 21300000, guid: 35ddc4cf84e502b44806d81853d60b52, type: 3}
   price: 30
   saveInt: 0
   Ing1: {fileID: 4480128842210386722, guid: 0451d880d45a0814bb897952f712c5c6, type: 3}

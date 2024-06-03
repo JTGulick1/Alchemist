@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brewName: Speed Potion
   physicalForm: {fileID: 4283784783637136618, guid: 9c972d0b692834243aa2c9dd14a13798, type: 3}
+  image: {fileID: 21300000, guid: 31707b1f23b4b974f8cb0e721ad554ee, type: 3}
   price: 30
   saveInt: 0
   Ing1: {fileID: 4480128842210386722, guid: 39825f00cfd8e7948a2a7f34e22a3a60, type: 3}

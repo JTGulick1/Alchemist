@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brewName: Frostbite Potion
   physicalForm: {fileID: 4283784783637136618, guid: c133746ac70fa7a46bc5b0aa3bf555ee, type: 3}
+  image: {fileID: 21300000, guid: 9db05204a787cb04682b94617067f570, type: 3}
   price: 30
   saveInt: 0
   Ing1: {fileID: 4480128842210386722, guid: a2407c91ce8538e4b91600732234ec4a, type: 3}

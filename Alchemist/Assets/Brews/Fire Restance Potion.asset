@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brewName: Fire Restance Potion
   physicalForm: {fileID: 4283784783637136618, guid: 8824e78bcead3e24eb34474bdb44e4ad, type: 3}
+  image: {fileID: 21300000, guid: db669a7c5c07ebe47af25ad018b94edb, type: 3}
   price: 30
   saveInt: 0
   Ing1: {fileID: 4480128842210386722, guid: 5f8c0d28849dc914da34beb8ac3e8813, type: 3}

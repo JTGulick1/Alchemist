@@ -103,6 +103,7 @@ public class WitchShop : MonoBehaviour, IDataPersistance
         {
             button = Instantiate(wItems, witchshop.transform.position, witchshop.transform.rotation, witchshop.transform);
             button.GetComponent<WItemNumber>().number = i;
+            button.GetComponent<Image>().sprite = buyingBrews[i].image;
         }
     }
 
