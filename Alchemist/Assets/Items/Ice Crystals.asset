@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Ice Crystals
   m_EditorClassIdentifier: 
   title: Ice Crystals
+  image: {fileID: 21300000, guid: daa7ca2eaa1e3cb4ab3e848465a44017, type: 3}
   cost: 5
   saveNum: 18
   physicalForm: {fileID: 1830315428488052390, guid: df531cc3f138db54088953c5d90cd9ef, type: 3}

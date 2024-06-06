@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Dragon Eggs
   m_EditorClassIdentifier: 
   title: Dragon Eggs
+  image: {fileID: 21300000, guid: 0d158d37608bda4439e6b537500da2eb, type: 3}
   cost: 5
   saveNum: 21
   physicalForm: {fileID: 1830315428488052390, guid: 1f1249f75b0e1524a88dafa44dbd2ce6, type: 3}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Orc Teeth
   m_EditorClassIdentifier: 
   title: Orc Teeth
+  image: {fileID: 21300000, guid: f40b71a5dcb894549be8997b061e8b20, type: 3}
   cost: 4
   saveNum: 26
   physicalForm: {fileID: 1830315428488052390, guid: 0b9d1e4217678694bb1f5a13907f1a15, type: 3}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Blue Fairy Dust
   m_EditorClassIdentifier: 
   title: Blue Fairy Dust
+  image: {fileID: 21300000, guid: 1f2b83ace2fa67e4280d1bd72b9437d5, type: 3}
   cost: 3
   saveNum: 35
   physicalForm: {fileID: 1830315428488052390, guid: af5342beea9aabb4f82f9139420d3bdc, type: 3}

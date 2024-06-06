@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Eagle Eye Potion
   temp: 
+  image: {fileID: 21300000, guid: 33943cf40649c824cbf493cd3fc09f10, type: 3}
   C: {fileID: 3002992611080257839}
   B: {fileID: 7022533315237930111}
   price: 15

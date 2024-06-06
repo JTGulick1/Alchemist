@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Regeneration Potion
   temp: 
+  image: {fileID: 21300000, guid: 85f08d6f7f6ecda4ab3c4accf6f955df, type: 3}
   C: {fileID: 3002992611080257839}
   B: {fileID: 7022533315237930111}
   price: 15

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e30be7c93f9364c4c90bdb7a9af16051, type: 3}
   m_Name: Golded Flakes
   m_EditorClassIdentifier: 
-  title: Item
+  title: Golden Flakes
+  image: {fileID: 21300000, guid: 12b0fb9e26240b04c8cc47682dbeb89b, type: 3}
   cost: 4
   saveNum: 2
   physicalForm: {fileID: 1830315428488052390, guid: a511ab4b0392ae64db06363e1f262ca1, type: 3}

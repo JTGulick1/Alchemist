@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Centaur Horns
   m_EditorClassIdentifier: 
   title: Centaur Horns
+  image: {fileID: 21300000, guid: 16fe66caf5e160147be3e28043e9747f, type: 3}
   cost: 4
   saveNum: 23
   physicalForm: {fileID: 1830315428488052390, guid: 52e511bc2b3c40d4b85ab11489295a02, type: 3}

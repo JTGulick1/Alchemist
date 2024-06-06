@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Werewolf Claws
   m_EditorClassIdentifier: 
   title: Werewolf Claws
+  image: {fileID: 21300000, guid: 99c0e94318c017548a754656033ba7bb, type: 3}
   cost: 6
   saveNum: 27
   physicalForm: {fileID: 1830315428488052390, guid: f17fdb16f6480f3428328e5b22420397, type: 3}

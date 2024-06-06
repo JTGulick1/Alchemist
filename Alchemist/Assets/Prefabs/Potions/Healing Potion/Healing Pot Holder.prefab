@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Healing Pot
   temp: 
+  image: {fileID: 21300000, guid: bfd3580eaaf51534d8f25f2f7e59ce1d, type: 3}
   C: {fileID: 3002992611080257839}
   B: {fileID: 7022533315237930111}
   price: 15

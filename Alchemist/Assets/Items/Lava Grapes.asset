@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e30be7c93f9364c4c90bdb7a9af16051, type: 3}
   m_Name: Lava Grapes
   m_EditorClassIdentifier: 
-  title: Item
+  title: Lave Grapes
+  image: {fileID: 21300000, guid: f5c2940feae58664a9b65e1ea3cc9cc3, type: 3}
   cost: 5
   saveNum: 5
   physicalForm: {fileID: 1830315428488052390, guid: c71c1694d03f530429942ac619227c57, type: 3}

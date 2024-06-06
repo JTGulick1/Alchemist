@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Radish
   m_EditorClassIdentifier: 
   title: Radish
+  image: {fileID: 21300000, guid: 51578d00e6a0275488625996a6497b00, type: 3}
   cost: 2
   saveNum: 9
   physicalForm: {fileID: 1830315428488052390, guid: 9a5a10c0849695f4cbc54f262ce1aed4, type: 3}

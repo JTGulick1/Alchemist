@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour, IDataPersistance
 {
@@ -32,8 +33,11 @@ public class InventoryManager : MonoBehaviour, IDataPersistance
         for (int i = 0; i < items.Count; i++)
         {
             setingredient = Instantiate(ingredient, invCan.transform.position, invCan.transform.rotation, invCan.transform);
+            setingredient.GetComponent<Image>().sprite = items[i].image;
             setingredient = Instantiate(ingredient, invCanP1.transform.position, invCanP1.transform.rotation, invCanP1.transform);
+            setingredient.GetComponent<Image>().sprite = items[i].image;
             setingredient = Instantiate(ingredient, invCanP2.transform.position, invCanP2.transform.rotation, invCanP2.transform);
+            setingredient.GetComponent<Image>().sprite = items[i].image;
             if (i == 0)
             {
                 first = setingredient;

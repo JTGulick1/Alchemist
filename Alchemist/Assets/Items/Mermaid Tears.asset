@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Mermaid Tears
   m_EditorClassIdentifier: 
   title: Mermaid Tears
+  image: {fileID: 21300000, guid: b553db291ac01b7499754b38140932eb, type: 3}
   cost: 4
   saveNum: 32
   physicalForm: {fileID: 1830315428488052390, guid: 0942c6bcb9a3e634286b5a7027d8289d, type: 3}

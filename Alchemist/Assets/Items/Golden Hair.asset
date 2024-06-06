@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Golden Hair
   m_EditorClassIdentifier: 
   title: Golden Hair
+  image: {fileID: 21300000, guid: 5ee8d84987482a943b51e63d39fdc63f, type: 3}
   cost: 3
   saveNum: 8
   physicalForm: {fileID: 1830315428488052390, guid: d381ef481c6cfe247ad524aa159b9f1c, type: 3}

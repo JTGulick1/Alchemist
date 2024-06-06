@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PotionsChest : MonoBehaviour
 {
     private PlayerController player;
@@ -58,6 +58,7 @@ public class PotionsChest : MonoBehaviour
         for (int i = 0; i < potions.Count; i++)
         {
             setingredient = Instantiate(potion, chestUI.transform.position, chestUI.transform.rotation, chestUI.transform);
+            setingredient.GetComponent<Image>().sprite = potions[i].GetComponent<BrewSettings>().image;
             //setingredient = Instantiate(potion, invCanP1.transform.position, invCanP1.transform.rotation, invCanP1.transform);
             //setingredient = Instantiate(potion, invCanP2.transform.position, invCanP2.transform.rotation, invCanP2.transform);
             if (i == 0)

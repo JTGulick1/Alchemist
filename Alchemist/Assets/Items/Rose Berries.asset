@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Rose Berries
   m_EditorClassIdentifier: 
   title: Rose Berries
+  image: {fileID: 21300000, guid: 95285b80aaf5c4943ab4252996adc8e6, type: 3}
   cost: 2
   saveNum: 16
   physicalForm: {fileID: 1830315428488052390, guid: 3968b451f1125ce449892b1ca2c06af1, type: 3}

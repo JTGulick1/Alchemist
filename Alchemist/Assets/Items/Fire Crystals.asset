@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Fire Crystals
   m_EditorClassIdentifier: 
   title: Fire Crystals
+  image: {fileID: 21300000, guid: c94d5179bfbc2e2468696ab5f1b921c7, type: 3}
   cost: 5
   saveNum: 17
   physicalForm: {fileID: 1830315428488052390, guid: fe5c7e349435cdf44a15619d54155da8, type: 3}

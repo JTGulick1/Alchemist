@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Basilisk Venom
   m_EditorClassIdentifier: 
   title: Basilisk Venom
+  image: {fileID: 21300000, guid: ccbc7a8491d864c4f92f8f43d5a7a4a4, type: 3}
   cost: 6
   saveNum: 19
   physicalForm: {fileID: 1830315428488052390, guid: 311c2dd0f957911439716d9a1839fb0b, type: 3}

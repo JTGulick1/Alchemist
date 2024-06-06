@@ -6,6 +6,7 @@ public class BrewSettings : MonoBehaviour
 {
     public string title = "name";
     public string temp = "";
+    public Sprite image;
     public GameObject C;
     public GameObject B;
     public int price = 15;

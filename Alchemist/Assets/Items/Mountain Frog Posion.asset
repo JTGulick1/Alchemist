@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Mountain Frog Posion
   m_EditorClassIdentifier: 
   title: Mountain Frog Posion
+  image: {fileID: 21300000, guid: 99982eace4645b74996c4f07e2e110bf, type: 3}
   cost: 3
   saveNum: 22
   physicalForm: {fileID: 1830315428488052390, guid: 386afb1ece184f44caf36c85c89ba33b, type: 3}
