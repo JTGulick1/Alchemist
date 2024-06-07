@@ -9,7 +9,10 @@ public class GameData
     public int dayCount;
     public int currentday;
     public List<int> inventory = new List<int>();
+    public List<int> potionInv = new List<int>(); // Potions Chest Save
 
+
+    //Potions
     public bool perception1;
     public bool Berserker;
     public bool Charm;
@@ -37,12 +40,23 @@ public class GameData
     public bool TimeDilation;
     public bool WaterBreathing;
 
+
+    //Relations
+    public int Baldwin;
+    public int Cedric;
+    public int Isolde;
+    public int Rowena;
+
     public GameData()
     {
         this.coins = 100;
         this.currentday = 0;
         this.dayCount = 0;
         this.perception1 = false;
+        this.Baldwin = 0;
+        this.Cedric = 0;
+        this.Isolde = 0;
+        this.Rowena = 0;
     }
 
     public void GetInv(List<Item> items)
@@ -51,5 +65,10 @@ public class GameData
         {
             inventory.Add(items[i].saveNum);
         }
+    }
+
+    public void GetPotions() // To do
+    {
+
     }
 }

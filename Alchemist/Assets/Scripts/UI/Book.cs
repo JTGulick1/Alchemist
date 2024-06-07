@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Book : MonoBehaviour
+public class Book : MonoBehaviour, IDataPersistance
 {
-    private int baldwin = 0;
-    private int Cedric = 0;
-    private int Isolde = 0;
-    private int Rowena = 0;
+    public int baldwin = 0;
+    public int Cedric = 0;
+    public int Isolde = 0;
+    public int Rowena = 0;
     public GameObject Heart;
 
     public GameObject Bald;
@@ -23,7 +23,26 @@ public class Book : MonoBehaviour
     private void Start()
     {
         relationPage.SetActive(true);
-        potion1Page.SetActive(false);
+    }
+
+    public void OpenedSave()
+    {
+        for (int i = 0; i < baldwin; i++)
+        {
+            relation(1);
+        }
+        for (int i = 0; i < Cedric; i++)
+        {
+            relation(2);
+        }
+        for (int i = 0; i < Isolde; i++)
+        {
+            relation(3);
+        }
+        for (int i = 0; i < Rowena; i++)
+        {
+            relation(4);
+        }
     }
 
     public void relation(int cust)
@@ -84,5 +103,22 @@ public class Book : MonoBehaviour
     {
         potion3Page.SetActive(false);
         potion2Page.SetActive(true);
+    }
+
+    public void LoadData(GameData data)
+    {
+        baldwin = data.Baldwin;
+        Cedric = data.Cedric;
+        Isolde = data.Isolde;
+        Rowena = data.Rowena;
+        OpenedSave();
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.Baldwin = baldwin;
+        data.Cedric = Cedric;
+        data.Isolde = Isolde;
+        data.Rowena = Rowena;
     }
 }

@@ -34,15 +34,17 @@ public class InventoryManager : MonoBehaviour, IDataPersistance
         {
             setingredient = Instantiate(ingredient, invCan.transform.position, invCan.transform.rotation, invCan.transform);
             setingredient.GetComponent<Image>().sprite = items[i].image;
+            setingredient.GetComponent<ItemNumber>().SetNumber(i);
             setingredient = Instantiate(ingredient, invCanP1.transform.position, invCanP1.transform.rotation, invCanP1.transform);
             setingredient.GetComponent<Image>().sprite = items[i].image;
+            setingredient.GetComponent<ItemNumber>().SetNumber(i);
             setingredient = Instantiate(ingredient, invCanP2.transform.position, invCanP2.transform.rotation, invCanP2.transform);
             setingredient.GetComponent<Image>().sprite = items[i].image;
+            setingredient.GetComponent<ItemNumber>().SetNumber(i);
             if (i == 0)
             {
                 first = setingredient;
             }
-            setingredient.GetComponent<ItemNumber>().SetNumber(i);
         }
     }
 
