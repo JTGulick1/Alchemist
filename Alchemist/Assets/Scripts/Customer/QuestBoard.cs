@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuestBoard : MonoBehaviour
+public class QuestBoard : MonoBehaviour, IDataPersistance
 {
     private BrewingManager brewing;
     private PlayerController player;
@@ -12,13 +12,18 @@ public class QuestBoard : MonoBehaviour
     public int stock = 0;
     public int quota = 30;
     private Brews reqPotion;
+    private bool active = false;
+    private int brew;
     private int payout;
     public TMPro.TMP_Text questText;
     void Start()
     {
         brewing = GameObject.FindGameObjectWithTag("Brewing").GetComponent<BrewingManager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        NewQuest();
+        if (active == false)
+        {
+            NewQuest();
+        }
         questText.text = stock + "/" + quota + " " + reqPotion.brewName;
         questText.gameObject.SetActive(false);
     }
@@ -58,4 +63,34 @@ public class QuestBoard : MonoBehaviour
             player.ToFarFromBoard();
         }
     }
+
+    private void GetBrew()
+    {
+        brewing = GameObject.FindGameObjectWithTag("Brewing").GetComponent<BrewingManager>();
+        for (int i = 0; i < brewing.avaliableBrews.Count; i++)
+        {
+            if (brew == brewing.avaliableBrews[i].saveInt)
+            {
+                reqPotion = brewing.avaliableBrews[i];
+            }
+        }
+        UpdateText();
+    }
+
+    public void LoadData(GameData data)
+    {
+        stock = data.bStock;
+        brew = data.bPot;
+        active = data.active;
+        GetBrew();
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        active = true;
+        data.bStock = stock;
+        data.bPot = reqPotion.saveInt;
+        data.active = active;
+    }
+
 }

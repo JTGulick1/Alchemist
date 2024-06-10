@@ -16,7 +16,7 @@ MonoBehaviour:
   physicalForm: {fileID: 4283784783637136618, guid: 430437a9284095241b39bd0c8cf594c3, type: 3}
   image: {fileID: 21300000, guid: e6752eb5ad9a00b4eaf174409d320b0d, type: 3}
   price: 30
-  saveInt: 0
+  saveInt: 12
   Ing1: {fileID: 4480128842210386722, guid: bf434c34c7eb4ea4086c2abb757a20f9, type: 3}
   Ing2: {fileID: 4480128842210386722, guid: e3e4a77ed567d404aa16db9bc3feaa18, type: 3}
   Ing3: {fileID: 4480128842210386722, guid: 6a9e2dccbd018114bb7fd4cafdf5a26a, type: 3}

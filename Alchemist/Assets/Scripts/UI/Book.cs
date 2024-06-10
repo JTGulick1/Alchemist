@@ -29,19 +29,19 @@ public class Book : MonoBehaviour, IDataPersistance
     {
         for (int i = 0; i < baldwin; i++)
         {
-            relation(1);
+            Instantiate(Heart, Bald.transform.position, Bald.transform.rotation, Bald.transform);
         }
         for (int i = 0; i < Cedric; i++)
         {
-            relation(2);
+            Instantiate(Heart, Ced.transform.position, Ced.transform.rotation, Ced.transform);
         }
         for (int i = 0; i < Isolde; i++)
         {
-            relation(3);
+            Instantiate(Heart, Iso.transform.position, Iso.transform.rotation, Iso.transform);
         }
         for (int i = 0; i < Rowena; i++)
         {
-            relation(4);
+            Instantiate(Heart, Row.transform.position, Row.transform.rotation, Row.transform);
         }
     }
 

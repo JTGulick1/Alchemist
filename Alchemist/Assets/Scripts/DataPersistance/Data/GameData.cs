@@ -47,6 +47,11 @@ public class GameData
     public int Isolde;
     public int Rowena;
 
+    //Quest Board
+    public int bStock;
+    public int bPot;
+    public bool active;
+
     public GameData()
     {
         this.coins = 100;
@@ -57,6 +62,8 @@ public class GameData
         this.Cedric = 0;
         this.Isolde = 0;
         this.Rowena = 0;
+        this.bStock = 0;
+        this.active = false;
     }
 
     public void GetInv(List<Item> items)
