@@ -150,6 +150,7 @@ MonoBehaviour:
   B: {fileID: 7022533315237930111}
   price: 15
   isPot: 0
+  saveInt: 9
 --- !u!1 &7022533315237930111
 GameObject:
   m_ObjectHideFlags: 0

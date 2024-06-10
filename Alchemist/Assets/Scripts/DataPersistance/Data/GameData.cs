@@ -74,8 +74,11 @@ public class GameData
         }
     }
 
-    public void GetPotions() // To do
+    public void GetPotions(List<GameObject> pots) // To do
     {
-
+        for (int i = 0; i < pots.Count; i++)
+        {
+            potionInv.Add(pots[i].GetComponent<BrewSettings>().saveInt);
+        }
     }
 }

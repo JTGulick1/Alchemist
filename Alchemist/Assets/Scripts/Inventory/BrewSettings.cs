@@ -11,6 +11,7 @@ public class BrewSettings : MonoBehaviour
     public GameObject B;
     public int price = 15;
     public bool isPot;
+    public int saveInt;
     private void Start()
     {
         temp = title;

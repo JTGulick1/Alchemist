@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class PotionsChest : MonoBehaviour
+public class PotionsChest : MonoBehaviour, IDataPersistance
 {
     private PlayerController player;
     private PlayerController2 player2;
@@ -11,6 +11,8 @@ public class PotionsChest : MonoBehaviour
     private bool isclose2 = false;
     public GameObject potion;
     public List<GameObject> potions = new List<GameObject>();
+    public List<GameObject> avaPotions = new List<GameObject>();
+    public BrewingManager brewing;
     private GameObject setingredient;
     public GameObject first;
     public int count = 0;
@@ -21,13 +23,16 @@ public class PotionsChest : MonoBehaviour
     public GameObject chestUI;
     //public GameObject chestUIp1;
     //public GameObject chestUIp2;
+    private GameObject tempSave;
 
 
     private void Start()
     {
         inputManager = InputManager.Instance;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        brewing = GameObject.FindGameObjectWithTag("Brewing").GetComponent<BrewingManager>();
         chestUI.SetActive(false);
+        UpdateInv();
         //chestUIp1.SetActive(false);
         //chestUIp2.SetActive(false); 
     }
@@ -190,5 +195,27 @@ public class PotionsChest : MonoBehaviour
         {
             isclose2 = false;
         }
+    }
+
+    public void LoadData(GameData data)
+    {
+        brewing = GameObject.FindGameObjectWithTag("Brewing").GetComponent<BrewingManager>();
+        for (int i = 0; i < data.potionInv.Count; i++)
+        {
+            for (int j = 0; j < brewing.avaliableBrews.Count; j++)
+            {
+                if (data.potionInv[i] == brewing.avaliableBrews[j].saveInt)
+                {
+                    temp = Instantiate(brewing.avaliableBrews[j].physicalForm, this.transform.position, this.transform.rotation);
+                    potions.Add(temp);
+                    temp.GetComponent<BrewSettings>().ChangeToPotion();
+                }
+            }
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.GetPotions(potions);
     }
 }
