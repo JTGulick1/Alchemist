@@ -8,12 +8,15 @@ public class RedecorateButton : MonoBehaviour
     public GameObject spawn;
     public bool objHere;
     public Redecoracate decoracate;
+    public int itemNum;
+    public int station;
 
     public void MoveObj()
     {
         if (objHere == true && decoracate.holding == null)
         {
-            decoracate.GrabbedObject(obj);
+            decoracate.GrabbedObject(obj, itemNum, station);
+            itemNum = 0;
             Destroy(obj);
             objHere = false;
             return;
@@ -23,6 +26,7 @@ public class RedecorateButton : MonoBehaviour
             obj = Instantiate(decoracate.PlaceObject(), spawn.transform.position, spawn.transform.rotation);
             Destroy(decoracate.holding);
             objHere = true;
+            itemNum = decoracate.getNum(station);
             return;
         }
     }

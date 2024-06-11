@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Redecoracate : MonoBehaviour
+public class Redecoracate : MonoBehaviour, IDataPersistance
 {
     private bool isclose;
     private InputManager inputManager;
@@ -13,7 +13,18 @@ public class Redecoracate : MonoBehaviour
     public GameObject holding;
     public GameObject UI;
     public GameObject FarAway;
-    // Start is called before the first frame update
+    public int holdingNum;
+    public List<int> reDec = new List<int>();
+    public GameObject[] reDecObj;
+
+    // Prefabs
+    public GameObject brewingCooker;
+    public GameObject counter;
+    public GameObject cutting;
+    public GameObject inventory;
+    public GameObject mudding;
+    public GameObject potting;
+
     void Start()
     {
         inputManager = InputManager.Instance;
@@ -39,14 +50,22 @@ public class Redecoracate : MonoBehaviour
         }
     }
 
-    public void GrabbedObject(GameObject obj)
+    public void GrabbedObject(GameObject obj , int num, int station)
     {
+        reDec[station] = 0;
         holding = Instantiate(obj, FarAway.transform.position, FarAway.transform.rotation);
+        holdingNum = num;
     }
 
     public GameObject PlaceObject()
     {
         return holding;
+    }
+
+    public int getNum(int station)
+    {
+        reDec[station] = holdingNum;
+        return holdingNum;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -73,4 +92,65 @@ public class Redecoracate : MonoBehaviour
             player.cam.gameObject.SetActive(true);
         }
     }
+
+    private void ReplacePrefabs()
+    {
+        for (int i = 0; i < reDecObj.Length; i++)
+        {
+            if (reDecObj[i].GetComponent<RedecorateButton>().objHere == true)
+            {
+                reDecObj[i].GetComponent<RedecorateButton>().objHere = false;
+                Destroy(reDecObj[i].GetComponent<RedecorateButton>().obj);
+                reDecObj[i].GetComponent<RedecorateButton>().itemNum = 0;
+            }
+        }
+
+        for (int i = 0; i < reDec.Count; i++)
+        {
+            if (reDec[i] == 0)
+            {
+                continue;
+            }
+            if (reDec[i] == 1)
+            {
+                Instantiate(brewingCooker, reDecObj[i].transform.position, reDecObj[i].transform.rotation);
+            }
+            if (reDec[i] == 2)
+            {
+                Instantiate(counter, reDecObj[i].transform.position, reDecObj[i].transform.rotation);
+            }
+            if (reDec[i] == 3)
+            {
+                Instantiate(cutting, reDecObj[i].transform.position, reDecObj[i].transform.rotation);
+            }
+            if (reDec[i] == 4)
+            {
+                Instantiate(inventory, reDecObj[i].transform.position, reDecObj[i].transform.rotation);
+            }
+            if (reDec[i] == 5)
+            {
+                Instantiate(mudding, reDecObj[i].transform.position, reDecObj[i].transform.rotation);
+            }
+            if (reDec[i] == 6)
+            {
+                Instantiate(potting, reDecObj[i].transform.position, reDecObj[i].transform.rotation);
+            }
+        }
+    }
+
+    public void LoadData(GameData data)
+    {
+        reDec = data.reDec;
+        for (int i = 0; i < reDecObj.Length; i++)
+        {
+            reDecObj[i].GetComponent<RedecorateButton>().itemNum = reDec[i];
+        }
+        ReplacePrefabs();
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.reDec = reDec;
+    }
+
 }

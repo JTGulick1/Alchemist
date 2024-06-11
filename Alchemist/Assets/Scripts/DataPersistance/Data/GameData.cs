@@ -52,6 +52,10 @@ public class GameData
     public int bPot;
     public bool active;
 
+    //Redecoration
+    public List<int> reDec = new List<int>();
+    private List<int> temp = new List<int>();
+
     public GameData()
     {
         this.coins = 100;
@@ -64,6 +68,31 @@ public class GameData
         this.Rowena = 0;
         this.bStock = 0;
         this.active = false;
+        this.reDec = ReDec();
+    }
+
+    private List<int> ReDec() {
+        temp.Add(2); 
+        temp.Add(5);
+        temp.Add(3);
+        temp.Add(4);
+        temp.Add(0);
+        temp.Add(0);
+        temp.Add(0);
+        temp.Add(0);
+        temp.Add(0);
+        temp.Add(0);
+        temp.Add(0);
+        temp.Add(0);
+        temp.Add(0);
+        temp.Add(6);
+        temp.Add(0);
+        temp.Add(1);
+        temp.Add(0);
+        temp.Add(0);
+        temp.Add(0);
+        temp.Add(0);
+        return temp;
     }
 
     public void GetInv(List<Item> items)
