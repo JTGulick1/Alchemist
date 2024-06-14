@@ -113,27 +113,27 @@ public class Redecoracate : MonoBehaviour, IDataPersistance
             }
             if (reDec[i] == 1)
             {
-                Instantiate(brewingCooker, reDecObj[i].transform.position, reDecObj[i].transform.rotation);
+                Instantiate(brewingCooker, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
             }
             if (reDec[i] == 2)
             {
-                Instantiate(counter, reDecObj[i].transform.position, reDecObj[i].transform.rotation);
+                Instantiate(counter, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
             }
             if (reDec[i] == 3)
             {
-                Instantiate(cutting, reDecObj[i].transform.position, reDecObj[i].transform.rotation);
+                Instantiate(cutting, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
             }
             if (reDec[i] == 4)
             {
-                Instantiate(inventory, reDecObj[i].transform.position, reDecObj[i].transform.rotation);
+                Instantiate(inventory, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
             }
             if (reDec[i] == 5)
             {
-                Instantiate(mudding, reDecObj[i].transform.position, reDecObj[i].transform.rotation);
+                Instantiate(mudding, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
             }
             if (reDec[i] == 6)
             {
-                Instantiate(potting, reDecObj[i].transform.position, reDecObj[i].transform.rotation);
+                Instantiate(potting, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
             }
         }
     }
