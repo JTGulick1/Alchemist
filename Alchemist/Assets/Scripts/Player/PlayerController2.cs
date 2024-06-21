@@ -32,6 +32,9 @@ public class PlayerController2 : MonoBehaviour
     private Currency currency;
     public GameObject vestHolder;
     public GameObject vest;
+    public BookSmall bookS;
+    private bool isBookOpen = false;
+
     private void Start()
     {
         inputManager = InputManager.Instance;
@@ -55,6 +58,11 @@ public class PlayerController2 : MonoBehaviour
         {
             playerSpeed = playerBaseSpeed;
         }
+        if (inputManager.PotionsBookP2())
+        {
+            OpenPotionBook();
+        }
+
         Vector2 movement = inputManager.GetPlayerMovementP2();
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
         move.y = 0f;
@@ -132,4 +140,21 @@ public class PlayerController2 : MonoBehaviour
     {
         carry.GetComponent<ItemSettings>().itemtype = type;
     }
+
+    public void OpenPotionBook()
+    {
+        if (isBookOpen == false)
+        {
+            bookS.gameObject.SetActive(true);
+            isBookOpen = true;
+            return;
+        }
+        if (isBookOpen == true)
+        {
+            bookS.gameObject.SetActive(false);
+            isBookOpen = false;
+            return;
+        }
+    }
+
 }
