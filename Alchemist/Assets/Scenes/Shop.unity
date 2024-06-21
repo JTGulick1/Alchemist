@@ -27109,7 +27109,7 @@ MonoBehaviour:
   isclose: 0
   isOpen2: 0
   isclose2: 0
-  selected: {fileID: 0}
+  selected: {fileID: 61894985}
 --- !u!65 &887879680
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
         cam.rect = new Rect(0, 0.5f, 1, 0.5f);
         P2S = true;
         Player2IRL = Instantiate(Player2);
+        questBoard.Player2Spawn();
     }
 
     public void OpenPotionBook()

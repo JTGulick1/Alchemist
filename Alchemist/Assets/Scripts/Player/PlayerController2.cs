@@ -13,6 +13,7 @@ public class PlayerController2 : MonoBehaviour
     private InputManager inputManager;
     private CharacterController controller;
     private PlayerController player;
+    private QuestBoard questBoard;
     private float playerBaseSpeed = 30.0f;
     private float sprintingSpeed = 50.0f;
     public PlayerInput PlayerInput => playerInput;
@@ -21,6 +22,8 @@ public class PlayerController2 : MonoBehaviour
     public bool isHolding = false;
     public GameObject playerHolder;
     public GameObject carry;
+    public bool closeToBoard = false;
+    public GameObject bOrder;
 
     private EventSystem eventSystem;
     public bool closeToCust = false;
@@ -36,6 +39,8 @@ public class PlayerController2 : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
         Cursor.lockState = CursorLockMode.Locked;
+        bOrder = player.bOrder;
+        questBoard = GameObject.FindGameObjectWithTag("QuestBoard").GetComponent<QuestBoard>();
     }
 
     private void Update()
@@ -64,6 +69,21 @@ public class PlayerController2 : MonoBehaviour
                 isHolding = false;
             }
         }
+        if (carry != null && carry.tag == "Holder")
+        {
+            if (closeToBoard == true && carry.GetComponent<BrewSettings>().temp == bOrder.GetComponent<BrewSettings>().title &&
+                   carry.GetComponent<BrewSettings>().isPot == true && inputManager.InteractP2())
+            {
+                questBoard.stock++;
+                Destroy(carry);
+                isHolding = false;
+                if (questBoard.stock >= questBoard.quota)
+                {
+                    questBoard.QuestComplete();
+                }
+                questBoard.UpdateText();
+            }
+        }
     }
 
     public void selected(GameObject first)
@@ -81,6 +101,15 @@ public class PlayerController2 : MonoBehaviour
     public void ToFarFromCust()
     {
         closeToCust = false;
+    }
+    public void ToFarFromBoard()
+    {
+        closeToBoard = false;
+    }
+    public void QuestBoard(GameObject boardO)
+    {
+        closeToBoard = true;
+        bOrder = boardO;
     }
 
     public void FreezePlayer()

@@ -77,8 +77,8 @@ public class ShopManager : MonoBehaviour
         }
         if (num == 2)
         {
-            player2.selected(selected);
             shopCanP2.SetActive(true);
+            player2.selected(selected);
         }
 
     }

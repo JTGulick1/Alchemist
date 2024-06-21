@@ -28,6 +28,11 @@ public class QuestBoard : MonoBehaviour, IDataPersistance
         questText.gameObject.SetActive(false);
     }
 
+    public void Player2Spawn()
+    {
+        player2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerController2>();
+    }
+
     public void NewQuest()
     {
         stock = 0;
@@ -53,6 +58,12 @@ public class QuestBoard : MonoBehaviour, IDataPersistance
             questText.gameObject.SetActive(true);
             player.QuestBoard(reqPotion.physicalForm);
         }
+        if (other.tag == "Player2")
+        {
+            questText.text = stock + "/" + quota + " " + reqPotion.brewName;
+            questText.gameObject.SetActive(true);
+            player2.QuestBoard(reqPotion.physicalForm);
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -61,6 +72,11 @@ public class QuestBoard : MonoBehaviour, IDataPersistance
         {
             questText.gameObject.SetActive(false);
             player.ToFarFromBoard();
+        }
+        if (other.tag == "Player2")
+        {
+            questText.gameObject.SetActive(false);
+            player2.ToFarFromBoard();
         }
     }
 
