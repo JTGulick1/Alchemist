@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Redecoracate : MonoBehaviour, IDataPersistance
+public class Redecorate : MonoBehaviour, IDataPersistance
 {
     private bool isclose;
     private InputManager inputManager;
@@ -50,7 +50,7 @@ public class Redecoracate : MonoBehaviour, IDataPersistance
         }
     }
 
-    public void GrabbedObject(GameObject obj , int num, int station)
+    public void GrabbedObject(GameObject obj, int num, int station)
     {
         reDec[station] = 0;
         holding = Instantiate(obj, FarAway.transform.position, FarAway.transform.rotation);
@@ -113,28 +113,29 @@ public class Redecoracate : MonoBehaviour, IDataPersistance
             }
             if (reDec[i] == 1)
             {
-                Instantiate(brewingCooker, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
+                reDecObj[i].GetComponent<RedecorateButton>().obj = Instantiate(brewingCooker, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
             }
             if (reDec[i] == 2)
             {
-                Instantiate(counter, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
+                reDecObj[i].GetComponent<RedecorateButton>().obj = Instantiate(counter, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
             }
             if (reDec[i] == 3)
             {
-                Instantiate(cutting, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
+                reDecObj[i].GetComponent<RedecorateButton>().obj = Instantiate(cutting, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
             }
             if (reDec[i] == 4)
             {
-                Instantiate(inventory, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
+                reDecObj[i].GetComponent<RedecorateButton>().obj = Instantiate(inventory, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
             }
             if (reDec[i] == 5)
             {
-                Instantiate(mudding, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
+                reDecObj[i].GetComponent<RedecorateButton>().obj = Instantiate(mudding, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
             }
             if (reDec[i] == 6)
             {
-                Instantiate(potting, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
+                reDecObj[i].GetComponent<RedecorateButton>().obj = Instantiate(potting, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.position, reDecObj[i].GetComponent<RedecorateButton>().spawn.transform.rotation);
             }
+            reDecObj[i].GetComponent<RedecorateButton>().objHere = true;
         }
     }
 

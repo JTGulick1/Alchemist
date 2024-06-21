@@ -7,7 +7,7 @@ public class RedecorateButton : MonoBehaviour
     public GameObject obj;
     public GameObject spawn;
     public bool objHere;
-    public Redecoracate decoracate;
+    public Redecorate decoracate;
     public int itemNum;
     public int station;
 
