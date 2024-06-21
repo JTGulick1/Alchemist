@@ -28,7 +28,7 @@ public class ItemNumber : MonoBehaviour
 
     public void GrabbedItem()
     {
-        if(player.isHolding == false && inventory.isP2 == false)
+        if (player.isHolding == false && inventory.isP2 == false)
         {
             player.isHolding = true;
             inventory.GrabbedItem(number);
@@ -44,9 +44,14 @@ public class ItemNumber : MonoBehaviour
 
     public void GrabbedPotion()
     {
-        if (player.isHolding == false && potionsChest.isP2 == false)
+        if (potionsChest.isP2 == false)
         {
             player.isHolding = true;
+            potionsChest.GrabbedItem(number);
+            Destroy(this.gameObject);
+        }
+        if (potionsChest.isP2 == true)
+        {
             potionsChest.GrabbedItem(number);
             Destroy(this.gameObject);
         }

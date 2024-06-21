@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PotionsChest : MonoBehaviour, IDataPersistance
 {
     private PlayerController player;
-    private PlayerController2 player2;
+    public PlayerController2 player2;
     private InputManager inputManager;
     private bool isclose = false;
     private bool isclose2 = false;
@@ -21,10 +21,11 @@ public class PotionsChest : MonoBehaviour, IDataPersistance
     private GameObject temp;
 
     public GameObject chestUI;
-    //public GameObject chestUIp1;
-    //public GameObject chestUIp2;
+    public GameObject chestUIp1;
+    public GameObject chestUIp2;
     private GameObject tempSave;
 
+    private bool justGrabbed = false;
 
     private void Start()
     {
@@ -33,8 +34,8 @@ public class PotionsChest : MonoBehaviour, IDataPersistance
         brewing = GameObject.FindGameObjectWithTag("Brewing").GetComponent<BrewingManager>();
         chestUI.SetActive(false);
         UpdateInv();
-        //chestUIp1.SetActive(false);
-        //chestUIp2.SetActive(false); 
+        chestUIp1.SetActive(false);
+        chestUIp2.SetActive(false);
     }
 
     public void Joined()
@@ -48,13 +49,17 @@ public class PotionsChest : MonoBehaviour, IDataPersistance
         {
             Joined();
         }
-        if (isclose == true)
+        if (isclose == true && player.P2S == false)
         {
             Run(0);
         }
-        if (isclose2 == true)
+        if (isclose == true && player.P2S == true)
         {
             Run(1);
+        }
+        if (isclose2 == true)
+        {
+            Run(2);
         }
     }
 
@@ -64,28 +69,32 @@ public class PotionsChest : MonoBehaviour, IDataPersistance
         {
             setingredient = Instantiate(potion, chestUI.transform.position, chestUI.transform.rotation, chestUI.transform);
             setingredient.GetComponent<Image>().sprite = potions[i].GetComponent<BrewSettings>().image;
-            //setingredient = Instantiate(potion, invCanP1.transform.position, invCanP1.transform.rotation, invCanP1.transform);
-            //setingredient = Instantiate(potion, invCanP2.transform.position, invCanP2.transform.rotation, invCanP2.transform);
+            setingredient.GetComponent<ItemNumber>().SetNumber(i);
+            setingredient = Instantiate(potion, chestUIp1.transform.position, chestUIp1.transform.rotation, chestUIp1.transform);
+            setingredient.GetComponent<Image>().sprite = potions[i].GetComponent<BrewSettings>().image;
+            setingredient.GetComponent<ItemNumber>().SetNumber(i);
+            setingredient = Instantiate(potion, chestUIp2.transform.position, chestUIp2.transform.rotation, chestUIp2.transform);
+            setingredient.GetComponent<Image>().sprite = potions[i].GetComponent<BrewSettings>().image;
+            setingredient.GetComponent<ItemNumber>().SetNumber(i);
             if (i == 0)
             {
                 first = setingredient;
             }
-            setingredient.GetComponent<ItemNumber>().SetNumber(i);
         }
     }
 
     public void DeleteInv()
     {
         chestUI.SetActive(true);
-        //invCanP1.SetActive(true);
-        //invCanP2.SetActive(true);
+        chestUIp1.SetActive(true);
+        chestUIp2.SetActive(true);
         foreach (GameObject item in GameObject.FindGameObjectsWithTag("poting"))
         {
             Destroy(item);
         }
         chestUI.SetActive(false);
-        //invCanP1.SetActive(false);
-        //invCanP2.SetActive(false);
+        chestUIp1.SetActive(false);
+        chestUIp2.SetActive(false);
     }
     public void PlacedItem(GameObject potion)
     {
@@ -96,58 +105,91 @@ public class PotionsChest : MonoBehaviour, IDataPersistance
 
     private void Run(int num)
     {
-        if (num == 0)
+        if (justGrabbed == false)
         {
-            if (isclose == true && inputManager.Interact() == true
-                && player.isHolding == false)
+            if (num == 0)
             {
-                Cursor.lockState = CursorLockMode.None;
-                chestUI.SetActive(true);
-                return;
+                if (isclose == true && inputManager.Interact() == true
+                    && player.isHolding == false && player.P2S == false)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    chestUI.SetActive(true);
+                    return;
+                }
+                if (isclose == true && inputManager.Interact() == true
+                    && player.carry.GetComponent<BrewSettings>().isPot == true)
+                {
+                    player.isHolding = false;
+                    temp = Instantiate(player.carry, this.transform.position, this.transform.rotation);
+                    PlacedItem(temp);
+                    Destroy(player.carry);
+                    return;
+                }
             }
-            if (isclose == true && inputManager.Interact() == true
-                && player.carry.GetComponent<BrewSettings>().isPot == true)
+            if (num == 1)
             {
-                player.isHolding = false;
-                temp = Instantiate(player.carry, this.transform.position, this.transform.rotation);
-                PlacedItem(temp);
-                Destroy(player.carry);
-                return;
+                if (isclose == true && inputManager.Interact() == true
+                    && player.isHolding == false && player.P2S == true)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    chestUIp1.SetActive(true);
+                    return;
+                }
+                if (isclose == true && inputManager.Interact() == true
+                    && player.carry.GetComponent<BrewSettings>().isPot == true)
+                {
+                    player.isHolding = false;
+                    temp = Instantiate(player.carry, this.transform.position, this.transform.rotation);
+                    PlacedItem(temp);
+                    Destroy(player.carry);
+                    return;
+                }
             }
-        }
-        if (num == 1)
-        {
-            if (isclose2 == true && inputManager.InteractP2() == true
-                && player2.carry.GetComponent<BrewSettings>().isPot == true)
+            if (num == 2)
             {
-                player2.isHolding = false;
-                Destroy(player2.carry);
-                return;
+                if (isclose2 == true && inputManager.InteractP2() == true
+                    && player2.isHolding == false)
+                {
+                    chestUIp2.SetActive(true);
+                    player2.selected(first);
+                    return;
+                }
+                if (isclose2 == true && inputManager.InteractP2() == true
+                    && player2.carry.GetComponent<BrewSettings>().isPot == true)
+                {
+                    player2.isHolding = false;
+                    temp = Instantiate(player2.carry, this.transform.position, this.transform.rotation);
+                    PlacedItem(temp);
+                    Destroy(player2.carry);
+                    return;
+                }
             }
         }
     }
 
     public void GrabbedItem(int number)
     {
+        justGrabbed = true;
         if (player.P2S == false)
         {
             player.carry = Instantiate(potions[number], player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
-            Destroy(potions[number]);
         }
-        /*if (player.P2S == true && isP2 == false)
+        if (player.P2S == true && isP2 == false)
         {
-            player.carry = Instantiate(items[number].physicalForm, player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
+            player.carry = Instantiate(potions[number], player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
         }
-        if (player.P2S == true && isP2 == true)
+        if (isP2 == true)
         {
+            Debug.Log("Player 2");
             player2.isHolding = true;
-            player2.carry = Instantiate(items[number].physicalForm, player2.playerHolder.transform.position, player2.playerHolder.transform.rotation, player2.playerHolder.transform);
-        }*/
+            player2.carry = Instantiate(potions[number], player2.playerHolder.transform.position, player2.playerHolder.transform.rotation, player2.playerHolder.transform);
+        }
 
+        Destroy(potions[number]);
         potions.RemoveAt(number);
         DeleteInv();
         UpdateInv();
-        /* (player.P2S == false)
+        if (player.P2S == false)
         {
             CloseInventory(0);
         }
@@ -157,9 +199,8 @@ public class PotionsChest : MonoBehaviour, IDataPersistance
         }
         if (isP2 == true)
         {
-            isP2 = false;
             CloseInventory(2);
-        }*/
+        }
     }
 
     public void CloseInventory(int num)
@@ -168,6 +209,15 @@ public class PotionsChest : MonoBehaviour, IDataPersistance
         {
             Cursor.lockState = CursorLockMode.Locked;
             chestUI.SetActive(false);
+        }
+        if (num == 1)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            chestUIp1.SetActive(false);
+        }
+        if (num == 2)
+        {
+            chestUIp2.SetActive(false);
         }
     }
 
@@ -179,6 +229,7 @@ public class PotionsChest : MonoBehaviour, IDataPersistance
         }
         if (other.tag == "Player2")
         {
+            isP2 = true;
             isclose2 = true;
         }
     }
@@ -194,7 +245,10 @@ public class PotionsChest : MonoBehaviour, IDataPersistance
         if (other.tag == "Player2")
         {
             isclose2 = false;
+            isP2 = false;
+            CloseInventory(2);
         }
+        justGrabbed = false;
     }
 
     public void LoadData(GameData data)
