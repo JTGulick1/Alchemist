@@ -30,6 +30,8 @@ public class PlayerController2 : MonoBehaviour
     public GameObject order;
     AI_Customer closestCust;
     private Currency currency;
+    public GameObject vestHolder;
+    public GameObject vest;
     private void Start()
     {
         inputManager = InputManager.Instance;
