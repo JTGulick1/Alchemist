@@ -62,6 +62,16 @@ public class PlayerController2 : MonoBehaviour
         {
             OpenPotionBook();
         }
+        if (inputManager.PageTurnLeft())
+        {
+            bookS.pageNum--;
+            bookS.UpdatePage();
+        }
+        if (inputManager.PageTurnRight())
+        {
+            bookS.pageNum++;
+            bookS.UpdatePage();
+        }
 
         Vector2 movement = inputManager.GetPlayerMovementP2();
         Vector3 move = new Vector3(movement.x, 0f, movement.y);

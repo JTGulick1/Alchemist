@@ -99,4 +99,14 @@ public class InputManager : MonoBehaviour
         return inputActions.Controller.PotionsBook.triggered;
     }
 
+    public bool PageTurnLeft()
+    {
+        return inputActions.Controller.PageLeft.triggered;
+    }
+
+    public bool PageTurnRight()
+    {
+        return inputActions.Controller.PageRight.triggered;
+    }
+
 }

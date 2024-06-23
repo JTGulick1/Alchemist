@@ -30,20 +30,10 @@ public class BookSmall : MonoBehaviour, IDataPersistance
     public PlayerController player1;
     public PlayerController2 player2;
 
-    public GameObject b1;
-    public GameObject b2;
-    public GameObject b3;
-    public GameObject b4;
-    public GameObject b5;
-    public GameObject b6;
-    public GameObject b7;
-    public GameObject b8;
-    public GameObject b9;
-    public GameObject b10;
+    public int pageNum = 1;
 
     private void Start()
     {
-
         relationPage1.SetActive(true);
         player1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
@@ -65,6 +55,67 @@ public class BookSmall : MonoBehaviour, IDataPersistance
         for (int i = 0; i < Rowena; i++)
         {
             Instantiate(Heart, Row.transform.position, Row.transform.rotation, Row.transform);
+        }
+    }
+
+    public void UpdatePage()
+    {
+        if (pageNum == 11)
+        {
+            pageNum = 1;
+        }
+        if (pageNum < 1)
+        {
+            pageNum = 1;
+        }
+        if (pageNum == 1)
+        {
+            R22R1();
+            P82R1();
+        }
+        if (pageNum == 2)
+        {
+            R12R2();
+            P12R2();
+        }
+        if (pageNum == 3)
+        {
+            R22P1();
+            P22P1();
+        }
+        if (pageNum == 4)
+        {
+            P12P2();
+            P32P2();
+        }
+        if (pageNum == 5)
+        {
+            P22P3();
+            P42P3();
+        }
+        if (pageNum == 6)
+        {
+            P32P4();
+            P52P4();
+        }
+        if (pageNum == 7)
+        {
+            P42P5();
+            P62P5();
+        }
+        if (pageNum == 8)
+        {
+            P52P6();
+            P72P6();
+        }
+        if (pageNum == 9)
+        {
+            P62P7();
+            P82P7();
+        }
+        if (pageNum == 10)
+        {
+            P72P8();
         }
     }
 
@@ -99,180 +150,104 @@ public class BookSmall : MonoBehaviour, IDataPersistance
 
     public void R12R2()
     {
-        if (Player2Book)
-        {
-            player2.selected(b2);
-        }
         relationPage1.SetActive(false);
         relationPage2.SetActive(true);
     }
     public void R22R1()
     {
-        if (Player2Book)
-        {
-            player2.selected(b1);
-        }
         relationPage1.SetActive(true);
         relationPage2.SetActive(false);
     }
 
     public void R22P1()
     {
-        if (Player2Book)
-        {
-            player2.selected(b3);
-        }
         relationPage2.SetActive(false);
         potion1Page.SetActive(true);
     }
     public void P12R2()
     {
-        if (Player2Book)
-        {
-            player2.selected(b2);
-        }
         relationPage2.SetActive(true);
         potion1Page.SetActive(false);
     }
 
     public void P12P2()
     {
-        if (Player2Book)
-        {
-            player2.selected(b4);
-        }
         potion2Page.SetActive(true);
         potion1Page.SetActive(false);
     }
     public void P22P1()
     {
-        if (Player2Book)
-        {
-            player2.selected(b3);
-        }
         potion2Page.SetActive(false);
         potion1Page.SetActive(true);
     }
 
     public void P22P3()
     {
-        if (Player2Book)
-        {
-            player2.selected(b5);
-        }
         potion2Page.SetActive(false);
         potion3Page.SetActive(true);
     }
     public void P32P2()
     {
-        if (Player2Book)
-        {
-            player2.selected(b4);
-        }
         potion3Page.SetActive(false);
         potion2Page.SetActive(true);
     }
     public void P32P4()
     {
-        if (Player2Book)
-        {
-            player2.selected(b6);
-        }
         potion3Page.SetActive(false);
         potion4Page.SetActive(true);
     }
     public void P42P3()
     {
-        if (Player2Book)
-        {
-            player2.selected(b5);
-        }
         potion4Page.SetActive(false);
         potion3Page.SetActive(true);
     }
 
     public void P42P5()
     {
-        if (Player2Book)
-        {
-            player2.selected(b7);
-        }
         potion4Page.SetActive(false);
         potion5Page.SetActive(true);
     }
     public void P52P4()
     {
-        if (Player2Book)
-        {
-            player2.selected(b6);
-        }
         potion5Page.SetActive(false);
         potion4Page.SetActive(true);
     }
 
     public void P52P6()
     {
-        if (Player2Book)
-        {
-            player2.selected(b8);
-        }
         potion5Page.SetActive(false);
         potion6Page.SetActive(true);
     }
     public void P62P5()
     {
-        if (Player2Book)
-        {
-            player2.selected(b7);
-        }
         potion6Page.SetActive(false);
         potion5Page.SetActive(true);
     }
 
     public void P62P7()
     {
-        if (Player2Book)
-        {
-            player2.selected(b9);
-        }
         potion6Page.SetActive(false);
         potion7Page.SetActive(true);
     }
     public void P72P6()
     {
-        if (Player2Book)
-        {
-            player2.selected(b8);
-        }
         potion7Page.SetActive(false);
         potion6Page.SetActive(true);
     }
 
     public void P72P8()
     {
-        if (Player2Book)
-        {
-            player2.selected(b10);
-        }
         potion7Page.SetActive(false);
         potion8Page.SetActive(true);
     }
     public void P82P7()
     {
-        if (Player2Book)
-        {
-            player2.selected(b9);
-        }
         potion8Page.SetActive(false);
         potion7Page.SetActive(true);
     }
 
     public void P82R1()
     {
-        if (Player2Book)
-        {
-            player2.selected(b1);
-        }
         potion8Page.SetActive(false);
         relationPage1.SetActive(true);
     }
