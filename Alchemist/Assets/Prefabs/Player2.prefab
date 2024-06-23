@@ -256,8 +256,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 30
+  cBrew: 0
   isHolding: 0
   playerHolder: {fileID: 2623588221467078241}
   carry: {fileID: 0}
+  closeToBoard: 0
+  bOrder: {fileID: 0}
   closeToCust: 0
   order: {fileID: 0}
+  vestHolder: {fileID: 7232562016397582417}
+  vest: {fileID: 0}

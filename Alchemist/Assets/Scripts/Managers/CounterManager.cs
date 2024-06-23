@@ -51,7 +51,7 @@ public class CounterManager : MonoBehaviour
                 Destroy(player.carry);
                 return;
             }
-            if (player.isHolding == false && inputManager.Interact() == true && isclose == true)
+            if (player.isHolding == false && inputManager.Interact() == true && isclose == true && item != null)
             {
                 player.isHolding = true;
                 player.carry = Instantiate(item, player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);

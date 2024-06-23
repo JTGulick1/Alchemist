@@ -28,6 +28,7 @@ TagManager:
   - PotionChest
   - QuestBoard
   - Redec
+  - BookP2
   layers:
   - Default
   - TransparentFX

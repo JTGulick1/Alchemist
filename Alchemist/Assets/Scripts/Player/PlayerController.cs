@@ -36,7 +36,10 @@ public class PlayerController : MonoBehaviour
     public GameObject vestHolder;
     public GameObject vest;
     public GameObject Pbook;
+    public GameObject PbookS;
     public Book book;
+    public BookSmall bookS;
+    public GameObject bookS2;
     private bool isBookOpen = false;
 
     private void Start()
@@ -50,7 +53,9 @@ public class PlayerController : MonoBehaviour
         questBoard = GameObject.FindGameObjectWithTag("QuestBoard").GetComponent<QuestBoard>();
         Cursor.lockState = CursorLockMode.Locked;
         Pbook.SetActive(false);
+        PbookS.SetActive(false);
         book = Pbook.GetComponent<Book>();
+        bookS = Pbook.GetComponent<BookSmall>();
     }
 
     private void Update()
@@ -69,6 +74,7 @@ public class PlayerController : MonoBehaviour
             SpawnP2();
             inventory.Joined();
             shop.Joined();
+            bookS2.GetComponent<BookSmall>().Joined();
         }
         if (inputManager.Sprint() == true)
         {
@@ -117,23 +123,47 @@ public class PlayerController : MonoBehaviour
         cam.rect = new Rect(0, 0.5f, 1, 0.5f);
         P2S = true;
         Player2IRL = Instantiate(Player2);
+        questBoard.Player2Spawn();
+        bookS2.SetActive(true);
+        Player2.GetComponent<PlayerController2>().bookS = bookS2.GetComponent<BookSmall>();
+        bookS2.SetActive(false);
     }
 
     public void OpenPotionBook()
     {
-        if (isBookOpen == false)
+        if (P2S == false)
         {
-            Cursor.lockState = CursorLockMode.None;
-            Pbook.SetActive(true);
-            isBookOpen = true;
-            return;
+            if (isBookOpen == false)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Pbook.SetActive(true);
+                isBookOpen = true;
+                return;
+            }
+            if (isBookOpen == true)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Pbook.SetActive(false);
+                isBookOpen = false;
+                return;
+            }
         }
-        if (isBookOpen == true)
+        if (P2S == true)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Pbook.SetActive(false);
-            isBookOpen = false;
-            return;
+            if (isBookOpen == false)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                PbookS.SetActive(true);
+                isBookOpen = true;
+                return;
+            }
+            if (isBookOpen == true)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                PbookS.SetActive(false);
+                isBookOpen = false;
+                return;
+            }
         }
     }
 

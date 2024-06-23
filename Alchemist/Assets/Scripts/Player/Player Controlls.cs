@@ -252,6 +252,24 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PageLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c46675a-dea6-479c-b16a-6851d46a7a68"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PageRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""4ccd539d-b367-4f82-bcd1-6d632bb39ef7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -406,6 +424,28 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PotionsBook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3917e148-760d-4836-b5cc-472050798886"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PageLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""af2b593a-45e8-42f8-b322-4727c1689dc0"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PageRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -693,6 +733,8 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         m_Controller_MouseMovement = m_Controller.FindAction("MouseMovement", throwIfNotFound: true);
         m_Controller_ControllerSelect = m_Controller.FindAction("ControllerSelect", throwIfNotFound: true);
         m_Controller_PotionsBook = m_Controller.FindAction("PotionsBook", throwIfNotFound: true);
+        m_Controller_PageLeft = m_Controller.FindAction("PageLeft", throwIfNotFound: true);
+        m_Controller_PageRight = m_Controller.FindAction("PageRight", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -843,6 +885,8 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Controller_MouseMovement;
     private readonly InputAction m_Controller_ControllerSelect;
     private readonly InputAction m_Controller_PotionsBook;
+    private readonly InputAction m_Controller_PageLeft;
+    private readonly InputAction m_Controller_PageRight;
     public struct ControllerActions
     {
         private @PlayerControlls m_Wrapper;
@@ -853,6 +897,8 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         public InputAction @MouseMovement => m_Wrapper.m_Controller_MouseMovement;
         public InputAction @ControllerSelect => m_Wrapper.m_Controller_ControllerSelect;
         public InputAction @PotionsBook => m_Wrapper.m_Controller_PotionsBook;
+        public InputAction @PageLeft => m_Wrapper.m_Controller_PageLeft;
+        public InputAction @PageRight => m_Wrapper.m_Controller_PageRight;
         public InputActionMap Get() { return m_Wrapper.m_Controller; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -880,6 +926,12 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                 @PotionsBook.started -= m_Wrapper.m_ControllerActionsCallbackInterface.OnPotionsBook;
                 @PotionsBook.performed -= m_Wrapper.m_ControllerActionsCallbackInterface.OnPotionsBook;
                 @PotionsBook.canceled -= m_Wrapper.m_ControllerActionsCallbackInterface.OnPotionsBook;
+                @PageLeft.started -= m_Wrapper.m_ControllerActionsCallbackInterface.OnPageLeft;
+                @PageLeft.performed -= m_Wrapper.m_ControllerActionsCallbackInterface.OnPageLeft;
+                @PageLeft.canceled -= m_Wrapper.m_ControllerActionsCallbackInterface.OnPageLeft;
+                @PageRight.started -= m_Wrapper.m_ControllerActionsCallbackInterface.OnPageRight;
+                @PageRight.performed -= m_Wrapper.m_ControllerActionsCallbackInterface.OnPageRight;
+                @PageRight.canceled -= m_Wrapper.m_ControllerActionsCallbackInterface.OnPageRight;
             }
             m_Wrapper.m_ControllerActionsCallbackInterface = instance;
             if (instance != null)
@@ -902,6 +954,12 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                 @PotionsBook.started += instance.OnPotionsBook;
                 @PotionsBook.performed += instance.OnPotionsBook;
                 @PotionsBook.canceled += instance.OnPotionsBook;
+                @PageLeft.started += instance.OnPageLeft;
+                @PageLeft.performed += instance.OnPageLeft;
+                @PageLeft.canceled += instance.OnPageLeft;
+                @PageRight.started += instance.OnPageRight;
+                @PageRight.performed += instance.OnPageRight;
+                @PageRight.canceled += instance.OnPageRight;
             }
         }
     }
@@ -1028,6 +1086,8 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         void OnMouseMovement(InputAction.CallbackContext context);
         void OnControllerSelect(InputAction.CallbackContext context);
         void OnPotionsBook(InputAction.CallbackContext context);
+        void OnPageLeft(InputAction.CallbackContext context);
+        void OnPageRight(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

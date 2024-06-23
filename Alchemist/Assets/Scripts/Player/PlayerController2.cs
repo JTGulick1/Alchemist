@@ -13,6 +13,7 @@ public class PlayerController2 : MonoBehaviour
     private InputManager inputManager;
     private CharacterController controller;
     private PlayerController player;
+    private QuestBoard questBoard;
     private float playerBaseSpeed = 30.0f;
     private float sprintingSpeed = 50.0f;
     public PlayerInput PlayerInput => playerInput;
@@ -21,12 +22,19 @@ public class PlayerController2 : MonoBehaviour
     public bool isHolding = false;
     public GameObject playerHolder;
     public GameObject carry;
+    public bool closeToBoard = false;
+    public GameObject bOrder;
 
     private EventSystem eventSystem;
     public bool closeToCust = false;
     public GameObject order;
     AI_Customer closestCust;
     private Currency currency;
+    public GameObject vestHolder;
+    public GameObject vest;
+    public BookSmall bookS;
+    private bool isBookOpen = false;
+
     private void Start()
     {
         inputManager = InputManager.Instance;
@@ -36,6 +44,8 @@ public class PlayerController2 : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
         Cursor.lockState = CursorLockMode.Locked;
+        bOrder = player.bOrder;
+        questBoard = GameObject.FindGameObjectWithTag("QuestBoard").GetComponent<QuestBoard>();
     }
 
     private void Update()
@@ -48,6 +58,21 @@ public class PlayerController2 : MonoBehaviour
         {
             playerSpeed = playerBaseSpeed;
         }
+        if (inputManager.PotionsBookP2())
+        {
+            OpenPotionBook();
+        }
+        if (inputManager.PageTurnLeft())
+        {
+            bookS.pageNum--;
+            bookS.UpdatePage();
+        }
+        if (inputManager.PageTurnRight())
+        {
+            bookS.pageNum++;
+            bookS.UpdatePage();
+        }
+
         Vector2 movement = inputManager.GetPlayerMovementP2();
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
         move.y = 0f;
@@ -62,6 +87,21 @@ public class PlayerController2 : MonoBehaviour
                 currency.GetGold(carry.GetComponent<BrewSettings>().price);
                 Destroy(carry);
                 isHolding = false;
+            }
+        }
+        if (carry != null && carry.tag == "Holder")
+        {
+            if (closeToBoard == true && carry.GetComponent<BrewSettings>().temp == bOrder.GetComponent<BrewSettings>().title &&
+                   carry.GetComponent<BrewSettings>().isPot == true && inputManager.InteractP2())
+            {
+                questBoard.stock++;
+                Destroy(carry);
+                isHolding = false;
+                if (questBoard.stock >= questBoard.quota)
+                {
+                    questBoard.QuestComplete();
+                }
+                questBoard.UpdateText();
             }
         }
     }
@@ -82,6 +122,15 @@ public class PlayerController2 : MonoBehaviour
     {
         closeToCust = false;
     }
+    public void ToFarFromBoard()
+    {
+        closeToBoard = false;
+    }
+    public void QuestBoard(GameObject boardO)
+    {
+        closeToBoard = true;
+        bOrder = boardO;
+    }
 
     public void FreezePlayer()
     {
@@ -101,4 +150,21 @@ public class PlayerController2 : MonoBehaviour
     {
         carry.GetComponent<ItemSettings>().itemtype = type;
     }
+
+    public void OpenPotionBook()
+    {
+        if (isBookOpen == false)
+        {
+            bookS.gameObject.SetActive(true);
+            isBookOpen = true;
+            return;
+        }
+        if (isBookOpen == true)
+        {
+            bookS.gameObject.SetActive(false);
+            isBookOpen = false;
+            return;
+        }
+    }
+
 }
