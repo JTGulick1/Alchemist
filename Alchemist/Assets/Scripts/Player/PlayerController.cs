@@ -84,6 +84,12 @@ public class PlayerController : MonoBehaviour
         {
             playerSpeed = playerBaseSpeed;
         }
+        if (inputManager.Throw() == true && isHolding == true)
+        {
+            isHolding = false;
+            Instantiate(carry, playerHolder.transform.position, playerHolder.transform.rotation);
+            Destroy(carry);
+        }
         Vector2 movement = inputManager.GetPlayerMovement();
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
         move.y = 0f;

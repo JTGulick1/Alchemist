@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Throw",
+                    "type": "Button",
+                    "id": "8077cd6a-41ad-414b-a659-1ba5f41b2512",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -170,6 +179,17 @@
                     "action": "PotionsBook",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "890624f8-388c-4f7b-9094-cde363d19d54",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -244,6 +264,15 @@
                     "name": "PageRight",
                     "type": "Button",
                     "id": "4ccd539d-b367-4f82-bcd1-6d632bb39ef7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Throw",
+                    "type": "Button",
+                    "id": "0f06d8dc-5bf3-4c41-99c4-a2f5857eaf0d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -424,6 +453,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PageRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9f833c91-f779-44c5-948f-6ef79b08bba2",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
