@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public bool isHolding = false;
     public GameObject playerHolder;
     public GameObject carry;
+    public GameObject thrownItem;
 
     public bool cBrew = false;
     public bool closeToCust = false;
@@ -87,7 +88,15 @@ public class PlayerController : MonoBehaviour
         if (inputManager.Throw() == true && isHolding == true)
         {
             isHolding = false;
-            Instantiate(carry, playerHolder.transform.position, playerHolder.transform.rotation);
+            thrownItem = Instantiate(carry, playerHolder.transform.position, playerHolder.transform.rotation);
+            if (thrownItem.tag == "Holder")
+            {
+                thrownItem.GetComponent<BrewSettings>().Grounded();
+            }
+            else
+            {
+                thrownItem.GetComponent<ItemSettings>().Grounded();
+            }
             Destroy(carry);
         }
         Vector2 movement = inputManager.GetPlayerMovement();
@@ -122,6 +131,22 @@ public class PlayerController : MonoBehaviour
                 questBoard.UpdateText();
             }
         }
+    }
+
+    public void PickUpObject(GameObject item)
+    {
+        isHolding = true;
+        carry = Instantiate(item, playerHolder.transform.position, playerHolder.transform.rotation, playerHolder.transform);
+        if (thrownItem.tag == "Holder")
+        {
+            carry.GetComponent<BrewSettings>().Held();
+        }
+        else
+        {
+            carry.GetComponent<ItemSettings>().Held();
+        }
+
+        Destroy(item);
     }
 
     public void SpawnP2()

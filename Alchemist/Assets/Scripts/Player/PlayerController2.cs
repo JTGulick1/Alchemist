@@ -24,6 +24,7 @@ public class PlayerController2 : MonoBehaviour
     public GameObject carry;
     public bool closeToBoard = false;
     public GameObject bOrder;
+    public GameObject thrownItem;
 
     private EventSystem eventSystem;
     public bool closeToCust = false;
@@ -72,6 +73,13 @@ public class PlayerController2 : MonoBehaviour
             bookS.pageNum++;
             bookS.UpdatePage();
         }
+        if (inputManager.ThrowP2() == true && isHolding == true)
+        {
+            isHolding = false;
+            thrownItem = Instantiate(carry, playerHolder.transform.position, playerHolder.transform.rotation);
+            thrownItem.GetComponent<ItemSettings>().Grounded();
+            Destroy(carry);
+        }
 
         Vector2 movement = inputManager.GetPlayerMovementP2();
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
@@ -104,6 +112,14 @@ public class PlayerController2 : MonoBehaviour
                 questBoard.UpdateText();
             }
         }
+    }
+
+    public void PickUpObject(GameObject item)
+    {
+        isHolding = true;
+        carry = Instantiate(item, playerHolder.transform.position, playerHolder.transform.rotation, playerHolder.transform);
+        carry.GetComponent<ItemSettings>().Held();
+        Destroy(item);
     }
 
     public void selected(GameObject first)

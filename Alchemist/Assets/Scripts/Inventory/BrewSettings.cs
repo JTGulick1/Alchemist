@@ -12,9 +12,19 @@ public class BrewSettings : MonoBehaviour
     public int price = 15;
     public bool isPot;
     public int saveInt;
+    private bool playerIsClose = false;
+    private bool player2IsClose = false;
+    private InputManager inputManager;
+    private PlayerController player1;
+    private PlayerController2 player2;
+    public Rigidbody rb;
+    public BoxCollider box;
     private void Start()
     {
         temp = title;
+        inputManager = InputManager.Instance;
+        rb = GetComponent<Rigidbody>();
+        box = GetComponent<BoxCollider>();
     }
 
     public void ChangeToBrew()
@@ -30,5 +40,55 @@ public class BrewSettings : MonoBehaviour
         C.SetActive(false);
         B.SetActive(true);
         temp = title;
+    }
+
+    private void Update()
+    {
+        if (playerIsClose == true && inputManager.Interact())
+        {
+            player1.PickUpObject(this.gameObject);
+        }
+        if (player2IsClose == true && inputManager.InteractP2())
+        {
+            player2.PickUpObject(this.gameObject);
+        }
+    }
+    public void Grounded()
+    {
+        rb.isKinematic = false;
+        box.enabled = true;
+        rb.AddForce(Vector3.forward * 5, ForceMode.Impulse);
+    }
+
+    public void Held()
+    {
+        box.enabled = false;
+        rb.isKinematic = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playerIsClose = true;
+            player1 = other.GetComponent<PlayerController>();
+        }
+        if (other.tag == "Player2")
+        {
+            player2IsClose = true;
+            player2 = other.GetComponent<PlayerController2>();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playerIsClose = false;
+        }
+        if (other.tag == "Player2")
+        {
+            player2IsClose = false;
+        }
     }
 }
