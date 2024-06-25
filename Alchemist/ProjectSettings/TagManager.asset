@@ -29,6 +29,8 @@ TagManager:
   - QuestBoard
   - Redec
   - BookP2
+  - first
+  - Ground
   layers:
   - Default
   - TransparentFX

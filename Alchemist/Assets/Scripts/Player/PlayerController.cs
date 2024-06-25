@@ -18,14 +18,17 @@ public class PlayerController : MonoBehaviour
     private GameObject Player2IRL;
     private float playerBaseSpeed = 30.0f;
     private float sprintingSpeed = 50.0f;
+    private float slowedSpeed = 10.0f;
     public PlayerInput PlayerInput => playerInput;
     public bool isHolding = false;
     public GameObject playerHolder;
     public GameObject carry;
+    public GameObject thrownItem;
 
     public bool cBrew = false;
     public bool closeToCust = false;
     public bool closeToBoard = false;
+    public bool cantSprint = false;
     public GameObject order;
     public GameObject bOrder;
     private AI_Customer closestCust;
@@ -41,6 +44,8 @@ public class PlayerController : MonoBehaviour
     public BookSmall bookS;
     public GameObject bookS2;
     private bool isBookOpen = false;
+    private float gravity = -9.81f;
+    private float verticalVelocity = 0f;
 
     private void Start()
     {
@@ -76,17 +81,46 @@ public class PlayerController : MonoBehaviour
             shop.Joined();
             bookS2.GetComponent<BookSmall>().Joined();
         }
-        if (inputManager.Sprint() == true)
+        if (inputManager.Sprint() == true && cantSprint == false)
         {
             playerSpeed = sprintingSpeed;
+        }
+        else if (cantSprint == true)
+        {
+            playerSpeed = slowedSpeed;
         }
         else
         {
             playerSpeed = playerBaseSpeed;
         }
+
+
+        if (inputManager.Throw() == true && isHolding == true)
+        {
+            isHolding = false;
+            thrownItem = Instantiate(carry, playerHolder.transform.position, playerHolder.transform.rotation);
+            if (thrownItem.tag == "Holder")
+            {
+                thrownItem.GetComponent<BrewSettings>().Grounded();
+            }
+            else
+            {
+                thrownItem.GetComponent<ItemSettings>().Grounded();
+            }
+            Destroy(carry);
+        }
         Vector2 movement = inputManager.GetPlayerMovement();
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
-        move.y = 0f;
+        if (controller.isGrounded)
+        {
+            verticalVelocity = 0;
+        }
+        else
+        {
+            verticalVelocity += gravity * Time.deltaTime;
+        }
+
+        move.y = verticalVelocity;
         controller.Move(move * Time.deltaTime * (playerSpeed / 4));
         if (carry != null && carry.tag == "Holder")
         {
@@ -116,6 +150,22 @@ public class PlayerController : MonoBehaviour
                 questBoard.UpdateText();
             }
         }
+    }
+
+    public void PickUpObject(GameObject item)
+    {
+        isHolding = true;
+        carry = Instantiate(item, playerHolder.transform.position, playerHolder.transform.rotation, playerHolder.transform);
+        if (item.tag == "Holder")
+        {
+            carry.GetComponent<BrewSettings>().Held();
+        }
+        else
+        {
+            carry.GetComponent<ItemSettings>().Held();
+        }
+
+        Destroy(item);
     }
 
     public void SpawnP2()

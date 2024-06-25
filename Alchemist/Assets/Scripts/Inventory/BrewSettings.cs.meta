@@ -3,7 +3,13 @@ guid: 5b76eca14eec23649b9b2fd2387b93b8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - image: {instanceID: 0}
+  - C: {instanceID: 0}
+  - B: {instanceID: 0}
+  - rb: {instanceID: 0}
+  - box: {instanceID: 0}
+  - brokenPotion: {fileID: 6243951888940765572, guid: 5a02b25c4b77b7b45aaeeba5b68aa724, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

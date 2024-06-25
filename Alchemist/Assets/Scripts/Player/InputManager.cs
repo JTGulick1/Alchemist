@@ -68,6 +68,11 @@ public class InputManager : MonoBehaviour
         return inputActions.Keyboard.PotionsBook.triggered;
     }
 
+    public bool Throw()
+    {
+        return inputActions.Keyboard.Throw.triggered;
+    }
+
     // Player 2 Controls
     public bool InteractP2()
     {
@@ -107,6 +112,11 @@ public class InputManager : MonoBehaviour
     public bool PageTurnRight()
     {
         return inputActions.Controller.PageRight.triggered;
+    }
+
+    public bool ThrowP2()
+    {
+        return inputActions.Controller.Throw.triggered;
     }
 
 }
