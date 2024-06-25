@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
     public BookSmall bookS;
     public GameObject bookS2;
     private bool isBookOpen = false;
+    private float gravity = -9.81f;
+    private float verticalVelocity = 0f;
 
     private void Start()
     {
@@ -109,7 +111,16 @@ public class PlayerController : MonoBehaviour
         }
         Vector2 movement = inputManager.GetPlayerMovement();
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
-        move.y = 0f;
+        if (controller.isGrounded)
+        {
+            verticalVelocity = 0;
+        }
+        else
+        {
+            verticalVelocity += gravity * Time.deltaTime;
+        }
+
+        move.y = verticalVelocity;
         controller.Move(move * Time.deltaTime * (playerSpeed / 4));
         if (carry != null && carry.tag == "Holder")
         {

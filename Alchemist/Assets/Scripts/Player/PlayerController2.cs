@@ -38,6 +38,8 @@ public class PlayerController2 : MonoBehaviour
     public BookSmall bookS;
     private bool isBookOpen = false;
 
+    private float gravity = -9.81f;
+    private float verticalVelocity = 0f;
     private void Start()
     {
         inputManager = InputManager.Instance;
@@ -90,7 +92,15 @@ public class PlayerController2 : MonoBehaviour
 
         Vector2 movement = inputManager.GetPlayerMovementP2();
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
-        move.y = 0f;
+        if (controller.isGrounded)
+        {
+            verticalVelocity = 0;
+        }
+        else
+        {
+            verticalVelocity += gravity * Time.deltaTime;
+        }
+        move.y = verticalVelocity;
         controller.Move(move * Time.deltaTime * (playerSpeed / 4));
         if (carry != null && carry.tag == "Holder")
         {
@@ -135,7 +145,6 @@ public class PlayerController2 : MonoBehaviour
         }
         Destroy(item);
     }
-
     public void selected(GameObject first)
     {
         eventSystem.SetSelectedGameObject(first);
