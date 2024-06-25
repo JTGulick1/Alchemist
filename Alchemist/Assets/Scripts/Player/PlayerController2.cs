@@ -16,10 +16,12 @@ public class PlayerController2 : MonoBehaviour
     private QuestBoard questBoard;
     private float playerBaseSpeed = 30.0f;
     private float sprintingSpeed = 50.0f;
+    private float slowedSpeed = 10.0f;
     public PlayerInput PlayerInput => playerInput;
 
     public bool cBrew = false;
     public bool isHolding = false;
+    public bool cantSprint = false;
     public GameObject playerHolder;
     public GameObject carry;
     public bool closeToBoard = false;
@@ -55,10 +57,15 @@ public class PlayerController2 : MonoBehaviour
         {
             playerSpeed = sprintingSpeed;
         }
+        else if (cantSprint == true)
+        {
+            playerSpeed = slowedSpeed;
+        }
         else
         {
             playerSpeed = playerBaseSpeed;
         }
+
         if (inputManager.PotionsBookP2())
         {
             OpenPotionBook();
@@ -118,7 +125,14 @@ public class PlayerController2 : MonoBehaviour
     {
         isHolding = true;
         carry = Instantiate(item, playerHolder.transform.position, playerHolder.transform.rotation, playerHolder.transform);
-        carry.GetComponent<ItemSettings>().Held();
+        if (item.tag == "Holder")
+        {
+            carry.GetComponent<BrewSettings>().Held();
+        }
+        else
+        {
+            carry.GetComponent<ItemSettings>().Held();
+        }
         Destroy(item);
     }
 

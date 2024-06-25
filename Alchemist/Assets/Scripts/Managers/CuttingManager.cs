@@ -53,7 +53,7 @@ public class CuttingManager : MonoBehaviour
                 cutCount++;
                 progress.fillAmount += 0.10f;
             }
-            if (isclose == true && inputManager.Interact() == true
+            else if (isclose == true && inputManager.Interact() == true
                 && player.isHolding == true && conditions == false
                 && player.GetType() == ItemSettings.Itemtype.Fresh)
             {
@@ -64,7 +64,7 @@ public class CuttingManager : MonoBehaviour
                 conditions = true;
                 progress.fillAmount += 0.10f;
             }
-            if (cutCount >= 10 && player.isHolding == false)
+            else if (cutCount >= 10 && player.isHolding == false)
             {
                 progress.fillAmount = 0;
                 cutCount = 0;
@@ -82,7 +82,7 @@ public class CuttingManager : MonoBehaviour
                 cutCount++;
                 progress.fillAmount += 0.10f;
             }
-            if (isclose2 == true && inputManager.InteractP2() == true
+            else if (isclose2 == true && inputManager.InteractP2() == true
                 && player2.isHolding == true && conditions == false
                 && player2.GetType() == ItemSettings.Itemtype.Fresh)
             {
@@ -94,7 +94,7 @@ public class CuttingManager : MonoBehaviour
                 conditions = true;
                 progress.fillAmount += 0.10f;
             }
-            if (cutCount >= 10 && player2.isHolding == false)
+            else if (cutCount >= 10 && player2.isHolding == false)
             {
                 progress.fillAmount = 0;
                 cutCount = 0;

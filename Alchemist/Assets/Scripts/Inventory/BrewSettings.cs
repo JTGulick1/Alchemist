@@ -19,6 +19,8 @@ public class BrewSettings : MonoBehaviour
     private PlayerController2 player2;
     public Rigidbody rb;
     public BoxCollider box;
+    private int randomPull;
+    public GameObject brokenPotion;
     private void Start()
     {
         temp = title;
@@ -78,6 +80,20 @@ public class BrewSettings : MonoBehaviour
             player2IsClose = true;
             player2 = other.GetComponent<PlayerController2>();
         }
+        if (other.tag == "Ground")
+        {
+            randomPull = Random.Range(0, 100);
+            if (randomPull < 24)
+            {
+                BreakPotion();
+            }
+        }
+    }
+
+    private void BreakPotion()
+    {
+        Instantiate(brokenPotion, new Vector3(this.transform.position.x, -0.42f, this.transform.position.z), brokenPotion.transform.rotation);
+        Destroy(this.gameObject);
     }
 
     private void OnTriggerExit(Collider other)

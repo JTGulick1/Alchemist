@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private GameObject Player2IRL;
     private float playerBaseSpeed = 30.0f;
     private float sprintingSpeed = 50.0f;
+    private float slowedSpeed = 10.0f;
     public PlayerInput PlayerInput => playerInput;
     public bool isHolding = false;
     public GameObject playerHolder;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public bool cBrew = false;
     public bool closeToCust = false;
     public bool closeToBoard = false;
+    public bool cantSprint = false;
     public GameObject order;
     public GameObject bOrder;
     private AI_Customer closestCust;
@@ -77,14 +79,20 @@ public class PlayerController : MonoBehaviour
             shop.Joined();
             bookS2.GetComponent<BookSmall>().Joined();
         }
-        if (inputManager.Sprint() == true)
+        if (inputManager.Sprint() == true && cantSprint == false)
         {
             playerSpeed = sprintingSpeed;
+        }
+        else if (cantSprint == true)
+        {
+            playerSpeed = slowedSpeed;
         }
         else
         {
             playerSpeed = playerBaseSpeed;
         }
+
+
         if (inputManager.Throw() == true && isHolding == true)
         {
             isHolding = false;
@@ -137,7 +145,7 @@ public class PlayerController : MonoBehaviour
     {
         isHolding = true;
         carry = Instantiate(item, playerHolder.transform.position, playerHolder.transform.rotation, playerHolder.transform);
-        if (thrownItem.tag == "Holder")
+        if (item.tag == "Holder")
         {
             carry.GetComponent<BrewSettings>().Held();
         }

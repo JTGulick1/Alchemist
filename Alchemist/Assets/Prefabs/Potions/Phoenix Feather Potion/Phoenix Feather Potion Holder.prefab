@@ -155,6 +155,7 @@ MonoBehaviour:
   saveInt: 19
   rb: {fileID: 0}
   box: {fileID: 0}
+  brokenPotion: {fileID: 6243951888940765572, guid: 5a02b25c4b77b7b45aaeeba5b68aa724, type: 3}
 --- !u!54 &7737929302797768114
 Rigidbody:
   m_ObjectHideFlags: 0
