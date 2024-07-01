@@ -37,7 +37,7 @@ public class PlayerController2 : MonoBehaviour
     public GameObject vest;
     public BookSmall bookS;
     private bool isBookOpen = false;
-
+    public bool frozenPlayer = false;
     private float gravity = -9.81f;
     private float verticalVelocity = 0f;
     private void Start()
@@ -55,6 +55,12 @@ public class PlayerController2 : MonoBehaviour
 
     private void Update()
     {
+
+        if (frozenPlayer == true)
+        {
+            playerSpeed = 0;
+            return;
+        }
         if (inputManager.SprintP2() == true)
         {
             playerSpeed = sprintingSpeed;

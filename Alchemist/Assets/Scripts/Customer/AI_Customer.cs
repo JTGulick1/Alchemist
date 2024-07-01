@@ -42,6 +42,10 @@ public class AI_Customer : MonoBehaviour
 
     private void Update()
     {
+        if (timer.stopTime == true)
+        {
+            return;
+        }
         Ptimer -= Time.deltaTime;
         patience.fillAmount = Ptimer / 100;
         if (Ptimer <= 0.0f)

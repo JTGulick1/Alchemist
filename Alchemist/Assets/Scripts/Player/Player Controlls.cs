@@ -89,6 +89,15 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""27718a56-c705-405c-9856-91ca6eec8021"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -210,6 +219,17 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Throw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75a35dc1-d3aa-4632-a489-18aaafee35e4"",
+                    ""path"": ""<Keyboard>/backquote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -766,6 +786,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         m_Keyboard_Exit = m_Keyboard.FindAction("Exit", throwIfNotFound: true);
         m_Keyboard_PotionsBook = m_Keyboard.FindAction("PotionsBook", throwIfNotFound: true);
         m_Keyboard_Throw = m_Keyboard.FindAction("Throw", throwIfNotFound: true);
+        m_Keyboard_Pause = m_Keyboard.FindAction("Pause", throwIfNotFound: true);
         // Controller
         m_Controller = asset.FindActionMap("Controller", throwIfNotFound: true);
         m_Controller_Movement = m_Controller.FindAction("Movement", throwIfNotFound: true);
@@ -855,6 +876,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Keyboard_Exit;
     private readonly InputAction m_Keyboard_PotionsBook;
     private readonly InputAction m_Keyboard_Throw;
+    private readonly InputAction m_Keyboard_Pause;
     public struct KeyboardActions
     {
         private @PlayerControlls m_Wrapper;
@@ -866,6 +888,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         public InputAction @Exit => m_Wrapper.m_Keyboard_Exit;
         public InputAction @PotionsBook => m_Wrapper.m_Keyboard_PotionsBook;
         public InputAction @Throw => m_Wrapper.m_Keyboard_Throw;
+        public InputAction @Pause => m_Wrapper.m_Keyboard_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -896,6 +919,9 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                 @Throw.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnThrow;
                 @Throw.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnThrow;
                 @Throw.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnThrow;
+                @Pause.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
             if (instance != null)
@@ -921,6 +947,9 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                 @Throw.started += instance.OnThrow;
                 @Throw.performed += instance.OnThrow;
                 @Throw.canceled += instance.OnThrow;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -1136,6 +1165,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         void OnExit(InputAction.CallbackContext context);
         void OnPotionsBook(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IControllerActions
     {

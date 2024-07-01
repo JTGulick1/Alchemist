@@ -46,7 +46,8 @@ public class PlayerController : MonoBehaviour
     private bool isBookOpen = false;
     private float gravity = -9.81f;
     private float verticalVelocity = 0f;
-
+    public GameObject PauseMenu;
+    public WorldTimer timer;
     private void Start()
     {
         inputManager = InputManager.Instance;
@@ -61,6 +62,8 @@ public class PlayerController : MonoBehaviour
         PbookS.SetActive(false);
         book = Pbook.GetComponent<Book>();
         bookS = Pbook.GetComponent<BookSmall>();
+        timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<WorldTimer>();
+        PauseMenu.SetActive(false);
     }
 
     private void Update()
@@ -93,7 +96,10 @@ public class PlayerController : MonoBehaviour
         {
             playerSpeed = playerBaseSpeed;
         }
-
+        if (inputManager.Pause())
+        {
+            PauseGame();
+        }
 
         if (inputManager.Throw() == true && isHolding == true)
         {
@@ -152,6 +158,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void PauseGame()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        frovenPlayer = true;
+        Player2.GetComponent<PlayerController2>().frozenPlayer = true;
+        PauseMenu.SetActive(true);
+        timer.PauseTime(0);
+    }
+
+    public void ResumeGame()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        frovenPlayer = false;
+        Player2.GetComponent<PlayerController2>().frozenPlayer = false;
+        PauseMenu.SetActive(false);
+        timer.PauseTime(1);
+    }
     public void PickUpObject(GameObject item)
     {
         isHolding = true;

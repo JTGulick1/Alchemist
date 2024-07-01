@@ -186,4 +186,16 @@ public class WorldTimer : MonoBehaviour, IDataPersistance
     {
         custCount -= 1;
     }
+
+    public void PauseTime(int tick)
+    {
+        if (tick == 0)
+        {
+            stopTime = true;
+        }
+        if (tick == 1)
+        {
+            stopTime = false;
+        }
+    }
 }

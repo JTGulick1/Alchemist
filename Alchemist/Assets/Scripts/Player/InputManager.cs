@@ -73,6 +73,11 @@ public class InputManager : MonoBehaviour
         return inputActions.Keyboard.Throw.triggered;
     }
 
+    public bool Pause()
+    {
+        return inputActions.Keyboard.Pause.triggered;
+    }
+
     // Player 2 Controls
     public bool InteractP2()
     {
