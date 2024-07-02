@@ -26,7 +26,7 @@ public class PotionsChest : MonoBehaviour, IDataPersistance
     private GameObject tempSave;
 
     private bool justGrabbed = false;
-
+    public GameObject farawaySpawn;
     private void Start()
     {
         inputManager = InputManager.Instance;
@@ -120,7 +120,7 @@ public class PotionsChest : MonoBehaviour, IDataPersistance
                     && player.carry.GetComponent<BrewSettings>().isPot == true)
                 {
                     player.isHolding = false;
-                    temp = Instantiate(player.carry, this.transform.position, this.transform.rotation);
+                    temp = Instantiate(player.carry, farawaySpawn.transform.position, farawaySpawn.transform.rotation);
                     PlacedItem(temp);
                     Destroy(player.carry);
                     return;
@@ -139,7 +139,7 @@ public class PotionsChest : MonoBehaviour, IDataPersistance
                     && player.carry.GetComponent<BrewSettings>().isPot == true)
                 {
                     player.isHolding = false;
-                    temp = Instantiate(player.carry, this.transform.position, this.transform.rotation);
+                    temp = Instantiate(player.carry, farawaySpawn.transform.position, farawaySpawn.transform.rotation);
                     PlacedItem(temp);
                     Destroy(player.carry);
                     return;
@@ -158,7 +158,7 @@ public class PotionsChest : MonoBehaviour, IDataPersistance
                     && player2.carry.GetComponent<BrewSettings>().isPot == true)
                 {
                     player2.isHolding = false;
-                    temp = Instantiate(player2.carry, this.transform.position, this.transform.rotation);
+                    temp = Instantiate(player2.carry, farawaySpawn.transform.position, farawaySpawn.transform.rotation);
                     PlacedItem(temp);
                     Destroy(player2.carry);
                     return;
@@ -260,7 +260,7 @@ public class PotionsChest : MonoBehaviour, IDataPersistance
             {
                 if (data.potionInv[i] == brewing.avaliableBrews[j].saveInt)
                 {
-                    temp = Instantiate(brewing.avaliableBrews[j].physicalForm, this.transform.position, this.transform.rotation);
+                    temp = Instantiate(brewing.avaliableBrews[j].physicalForm, farawaySpawn.transform.position, farawaySpawn.transform.rotation);
                     potions.Add(temp);
                     temp.GetComponent<BrewSettings>().ChangeToPotion();
                 }

@@ -101,7 +101,6 @@ public class Redecorate : MonoBehaviour, IDataPersistance
             {
                 reDecObj[i].GetComponent<RedecorateButton>().objHere = false;
                 Destroy(reDecObj[i].GetComponent<RedecorateButton>().obj);
-                reDecObj[i].GetComponent<RedecorateButton>().itemNum = 0;
             }
         }
 
