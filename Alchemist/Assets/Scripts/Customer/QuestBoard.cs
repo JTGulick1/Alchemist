@@ -16,6 +16,7 @@ public class QuestBoard : MonoBehaviour, IDataPersistance
     private int brew;
     private int payout;
     public TMPro.TMP_Text questText;
+    public AchivementTracker achivement;
     void Start()
     {
         brewing = GameObject.FindGameObjectWithTag("Brewing").GetComponent<BrewingManager>();
@@ -26,6 +27,7 @@ public class QuestBoard : MonoBehaviour, IDataPersistance
         }
         questText.text = stock + "/" + quota + " " + reqPotion.brewName;
         questText.gameObject.SetActive(false);
+        achivement = GameObject.FindGameObjectWithTag("Achive").GetComponent<AchivementTracker>();
     }
 
     public void Player2Spawn()
@@ -43,6 +45,11 @@ public class QuestBoard : MonoBehaviour, IDataPersistance
     public void QuestComplete()
     {
         player.CompletedQuest(quota);
+        achivement.quests++;
+        if (achivement.quests == 20 || achivement.quests == 50)
+        {
+            achivement.CheckAchivements();
+        }
         NewQuest();
     }
     public void UpdateText()

@@ -23,6 +23,8 @@ public class AI_Customer : MonoBehaviour
     private WorldTimer timer;
     private Book book;
     public int custID;
+    public AchivementTracker achivement;
+
 
     void Start()
     {
@@ -38,6 +40,7 @@ public class AI_Customer : MonoBehaviour
         ordertxt.gameObject.SetActive(false);
         patience.gameObject.SetActive(false);
         book = player.book;
+        achivement = GameObject.FindGameObjectWithTag("Achive").GetComponent<AchivementTracker>();
     }
 
     private void Update()
@@ -97,6 +100,13 @@ public class AI_Customer : MonoBehaviour
     public void Served()
     {
         book.relation(custID);
+        achivement.pats++;
+        if (achivement.pats == 20 || achivement.pats == 50 || 
+            achivement.pats == 100 || achivement.pats == 200 ||
+            achivement.pats == 400)
+        {
+            achivement.CheckAchivements();
+        }
     }
 
     public void LeaveStore()

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Mirror : MonoBehaviour
 {
     public List<GameObject> vests = new List<GameObject>();
+    public List<bool> achive = new List<bool>();
     private bool isclose;
     private bool isclose2;
     private PlayerController player;
@@ -60,7 +61,7 @@ public class Mirror : MonoBehaviour
     }
     public void SetVest(int num)
     {
-        if (isclose == true)
+        if (isclose == true && achive[num] == true)
         {
             if (player.vest == null)
             {
@@ -72,7 +73,7 @@ public class Mirror : MonoBehaviour
                 player.vest = Instantiate(vests[num], player.vestHolder.transform.position, player.vestHolder.transform.rotation, player.vestHolder.transform);
             }
         }
-        if (isclose2 == true)
+        if (isclose2 == true && achive[num] == true)
         {
             if (player2.vest == null)
             {

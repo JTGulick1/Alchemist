@@ -70,6 +70,9 @@ public class WitchShop : MonoBehaviour, IDataPersistance
     public Brews Time;
     public Brews Water;
 
+    public AchivementTracker achivement;
+
+
     void Start()
     {
         inputManager = InputManager.Instance;
@@ -80,6 +83,7 @@ public class WitchShop : MonoBehaviour, IDataPersistance
         SpawnBrews();
         witchshop.SetActive(false);
         Holder.SetActive(false);
+        achivement = GameObject.FindGameObjectWithTag("Achive").GetComponent<AchivementTracker>();
     }
 
     void Update()
@@ -140,6 +144,11 @@ public class WitchShop : MonoBehaviour, IDataPersistance
         CheckSaves(num);
         currency.Buy(buyingBrews[num].price);
         brewing.avaliableBrews.Add(buyingBrews[num]);
+        if (buyingBrews.Count == 0)
+        {
+            achivement.potions = true;
+            achivement.CheckAchivements();
+        }
     }
 
     public void LoadData(GameData data)

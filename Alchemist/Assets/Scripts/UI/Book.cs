@@ -20,9 +20,12 @@ public class Book : MonoBehaviour, IDataPersistance
     public GameObject potion2Page;
     public GameObject potion3Page;
 
+    public AchivementTracker achivement;
+
     private void Start()
     {
         relationPage.SetActive(true);
+        achivement = GameObject.FindGameObjectWithTag("Achive").GetComponent<AchivementTracker>();
     }
 
     public void OpenedSave()
@@ -47,25 +50,46 @@ public class Book : MonoBehaviour, IDataPersistance
 
     public void relation(int cust)
     {
-        if (cust == 1)
+        if (cust == 1 && baldwin <= 50)
         {
             baldwin++;
             Instantiate(Heart, Bald.transform.position, Bald.transform.rotation, Bald.transform);
+            if (baldwin == 50)
+            {
+                achivement.maxR++;
+                achivement.bals = true;
+                achivement.CheckAchivements();
+            }
         }
-        if (cust == 2)
+        if (cust == 2 && Cedric <= 50)
         {
             Cedric++;
             Instantiate(Heart, Ced.transform.position, Ced.transform.rotation, Ced.transform);
+            if (Cedric == 50)
+            {
+                achivement.maxR++;
+                achivement.CheckAchivements();
+            }
         }
-        if (cust == 3)
+        if (cust == 3 && Isolde <= 50)
         {
             Isolde++;
             Instantiate(Heart, Iso.transform.position, Iso.transform.rotation, Iso.transform);
+            if (Isolde == 50)
+            {
+                achivement.maxR++;
+                achivement.CheckAchivements();
+            }
         }
-        if (cust == 4)
+        if (cust == 4 && Rowena <= 50)
         {
             Rowena++;
             Instantiate(Heart, Row.transform.position, Row.transform.rotation, Row.transform);
+            if (Rowena == 50)
+            {
+                achivement.maxR++;
+                achivement.CheckAchivements();
+            }
         }
     }
 
