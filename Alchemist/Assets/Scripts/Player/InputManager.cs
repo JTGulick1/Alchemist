@@ -70,7 +70,7 @@ public class InputManager : MonoBehaviour
 
     public bool Throw()
     {
-        return inputActions.Keyboard.Throw.triggered;
+        return inputActions.Keyboard.Throw.IsPressed();
     }
 
     public bool Pause()

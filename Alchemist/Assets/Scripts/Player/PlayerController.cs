@@ -103,17 +103,7 @@ public class PlayerController : MonoBehaviour
 
         if (inputManager.Throw() == true && isHolding == true)
         {
-            isHolding = false;
-            thrownItem = Instantiate(carry, playerHolder.transform.position, playerHolder.transform.rotation);
-            if (thrownItem.tag == "Holder")
-            {
-                thrownItem.GetComponent<BrewSettings>().Grounded();
-            }
-            else
-            {
-                thrownItem.GetComponent<ItemSettings>().Grounded();
-            }
-            Destroy(carry);
+            
         }
         Vector2 movement = inputManager.GetPlayerMovement();
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
@@ -156,6 +146,26 @@ public class PlayerController : MonoBehaviour
                 questBoard.UpdateText();
             }
         }
+    }
+
+    public void ChargeThrow()
+    {
+
+    }
+
+    public void Throw()
+    {
+        isHolding = false;
+        thrownItem = Instantiate(carry, playerHolder.transform.position, playerHolder.transform.rotation);
+        if (thrownItem.tag == "Holder")
+        {
+            thrownItem.GetComponent<BrewSettings>().Grounded();
+        }
+        else
+        {
+            thrownItem.GetComponent<ItemSettings>().Grounded();
+        }
+        Destroy(carry);
     }
 
     public void PauseGame()
