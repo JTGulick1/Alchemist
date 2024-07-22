@@ -40,6 +40,9 @@ public class PlayerController2 : MonoBehaviour
     public bool frozenPlayer = false;
     private float gravity = -9.81f;
     private float verticalVelocity = 0f;
+
+    public GameObject arms;
+
     private void Start()
     {
         inputManager = InputManager.Instance;
@@ -92,7 +95,7 @@ public class PlayerController2 : MonoBehaviour
         {
             isHolding = false;
             thrownItem = Instantiate(carry, playerHolder.transform.position, playerHolder.transform.rotation);
-            thrownItem.GetComponent<ItemSettings>().Grounded();
+            thrownItem.GetComponent<ItemSettings>().Grounded(arms.transform.position);
             Destroy(carry);
         }
 

@@ -48,6 +48,11 @@ public class PlayerController : MonoBehaviour
     private float verticalVelocity = 0f;
     public GameObject PauseMenu;
     public WorldTimer timer;
+
+    public float sensitivity = 100f;
+    private float rotationY = 0f;
+    public GameObject arms;
+
     private void Start()
     {
         inputManager = InputManager.Instance;
@@ -103,8 +108,18 @@ public class PlayerController : MonoBehaviour
 
         if (inputManager.Throw() == true && isHolding == true)
         {
-            
+            Throw();
         }
+
+        // Get mouse movement input
+        float mouseX = Input.GetAxis("Mouse X");
+
+        // Calculate the rotation amount
+        rotationY += mouseX * sensitivity * Time.deltaTime;
+
+        // Apply the rotation to the player
+        transform.localRotation = Quaternion.Euler(0, rotationY, 0);
+
         Vector2 movement = inputManager.GetPlayerMovement();
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
         if (controller.isGrounded)
@@ -148,22 +163,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void ChargeThrow()
-    {
-
-    }
-
     public void Throw()
     {
         isHolding = false;
         thrownItem = Instantiate(carry, playerHolder.transform.position, playerHolder.transform.rotation);
         if (thrownItem.tag == "Holder")
         {
-            thrownItem.GetComponent<BrewSettings>().Grounded();
+            thrownItem.GetComponent<BrewSettings>().Grounded(arms.transform.position);
         }
         else
         {
-            thrownItem.GetComponent<ItemSettings>().Grounded();
+            thrownItem.GetComponent<ItemSettings>().Grounded(arms.transform.position);
         }
         Destroy(carry);
     }

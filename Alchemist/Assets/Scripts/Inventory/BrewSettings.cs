@@ -55,11 +55,11 @@ public class BrewSettings : MonoBehaviour
             player2.PickUpObject(this.gameObject);
         }
     }
-    public void Grounded()
+    public void Grounded(Vector3 vector3)
     {
         rb.isKinematic = false;
         box.enabled = true;
-        rb.AddForce(Vector3.forward * 5, ForceMode.Impulse);
+        rb.AddForce(vector3, ForceMode.Impulse);
     }
 
     public void Held()
