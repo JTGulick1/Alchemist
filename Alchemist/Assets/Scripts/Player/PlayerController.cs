@@ -169,11 +169,11 @@ public class PlayerController : MonoBehaviour
         thrownItem = Instantiate(carry, playerHolder.transform.position, playerHolder.transform.rotation);
         if (thrownItem.tag == "Holder")
         {
-            thrownItem.GetComponent<BrewSettings>().Grounded(arms.transform.position);
+            thrownItem.GetComponent<BrewSettings>().Grounded(arms.transform.forward);
         }
         else
         {
-            thrownItem.GetComponent<ItemSettings>().Grounded(arms.transform.position);
+            thrownItem.GetComponent<ItemSettings>().Grounded(arms.transform.forward);
         }
         Destroy(carry);
     }

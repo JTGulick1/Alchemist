@@ -40,7 +40,7 @@ public class ItemSettings : MonoBehaviour
     {
         rb.isKinematic = false;
         box.enabled = true;
-        rb.AddForce(vector3, ForceMode.Impulse);
+        rb.AddForce(vector3 * 10, ForceMode.Impulse);
     }
 
     public void Held()

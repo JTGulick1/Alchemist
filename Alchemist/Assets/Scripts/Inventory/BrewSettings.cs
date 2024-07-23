@@ -59,7 +59,7 @@ public class BrewSettings : MonoBehaviour
     {
         rb.isKinematic = false;
         box.enabled = true;
-        rb.AddForce(vector3, ForceMode.Impulse);
+        rb.AddForce(vector3 * 15, ForceMode.Impulse);
     }
 
     public void Held()
