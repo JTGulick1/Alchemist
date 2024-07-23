@@ -54,6 +54,8 @@ public class PlayerController2 : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         bOrder = player.bOrder;
         questBoard = GameObject.FindGameObjectWithTag("QuestBoard").GetComponent<QuestBoard>();
+        bookS = GameObject.FindGameObjectWithTag("BookP2").GetComponent<BookSmall>();
+        bookS.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -93,10 +95,7 @@ public class PlayerController2 : MonoBehaviour
         }
         if (inputManager.ThrowP2() == true && isHolding == true)
         {
-            isHolding = false;
-            thrownItem = Instantiate(carry, playerHolder.transform.position, playerHolder.transform.rotation);
-            thrownItem.GetComponent<ItemSettings>().Grounded(arms.transform.position);
-            Destroy(carry);
+            Throw();
         }
 
         Vector2 movement = inputManager.GetPlayerMovementP2();
@@ -138,6 +137,21 @@ public class PlayerController2 : MonoBehaviour
                 questBoard.UpdateText();
             }
         }
+    }
+
+    public void Throw()
+    {
+        isHolding = false;
+        thrownItem = Instantiate(carry, playerHolder.transform.position, playerHolder.transform.rotation);
+        if (thrownItem.tag == "Holder")
+        {
+            thrownItem.GetComponent<BrewSettings>().Grounded(arms.transform.forward);
+        }
+        else
+        {
+            thrownItem.GetComponent<ItemSettings>().Grounded(arms.transform.forward);
+        }
+        Destroy(carry);
     }
 
     public void PickUpObject(GameObject item)

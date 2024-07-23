@@ -36,6 +36,7 @@ public class ItemSettings : MonoBehaviour
             player2.PickUpObject(this.gameObject);
         }
     }
+
     public void Grounded(Vector3 vector3)
     {
         rb.isKinematic = false;

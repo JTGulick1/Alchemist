@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         Pbook.SetActive(false);
         PbookS.SetActive(false);
         book = Pbook.GetComponent<Book>();
-        bookS = Pbook.GetComponent<BookSmall>();
+        bookS = PbookS.GetComponent<BookSmall>();
         timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<WorldTimer>();
         PauseMenu.SetActive(false);
     }
@@ -218,8 +218,6 @@ public class PlayerController : MonoBehaviour
         Player2IRL = Instantiate(Player2);
         questBoard.Player2Spawn();
         bookS2.SetActive(true);
-        Player2.GetComponent<PlayerController2>().bookS = bookS2.GetComponent<BookSmall>();
-        bookS2.SetActive(false);
     }
 
     public void OpenPotionBook()
