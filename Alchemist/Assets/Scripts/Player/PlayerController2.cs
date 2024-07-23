@@ -40,6 +40,8 @@ public class PlayerController2 : MonoBehaviour
     public bool frozenPlayer = false;
     private float gravity = -9.81f;
     private float verticalVelocity = 0f;
+    private float rotationY = 0f;
+    public float sensitivity = 200f;
 
     public GameObject arms;
 
@@ -97,6 +99,11 @@ public class PlayerController2 : MonoBehaviour
         {
             Throw();
         }
+
+        Vector2 rot = inputManager.GetPlayer2Rotate();
+        rotationY += rot.x * sensitivity * Time.deltaTime;
+
+        transform.localRotation = Quaternion.Euler(0, rotationY, 0);
 
         Vector2 movement = inputManager.GetPlayerMovementP2();
         Vector3 move = new Vector3(movement.x, 0f, movement.y);

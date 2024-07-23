@@ -110,7 +110,7 @@ public class Mirror : MonoBehaviour
         }
         if (other.tag == "Player2")
         {
-            isclose = false;
+            isclose2 = false;
             vestUIp2.SetActive(false);
         }
     }

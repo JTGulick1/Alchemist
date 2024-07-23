@@ -99,6 +99,11 @@ public class InputManager : MonoBehaviour
         return inputActions.Controller.MouseMovement.ReadValue<Vector2>();
     }
 
+    public Vector2 GetPlayer2Rotate()
+    {
+        return inputActions.Controller.Rotate.ReadValue<Vector2>();
+    }
+
     public bool P2Select()
     {
         return inputActions.Controller.ControllerSelect.triggered;

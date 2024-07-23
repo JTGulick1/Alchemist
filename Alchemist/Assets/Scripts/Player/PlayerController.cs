@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     public GameObject PauseMenu;
     public WorldTimer timer;
 
-    public float sensitivity = 100f;
+    public float sensitivity = 200f;
     private float rotationY = 0f;
     public GameObject arms;
 
@@ -111,13 +111,10 @@ public class PlayerController : MonoBehaviour
             Throw();
         }
 
-        // Get mouse movement input
         float mouseX = Input.GetAxis("Mouse X");
 
-        // Calculate the rotation amount
         rotationY += mouseX * sensitivity * Time.deltaTime;
 
-        // Apply the rotation to the player
         transform.localRotation = Quaternion.Euler(0, rotationY, 0);
 
         Vector2 movement = inputManager.GetPlayerMovement();

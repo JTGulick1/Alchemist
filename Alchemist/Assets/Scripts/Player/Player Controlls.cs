@@ -249,6 +249,15 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Rotate"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""ebd8010a-ffe6-46d2-babf-b3e7081e859b"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""278d81d9-e60c-41ea-8118-bbe350eeb681"",
@@ -501,13 +510,46 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9f833c91-f779-44c5-948f-6ef79b08bba2"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Throw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""097f2af2-c39b-4963-a29f-328092d2079f"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""bae9652d-5a57-40b9-8445-2648ea9dc96f"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""e4655663-9258-4ef1-a0a7-b0b2541ac0b0"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -790,6 +832,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         // Controller
         m_Controller = asset.FindActionMap("Controller", throwIfNotFound: true);
         m_Controller_Movement = m_Controller.FindAction("Movement", throwIfNotFound: true);
+        m_Controller_Rotate = m_Controller.FindAction("Rotate", throwIfNotFound: true);
         m_Controller_Interact = m_Controller.FindAction("Interact", throwIfNotFound: true);
         m_Controller_Sprint = m_Controller.FindAction("Sprint", throwIfNotFound: true);
         m_Controller_MouseMovement = m_Controller.FindAction("MouseMovement", throwIfNotFound: true);
@@ -959,6 +1002,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Controller;
     private IControllerActions m_ControllerActionsCallbackInterface;
     private readonly InputAction m_Controller_Movement;
+    private readonly InputAction m_Controller_Rotate;
     private readonly InputAction m_Controller_Interact;
     private readonly InputAction m_Controller_Sprint;
     private readonly InputAction m_Controller_MouseMovement;
@@ -972,6 +1016,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
         private @PlayerControlls m_Wrapper;
         public ControllerActions(@PlayerControlls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Controller_Movement;
+        public InputAction @Rotate => m_Wrapper.m_Controller_Rotate;
         public InputAction @Interact => m_Wrapper.m_Controller_Interact;
         public InputAction @Sprint => m_Wrapper.m_Controller_Sprint;
         public InputAction @MouseMovement => m_Wrapper.m_Controller_MouseMovement;
@@ -992,6 +1037,9 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                 @Movement.started -= m_Wrapper.m_ControllerActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_ControllerActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_ControllerActionsCallbackInterface.OnMovement;
+                @Rotate.started -= m_Wrapper.m_ControllerActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_ControllerActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_ControllerActionsCallbackInterface.OnRotate;
                 @Interact.started -= m_Wrapper.m_ControllerActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_ControllerActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_ControllerActionsCallbackInterface.OnInteract;
@@ -1023,6 +1071,9 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
@@ -1170,6 +1221,7 @@ public partial class @PlayerControlls : IInputActionCollection2, IDisposable
     public interface IControllerActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnMouseMovement(InputAction.CallbackContext context);
