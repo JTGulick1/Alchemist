@@ -56,6 +56,7 @@ m_ResolvedPackages:
     - 2.0.0-pre.3
     - 2.0.0-pre.4
     - 2.0.0
+    - 2.0.3
     compatible:
     - 1.0.0-exp.1
     - 1.0.0-exp.2
@@ -838,6 +839,7 @@ m_ResolvedPackages:
     - 1.8.1
     - 1.8.2
     - 1.9.0
+    - 1.10.0
     compatible:
     - 1.4.4
     - 1.5.0
@@ -851,6 +853,7 @@ m_ResolvedPackages:
     - 1.8.1
     - 1.8.2
     - 1.9.0
+    - 1.10.0
     verified: 1.4.4
   dependencies:
   - name: com.unity.modules.uielements
@@ -971,9 +974,12 @@ m_ResolvedPackages:
     - 5.1.1
     - 5.2.0
     - 5.2.2
+    - 5.2.3
     - 6.0.1-pre.1
     - 6.0.1-pre.2
     - 6.0.1
+    - 6.0.2
+    - 6.0.3
     compatible:
     - 5.0.3
     - 5.0.4
@@ -983,6 +989,7 @@ m_ResolvedPackages:
     - 5.1.1
     - 5.2.0
     - 5.2.2
+    - 5.2.3
     verified: 5.0.7
   dependencies:
   - name: com.unity.settings-manager
@@ -1108,6 +1115,7 @@ m_ResolvedPackages:
     - 1.4.2
     - 1.4.3
     - 1.4.4
+    - 1.4.5
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -1129,6 +1137,7 @@ m_ResolvedPackages:
     - 1.4.2
     - 1.4.3
     - 1.4.4
+    - 1.4.5
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -3769,12 +3778,14 @@ m_ResolvedPackages:
     - 1.2.3
     - 1.2.4
     - 1.2.5
+    - 1.2.6
     compatible:
     - 1.2.2
     - 1.2.3
     - 1.2.4
     - 1.2.5
-    verified: 1.2.5
+    - 1.2.6
+    verified: 1.2.6
   dependencies:
   - name: com.unity.test-framework
     version: 1.0.16
