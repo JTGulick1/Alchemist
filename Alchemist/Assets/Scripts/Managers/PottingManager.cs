@@ -49,6 +49,7 @@ public class PottingManager : MonoBehaviour
             player.cBrew = false;
             stBrew = true;
             brew = Instantiate(player.carry, station.transform.position, station.transform.rotation, station.transform);
+            brew.GetComponent<BrewSettings>().enabled = false;
             Destroy(player.carry);
             player.isHolding = false;
         }
@@ -56,6 +57,7 @@ public class PottingManager : MonoBehaviour
         {
             timer = 0.0f;
             stBrew = false;
+            brew.GetComponent<BrewSettings>().enabled = true;
             player.carry = Instantiate(brew, player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
             Destroy(brew.gameObject);
             player.carry.GetComponent<BrewSettings>().ChangeToPotion();

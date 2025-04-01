@@ -164,13 +164,14 @@ public class PlayerController : MonoBehaviour
     {
         isHolding = false;
         thrownItem = Instantiate(carry, playerHolder.transform.position, playerHolder.transform.rotation);
+        Vector3 direction = (arms.transform.forward + Vector3.up).normalized;
         if (thrownItem.tag == "Holder")
         {
-            thrownItem.GetComponent<BrewSettings>().Grounded(arms.transform.forward);
+            thrownItem.GetComponent<BrewSettings>().Grounded(direction);
         }
         else
         {
-            thrownItem.GetComponent<ItemSettings>().Grounded(arms.transform.forward);
+            thrownItem.GetComponent<ItemSettings>().Grounded(direction);
         }
         Destroy(carry);
     }
@@ -179,7 +180,10 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         frovenPlayer = true;
-        Player2.GetComponent<PlayerController2>().frozenPlayer = true;
+        if(P2S == true)
+        {
+            Player2.GetComponent<PlayerController2>().frozenPlayer = true;
+        }
         PauseMenu.SetActive(true);
         timer.PauseTime(0);
     }
@@ -188,7 +192,10 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         frovenPlayer = false;
-        Player2.GetComponent<PlayerController2>().frozenPlayer = false;
+        if (P2S == true)
+        {
+            Player2.GetComponent<PlayerController2>().frozenPlayer = false;
+        }
         PauseMenu.SetActive(false);
         timer.PauseTime(1);
     }

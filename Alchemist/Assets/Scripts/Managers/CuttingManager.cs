@@ -59,6 +59,7 @@ public class CuttingManager : MonoBehaviour
             {
                 player.isHolding = false;
                 item = Instantiate(player.carry, placement.transform.position, placement.transform.rotation, placement.transform);
+                item.GetComponent<ItemSettings>().enabled = false;
                 Destroy(player.carry);
                 cutCount++;
                 conditions = true;
@@ -69,6 +70,7 @@ public class CuttingManager : MonoBehaviour
                 progress.fillAmount = 0;
                 cutCount = 0;
                 player.isHolding = true;
+                item.GetComponent<ItemSettings>().enabled = true;
                 player.carry = Instantiate(item, player.playerHolder.transform.position, player.playerHolder.transform.rotation, player.playerHolder.transform);
                 player.SetType(ItemSettings.Itemtype.Cut);
                 Destroy(item);

@@ -54,7 +54,7 @@ public class BrewingManager : MonoBehaviour
             Brew(1);
         }
         if (isclose == true && items[2] == null &&
-            player.isHolding == true && inputManager.Interact() == true && player.cBrew == false)
+            player.isHolding == true && inputManager.Interact() == true && player.cBrew == false && player.carry.GetComponent<ItemSettings>() == true)
         {
             GameObject temp;
             temp = Instantiate(player.carry, pot.transform.position, pot.transform.rotation, pot.transform);
@@ -80,16 +80,19 @@ public class BrewingManager : MonoBehaviour
         if (items[0] == null)
         {
             items[0] = temp.GetComponent<ItemSettings>();
+            temp.GetComponent<ItemSettings>().enabled = false;
             return;
         }
         if (items[1] == null)
         {
             items[1] = temp.GetComponent<ItemSettings>();
+            temp.GetComponent<ItemSettings>().enabled = false;
             return;
         }
         if (items[2] == null)
         {
             items[2] = temp.GetComponent<ItemSettings>();
+            temp.GetComponent<ItemSettings>().enabled = false;
             return;
         }
     }
