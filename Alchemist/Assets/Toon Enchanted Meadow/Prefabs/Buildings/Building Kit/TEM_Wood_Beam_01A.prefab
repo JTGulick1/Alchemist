@@ -14,35 +14,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d329b6df2f581d44192cf72278612612, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -23.47935
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d329b6df2f581d44192cf72278612612, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.6040287
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d329b6df2f581d44192cf72278612612, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -4.64301
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d329b6df2f581d44192cf72278612612, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d329b6df2f581d44192cf72278612612, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d329b6df2f581d44192cf72278612612, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d329b6df2f581d44192cf72278612612, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d329b6df2f581d44192cf72278612612, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d329b6df2f581d44192cf72278612612, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -52,9 +52,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8288078093290593661, guid: d329b6df2f581d44192cf72278612612, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5222694
+      objectReference: {fileID: 0}
+    - target: {fileID: -8288078093290593661, guid: d329b6df2f581d44192cf72278612612, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.312
+      objectReference: {fileID: 0}
+    - target: {fileID: -8288078093290593661, guid: d329b6df2f581d44192cf72278612612, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.254
+      objectReference: {fileID: 0}
+    - target: {fileID: 885908360284931075, guid: d329b6df2f581d44192cf72278612612, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5222694
+      objectReference: {fileID: 0}
+    - target: {fileID: 885908360284931075, guid: d329b6df2f581d44192cf72278612612, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 885908360284931075, guid: d329b6df2f581d44192cf72278612612, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.254
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d329b6df2f581d44192cf72278612612, type: 3}
       propertyPath: m_Name
       value: TEM_Wood_Beam_01A
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101559066113611014, guid: d329b6df2f581d44192cf72278612612, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.546322
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101559066113611014, guid: d329b6df2f581d44192cf72278612612, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101559066113611014, guid: d329b6df2f581d44192cf72278612612, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.3377
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: d329b6df2f581d44192cf72278612612, type: 3}
+      propertyPath: m_Size
+      value: 0.61
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: d329b6df2f581d44192cf72278612612, type: 3}
       propertyPath: m_FadeMode
@@ -96,5 +136,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.4, z: 4}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.5, y: 0.4, z: 6.51}
+  m_Center: {x: 0.15, y: -0.3, z: 0.42}
